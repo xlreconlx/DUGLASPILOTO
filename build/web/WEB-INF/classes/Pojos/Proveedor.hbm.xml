@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 4/01/2017 09:04:07 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Pojos.Proveedor" table="proveedor" catalog="bdduglas" optimistic-lock="version">
+        <id name="idproveedor" type="java.lang.Integer">
+            <column name="idproveedor" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="ciudad" class="Pojos.Ciudad" fetch="select">
+            <column name="idciudad" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tipodocumento" class="Pojos.Tipodocumento" fetch="select">
+            <column name="idtipodocumento" not-null="true" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="nombre" length="45" not-null="true" />
+        </property>
+        <property name="apellidos" type="string">
+            <column name="apellidos" length="45" />
+        </property>
+        <property name="numeroDocumento" type="string">
+            <column name="numeroDocumento" length="15" not-null="true" />
+        </property>
+        <property name="correoElectronico" type="string">
+            <column name="correoElectronico" length="45" />
+        </property>
+        <property name="telefono" type="string">
+            <column name="telefono" length="15" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="direccion" length="45" />
+        </property>
+        <set name="comprases" table="compras" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idproveedor" not-null="true" />
+            </key>
+            <one-to-many class="Pojos.Compras" />
+        </set>
+    </class>
+</hibernate-mapping>

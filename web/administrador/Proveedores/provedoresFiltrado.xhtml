@@ -1,0 +1,174 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../../layaut/TemplateAdmin.xhtml">
+
+            <ui:define name="top">
+
+            </ui:define>
+
+            <ui:define name="content">
+                <h:form>
+                    <div class="container-fluid">
+                        <div class="row">
+
+                            <p:layout fullPage="true" >
+
+
+
+                                <p:layoutUnit position="west" size="245" header="Menu" collapsible="true">
+                                    <p:menu style="width: 230px;">
+                                        <p:submenu label="VIDRIOS" style="background-color: #b9def0;">
+                                            <p:menuitem value="Registrar Vidrios" outcome="/administrador/vidrios/registrarVidrios.xhtml" />
+                                            <p:menuitem value="Lista de Vidrios" outcome="/administrador/vidrios/listaVidrios.xhtml" />
+                                            <p:menuitem value="Lista Filtrada" outcome="/administrador/vidrios/vidriosFiltrados.xhtml"/>
+                                        </p:submenu>
+
+                                        <p:submenu label="MATERIALES ALUMINIO" style="background-color: #ce8483;">
+                                            <p:menuitem value="Registrar Perfiles Aluminio"  outcome="/administrador/materiales/registrarMateriales.xhtml"/>
+                                            <p:menuitem value="Lista Materiales" outcome="/administrador/materiales/listaMateriales.xhtml"  />
+                                            <p:menuitem value="Lista Filtrada" outcome="/administrador/materiales/materialesFiltrados.xhtml" />
+                                        </p:submenu>
+                                        <p:submenu label="ACCESORIOS" style="background-color: #ce8483;">
+                                            <p:menuitem value="RegistrarAccesorios"  outcome="/administrador/accesorios/registrarAccesorio.xhtml"/>
+                                            <p:menuitem value="Lista Accesorios" outcome="/administrador/accesorios/listaAccesorios.xhtml"  />
+                                            <p:menuitem value="Lista FiltradaAccesorios" outcome="/administrador/accesorios/acessorioFiltrado.xhtml" />
+                                        </p:submenu>
+
+                                        <p:submenu label="EMPLEADOS" style="background-color: #ec971f;">
+                                            <p:menuitem value="Registrar Empleado"  outcome="/administrador/empleados/registrarEmpleado.xhtml" />
+                                            <p:menuitem value="Lista Empleado"  outcome="/administrador/empleados/listaempleados.xhtml"/>
+                                            <p:menuitem value="Lista EmpleadoFiltrada" outcome="/administrador/empleados/empleadoFiltrado.xhtml" />
+                                        </p:submenu>
+
+                                        <p:submenu label="PROVEEDORES" style="background-color: #ec971f;">
+                                            <p:menuitem value="Registrar proveedores"  outcome="/administrador/Proveedores/registrarProveedor.xhtml" />
+                                            <p:menuitem value="Lista Proveedores"   outcome="/administrador/Proveedores/listProveedor.xhtml"/>
+                                            <p:menuitem value="Lista Proveedores Filtrada" outcome="/administrador/Proveedores/provedoresFiltrado.xhtml" />
+
+                                        </p:submenu>
+
+
+                                    </p:menu>
+                                </p:layoutUnit>
+
+                                <p:layoutUnit position="center" style="background-color: #b9def0;">
+                                    <div class="container">
+                                        <h:form id="frmListaProveedores">
+                                            <p:growl id="mensajeGeneral" showDetail="true" sticky="false" />
+                                            <p:dataTable id="tablaListaProveedor" var="item" value="#{beanProveedor.all}" paginator="true" rows="12" selection="#{beanProveedor.proveedor}" selectionMode="single" rowKey="#{item.idproveedor}" filteredValue="#{beanProveedor.listaProveedorFiltrado}">
+
+
+
+                                                <f:facet name="header">
+                                                    <h2>  Lista de Proveedores</h2>
+                                                </f:facet>
+
+
+                                                <p:column headerText="Tipo Doc" filterBy="tipoDocumento">
+                                                    <h:outputText value="#{beanTipoDocumento.getById(item.tipodocumento.idtipodocumento).getNombretd()}"/>
+
+                                                </p:column>
+                                                <p:column headerText="Documento" filterBy="numeroDocumento">
+                                                    <h:outputText value="#{item.numeroDocumento}"/>
+                                                </p:column>
+                                                <p:column headerText="Nombre" filterBy="nombre">
+                                                    <h:outputText value="#{item.nombre}"/>
+                                                </p:column>
+                                                <p:column headerText="Apellido" filterBy="apellidos">
+                                                    <h:outputText value="#{item.apellidos}"/>
+                                                </p:column>
+
+                                                <p:column headerText="Correo" >
+                                                    <h:outputText value="#{item.correoElectronico}"/>
+                                                </p:column>
+                                                <p:column headerText="Direccion" >
+                                                    <h:outputText value="#{item.direccion}"/>
+                                                </p:column>
+                                                <p:column headerText="telefono">
+                                                    <h:outputText value="#{item.telefono}"/>
+                                                </p:column>
+
+                                                <p:column headerText="Ciudad">
+                                                    <h:outputText value="#{beanCiudad.getById(item.ciudad.idciudad).getNombreCiu()}"/>
+                                                </p:column>
+
+
+                                                <p:column headerText="Cambios">
+                                                    <p:commandButton value="Editar datos" actionListener="#{beanProveedor.cargarProveedorEditar(item.idproveedor)}"/>
+
+                                                </p:column>
+                                            </p:dataTable> 
+                                        </h:form>
+                                    </div>
+
+                                </p:layoutUnit>
+
+                            </p:layout>
+                        </div>
+                    </div>
+                </h:form>
+
+
+
+
+
+
+
+                <h:form id="frmEditarProveedor">
+
+                    <p:dialog header="Datos del Proveedor" widgetVar="dialogoEditarProveedor" modal="true">
+                        <h:panelGrid id="panelEditarProveedor" columns="3">
+
+                            <p:outputLabel value="Nombre" for="txtNombre"/>
+                            <p:inputText id="txtNombre" label="Nombre" size="50" value="#{beanProveedor.proveedor.nombre}">
+                                <f:validator validatorId="validatorVacio"/>
+                            </p:inputText>
+                            <p:message for="txtNombre"/>
+                            <p:outputLabel value="Apellidos " for="txtApellidos"/>
+                            <p:inputText id="txtApellidos" label="Apellidos" size="50" value="#{beanProveedor.proveedor.apellidos}">
+                                <f:validator validatorId="validatorVacio"/>
+                            </p:inputText>
+                            <p:message for="txtApellidos"/>
+                            <p:outputLabel value="Correo electrónico" for="txtCorreoElectronico"/>
+                            <p:inputText id="txtCorreoElectronico" label="Correo electrónico" size="50" title="Ejemplo: KAAF030191@gmail.com" value="#{beanProveedor.proveedor.correoElectronico}">
+                                <f:validator validatorId="validatorVacio"/>
+                                <f:validator validatorId="validatorEmail"/>
+                            </p:inputText>
+
+                            <h:panelGroup>
+                                <p:tooltip for="txtCorreoElectronico" showEvent="focus" hideEvent="blur"/>
+                                <p:message for="txtCorreoElectronico"/>
+                            </h:panelGroup>
+
+                            <p:outputLabel value="Teléfono" for="txtTelefono"/>
+                            <p:inputText id="txtTelefono" label="Teléfono" size="50" value="#{beanProveedor.proveedor.telefono}"/>
+                            <h:panelGroup></h:panelGroup>
+                            <p:outputLabel value="Direccion" for="txtDireccion"/>
+                            <p:inputText id="txtDireccion" label="Direccion" size="50" value="#{beanProveedor.proveedor.direccion}"/>
+                            <h:panelGroup></h:panelGroup>
+                            <p:outputLabel value="Ciudad"/>
+                            <h:selectOneMenu  value="#{beanProveedor.codigoCiudad}" class=" form-group col-lg-12" required="true" >
+                                <f:selectItem itemLabel="Seleccione una Ciudad" itemValue="0" />
+                                <f:selectItems value="#{beanCiudad.all}" var="ciudad" itemLabel="#{ciudad.nombreCiu}" itemValue="#{ciudad.idciudad}" />
+                            </h:selectOneMenu>
+                            <h:panelGroup></h:panelGroup>
+                            <h:panelGroup></h:panelGroup>
+                            <p:commandButton value="Guardar cambios" ajax="false" actionListener="#{beanProveedor.update()}"/>
+                        </h:panelGrid>
+                    </p:dialog>
+                </h:form>
+            </ui:define>
+            <ui:define name="bottom">
+            </ui:define>
+        </ui:composition>
+
+    </body>
+</html>

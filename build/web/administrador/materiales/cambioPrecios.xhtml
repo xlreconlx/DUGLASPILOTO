@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../../layaut/TemplateAdmin.xhtml">
+
+            <ui:define name="top">
+                <h:form>
+                    <div class="container">
+
+                        <p:layout fullPage="true">
+
+
+
+                            <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true" style="background-color: #c9302c;">
+                                <center> <h2 >ACTUALIZACION DE PRECIOS</h2></center>  
+                            </p:layoutUnit>
+
+                   
+                        <p:layoutUnit position="west" size="245" header="Menu" collapsible="true">
+                       <p:menu style="width: 230px;">
+                                           <p:submenu label="VIDRIOS" style="background-color: #b9def0;">
+                                            <p:menuitem value="Registrar Vidrios" outcome="/administrador/vidrios/registrarVidrios.xhtml" />
+                                            <p:menuitem value="Lista de Vidrios" outcome="/administrador/vidrios/listaVidrios.xhtml" />
+                                            <p:menuitem value="Lista Filtrada" outcome="/administrador/vidrios/vidriosFiltrados.xhtml"/>
+                                      </p:submenu>
+
+                                      <p:submenu label="MATERIALES Aluminios" style="background-color: #ce8483;">
+                                            <p:menuitem value="Registrar Perfiles Aluminios"  outcome="/administrador/materiales/registrarMateriales.xhtml"/>
+                                            <p:menuitem value="Lista Materiales" outcome="/administrador/materiales/listaMateriales.xhtml"  />
+                                            <p:menuitem value="Lista Filtrada" outcome="/administrador/materiales/materialesFiltrados.xhtml" />
+                                        </p:submenu>
+                              <p:submenu label="ACCESORIOS" style="background-color: #ce8483;">
+                                        <p:menuitem value="RegistrarAccesorios"  outcome="/administrador/accesorios/registrarAccesorio.xhtml"/>
+                                        <p:menuitem value="Lista Accesorios" outcome="/administrador/accesorios/listaAccesorios.xhtml"  />
+                                        <p:menuitem value="Lista FiltradaAccesorios" outcome="/administrador/accesorios/acessorioFiltrado.xhtml" />
+                                    </p:submenu>
+                            
+                                     <p:submenu label="EMPLEADOS" style="background-color: #ec971f;">
+                                            <p:menuitem value="Registrar Empleado"  outcome="/administrador/empleados/registrarEmpleado.xhtml" />
+                                            <p:menuitem value="Lista Empleado"  outcome="/administrador/empleados/listaempleados.xhtml"/>
+                                            <p:menuitem value="Lista EmpleadoFiltrada" outcome="/administrador/empleados/empleadoFiltrado.xhtml" />
+                                           </p:submenu>
+                            
+                                    <p:submenu label="PROVEEDORES" style="background-color: #ec971f;">
+                                            <p:menuitem value="Registrar proveedores"  outcome="/administrador/Proveedores/registrarProveedor.xhtml" />
+                                            <p:menuitem value="Lista Proveedores"   outcome="/administrador/Proveedores/listProveedor.xhtml"/>
+                                            <p:menuitem value="Lista Proveedores Filtrada" outcome="/administrador/Proveedores/provedoresFiltrado.xhtml" />
+
+                                         </p:submenu>
+                                      
+
+                                    </p:menu>
+                        </p:layoutUnit>
+
+                            <p:layoutUnit position="center">
+                                <div id="registro-Productos">                     
+                                    <div style="margin: 0px auto"> 
+
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6" style="margin-top: 6%;">
+
+                                                <div class="panel panel-default div2">
+                                                    <div class="panel-heading" style="background-color: #46b8da;">Precios</div>
+                                                    <div class="panel-body">
+
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+
+                                            <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6" style="margin-top: 6%;">
+                                                <div class="panel panel-default div2">
+                                                    <div class="panel-heading" style="background-color: #46b8da;">Cambio Precios General</div>
+                                                    <div class="panel-body" style="padding: 20px;">
+
+                                                        <h:form  styleClass="form-group" >
+
+                                                            <p:growl id="growl" showDetail="true" sticky="true" />
+
+
+                                                            <h:outputLabel value="digite el valor del porcentaje que desea aumentar" style="color: #000;"/>
+                                                            <h:inputText  value="#{mbMateriales.porcentajeAumento}" class="form-control" style="margin-top: 10px  ">
+                                                                <f:validator validatorId="validatorVacio"/>
+                                                            </h:inputText>
+
+                                                            <br></br>
+                                                            <h:commandButton value="Registrar" class="btn btn-success btn-md btn-block" action="#{mbMateriales.actualizarTodo()}"/>
+
+                                                        </h:form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>              
+                            </p:layoutUnit>
+
+                        </p:layout>
+
+
+                    </div>
+                </h:form>
+            </ui:define>
+
+            <ui:define name="bottom">
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

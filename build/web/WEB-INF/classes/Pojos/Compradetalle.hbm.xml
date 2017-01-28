@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 4/01/2017 09:04:07 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Pojos.Compradetalle" table="compradetalle" catalog="bdduglas" optimistic-lock="version">
+        <id name="idcompradetalle" type="java.lang.Integer">
+            <column name="idcompradetalle" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="accesorios" class="Pojos.Accesorios" fetch="select">
+            <column name="idaccesorios" not-null="true" />
+        </many-to-one>
+        <many-to-one name="compras" class="Pojos.Compras" fetch="select">
+            <column name="idcompras" not-null="true" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="nombre" length="200" not-null="true" />
+        </property>
+        <property name="codigobarras" type="string">
+            <column name="codigobarras" length="45" not-null="true" />
+        </property>
+        <property name="cantidad" type="java.lang.Integer">
+            <column name="cantidad" />
+        </property>
+        <property name="precioCompra" type="long">
+            <column name="precioCompra" not-null="true" />
+        </property>
+        <property name="total" type="java.lang.Long">
+            <column name="total" />
+        </property>
+    </class>
+</hibernate-mapping>

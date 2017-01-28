@@ -1,0 +1,216 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:pa="http://xmlns.jcp.org/jsf/passthrough">
+
+    <body>
+
+    <ui:composition template="./../../layaut/TemplateAdmin.xhtml">
+
+            <ui:define name="top">
+                <h:form>
+                    <div class="container-fluid">
+                        <div class="row">
+
+                            <p:layout fullPage="true" >
+                              <!--  <p:layoutUnit position="north" size="90" resizable="true" closable="true" collapsible="true" style="background-color: #c9302c;">
+
+                                    <center> <h2>Registrar Proveedores</h2></center>  
+
+                                </p:layoutUnit>-->
+
+                                <p:layoutUnit position="west" size="245" header="Menu" collapsible="true">
+                                      <p:menu style="width: 230px;">
+                                           <p:submenu label="VIDRIOS" style="background-color: #b9def0;">
+                                            <p:menuitem value="Registrar Vidrios" outcome="/administrador/vidrios/registrarVidrios.xhtml" />
+                                            <p:menuitem value="Lista de Vidrios" outcome="/administrador/vidrios/listaVidrios.xhtml" />
+                                            <p:menuitem value="Lista Filtrada" outcome="/administrador/vidrios/vidriosFiltrados.xhtml"/>
+                                      </p:submenu>
+
+                                      <p:submenu label="MATERIALES" style="background-color: #ce8483;">
+                                            <p:menuitem value="Registrar"  outcome="/administrador/materiales/registrarMateriales.xhtml"/>
+                                            <p:menuitem value="Lista Materiales" outcome="/administrador/materiales/listaMateriales.xhtml"  />
+                                            <p:menuitem value="Lista Filtrada" outcome="/administrador/materiales/materialesFiltrados.xhtml" />
+                                        </p:submenu>
+                            
+                                     <p:submenu label="EMPLEADOS" style="background-color: #ec971f;">
+                                            <p:menuitem value="Registrar Empleado"  outcome="/administrador/empleados/registrarEmpleado.xhtml" />
+                                            <p:menuitem value="Lista Empleado"  outcome="/administrador/empleados/listaempleados.xhtml"/>
+                                            <p:menuitem value="Lista EmpleadoFiltrada" outcome="/administrador/empleados/empleadoFiltrado.xhtml" />
+                                           </p:submenu>
+                            
+                                    <p:submenu label="PROVEEDORES" style="background-color: #ec971f;">
+                                            <p:menuitem value="Registrar proveedores"  outcome="/administrador/Proveedores/registrarProveedor.xhtml" />
+                                            <p:menuitem value="Lista Proveedores"   outcome="/administrador/Proveedores/listProveedor.xhtml"/>
+                                            <p:menuitem value="Lista Proveedores Filtrada" outcome="/administrador/Proveedores/provedoresFiltrado.xhtml" />
+
+                                         </p:submenu>
+                                      
+
+                                    </p:menu>
+                                </p:layoutUnit>
+
+                                <p:layoutUnit position="center" >
+                                    <div class="container" style="margin-top: 4%;">
+                                        <div id="registro-Empleados">                     
+                                            <div style="margin: 0px auto"> 
+
+                                                <div class="row">
+                                                    <div class="col-lg-5 col-md-5 col-xs-5 col-sm-5" style="margin-top: 2%;">
+
+                                                        <div class="panel panel-default div2">
+                                                            <div class="panel-heading color"><h2> Proveedores</h2></div>
+                                                            <div class="panel-body">
+
+                                                            </div>
+                                                        </div>
+
+
+                                                    </div>
+
+                                                    <div class="col-lg-6 col-md-6 col-xs-6 col-sm-6" style="margin-top: 2%">
+                                                        <div class="panel panel-default div2">
+                                                            <div class="panel-heading color"><h2>Registro de Proveedores</h2></div>
+                                                            <div class="panel-body" >
+                                                                <h:form  styleClass="form-group" >
+
+                                                                    <p:growl id="growl" showDetail="true" life="3000" />
+
+                                                                    <h:outputLabel value="Tipo Documento" style="color: black;"/>
+                                                                    <h:selectOneMenu value="#{beanProveedor.codigotipoDocumento}" class="form-group col-lg-12">
+                                                                        <f:selectItem itemLabel="Tipo de Documento" itemValue="0" />
+                                                                        <f:selectItem itemLabel="CEDULA" itemValue="1" />
+                                                                        <f:selectItem itemLabel="NT" itemValue="2" />
+                                                                        <f:selectItem itemLabel="RUTH" itemValue="3"/>
+                                                                    </h:selectOneMenu>
+                                                                    <h:inputText autocomplete="off" id="Documento" pa:placeholder="Numero de documento"  value="#{beanProveedor.proveedor.numeroDocumento}" class="col-lg-12 form-control">
+                                                                        <f:validator validatorId="validatorVacio"/>
+                                                                    </h:inputText>
+                                                                    <br></br>
+                                                                    <h:inputText autocomplete="off" id="Nombre" pa:placeholder="Nombre" value="#{beanProveedor.proveedor.nombre}" class="col-lg-12 form-control">
+                                                                        <f:validator validatorId="validatorVacio"/>
+                                                                    </h:inputText>
+                                                                    <br></br>
+                                                                    <h:inputText autocomplete="off" id="Apellido" pa:placeholder="apellidos" value="#{beanProveedor.proveedor.apellidos}" class="col-lg-12 form-control">
+                                                                        <f:validator validatorId="validatorVacio"/>
+                                                                    </h:inputText>
+                                                                    <br></br>
+                                                                    <h:selectOneMenu  value="#{beanProveedor.codigoCiudad}" class=" form-group col-lg-12" required="true" >
+                                                                        <f:selectItem itemLabel="Seleccione una Ciudad" itemValue="0" />
+                                                                        <f:selectItems value="#{beanCiudad.all}" var="ciudad" itemLabel="#{ciudad.nombreCiu}" itemValue="#{ciudad.idciudad}" />
+                                                                    </h:selectOneMenu>
+
+                                                                    <p:inputText type="email" id="CorreoElectronico" value="#{beanProveedor.proveedor.correoElectronico}" placeholder="Correo" class="col-lg-12 form-control">
+                                                                        <f:validator validatorId="validatorVacio"/>
+                                                                        <f:validator validatorId="validatorEmail"/>
+                                                                    </p:inputText>
+                                                                    <br></br>
+                                                                    <h:inputText autocomplete="off"   pa:placeholder="Direccion" id="Direccion" value="#{beanProveedor.proveedor.direccion}" class="col-lg-12 form-control">
+                                                                        <f:validator validatorId="validatorVacio"/>
+                                                                    </h:inputText>
+                                                                    <br></br>
+                                                                    <h:inputText autocomplete="off" pa:placeholder="Telefono" id="Telefono" value="#{beanProveedor.proveedor.telefono}" class="col-lg-12 form-control">
+                                                                        <f:validator validatorId="validatorVacio"/>
+                                                                    </h:inputText>
+                                                                    <br></br>
+                                                                    <h:commandButton value="Registrar" class="btn btn-success btn-md btn-block" action="#{beanProveedor.registrar()}"/>
+
+                                                                </h:form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </p:layoutUnit>
+
+                            </p:layout>
+
+
+
+
+
+                        </div>
+                    </div>
+                </h:form>
+
+
+
+            </ui:define>
+
+            <ui:define name="content">
+                <!-- <h2>Registro de Proveedores</h2>
+                 <hr />
+                 <h:form id="frmRegistrarProveedor">
+                     <p:growl id="mensajeGeneral" showDetail="true" sticky="false" />
+                     <h:panelGrid columns="3">
+                          <br></br>
+                           <p:outputLabel value="Tipo Documento" />
+                         <p:selectOneMenu  value="# {beanProveedor.codigotipoDocumento}"  required="true" >
+                             <f:selectItem itemLabel="Tipo de Documento" itemValue="0" />
+                             <f:selectItem itemLabel="Cedula" itemValue="1" />
+                             <f:selectItem itemLabel="nit" itemValue="2" />
+                             <f:selectItem itemLabel="RUTH" itemValue="3"/>
+                         </p:selectOneMenu>
+                          <br></br>
+                          
+                         <p:outputLabel value="Numero Documento" for="txtNumeroDocumento"/>
+                         <p:inputText id="txtNumeroDocumento" label="Numero Documento" size="50" value="# {beanProveedor.proveedor.numerodocumentoprov}" required="true">
+                             <f:validator validatorId="validatorVacio"/>
+                         </p:inputText>
+                         <p:message for="txtNumeroDocumento"/>
+                         
+                         <p:outputLabel value="Nombre" for="txtNombre"/>
+                         <p:inputText id="txtNombre" label="Nombre" size="50" value="# {beanProveedor.proveedor.nombreprov}">
+                             <f:validator validatorId="validatorVacio"/>
+                         </p:inputText>
+                         <p:message for="txtNombre"/>
+                         
+                        
+                         <p:outputLabel value="Apellidos" for="txtApellidos"/>
+                         <p:inputText id="txtApellidos" label="Apellidos" size="50" value="# {beanProveedor.proveedor.apellidoprov}">
+                             <f:validator validatorId="validatorVacio"/>
+                         </p:inputText>
+                         <p:message for="txtApellidos"/>
+ 
+                         <p:outputLabel value="Correo electrónico" for="txtCorreoElectronico"/>
+                         <p:inputText id="txtCorreoElectronico" label="Correo electrónico" size="50" title="Ejemplo: William@gmail.com" value="# {beanProveedor.proveedor.correoelectronicoprov}">
+                             <f:validator validatorId="validatorVacio"/>
+                             <f:validator validatorId="validatorEmail"/>
+                         </p:inputText>
+                         <h:panelGroup>
+                             <p:tooltip for="txtCorreoElectronico" showEvent="focus" hideEvent="blur"/>
+                             <p:message for="txtCorreoElectronico"/>
+                         </h:panelGroup>
+ 
+                     
+                         <p:outputLabel value="Teléfono" for="txtTelefono"/>
+                         <p:inputText id="txtTelefono" label="Teléfono" size="50" value="# {beanProveedor.proveedor.telefonopprov}"/>
+                         <h:panelGroup></h:panelGroup>
+                         
+                          <p:outputLabel value="Direccion" for="txtDireccion"/>
+                          <p:inputText id="txtDireccion" label="Direccion" size="50" value="# {beanProveedor.proveedor.direccionprov}"/>
+                         <h:panelGroup></h:panelGroup>
+                         
+                          <p:outputLabel value="Ciudad" />
+                          <p:selectOneMenu  value="# {beanProveedor.codigoCiudad}"  required="true" >
+                             <f:selectItem itemLabel="ciudad" itemValue="0" />
+                             <f:selectItems value="# {beanCiudad.all}" var="ciudad" itemLabel="# {ciudad.nombreciu}" itemValue="# {ciudad.idciudad}" />
+                            
+                         </p:selectOneMenu>
+                         <h:panelGroup></h:panelGroup>
+                          <h:panelGroup></h:panelGroup>
+                         <p:commandButton value="Registrar Proveedor" ajax="false" action="# {beanProveedor.registrar()}"/>
+                     </h:panelGrid>
+                 </h:form>  -->
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

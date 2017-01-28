@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+           <ui:composition template="./../../layaut/TemplateAdmin.xhtml">
+
+            <ui:define name="content">
+                   <h2>Lista detalles Compras </h2>
+                <hr />
+                <h:form id="frmListaDetallesCompras">
+                    <p:growl id="mensajeGeneral" showDetail="true" sticky="false" />
+                    <p:dataTable id="tablaListaDetalleCompras" var="item" value="#{mbCompraDetalle.all}" paginator="true" rows="50" selection="#{mbCompraDetalle.compradetalle}" selectionMode="single" rowKey="#{item.idcompradetalle}" filteredValue="#{mbCompraDetalle.listaCompradetalleFiltrado}">
+
+
+                        <f:facet name="header">
+                            Lista detalles Ventas
+                        </f:facet>
+                        <p:column headerText="Cod ComprasDetalle" >
+                            <h:outputText value="#{item.idcompradetalle}"/>
+                        </p:column>
+
+                        <p:column headerText="Codigo Producto">
+                            <h:outputText value="#{item.productos.idproductos}"/>
+
+                        </p:column>
+                        <p:column headerText="Codigo Compras" >
+                            <h:outputText value="#{item.compras.idcompras}"/>
+                        </p:column>
+                        
+                        <p:column headerText="Nombre" filterBy="nombreprodCd" >
+                            <h:outputText value="#{item.nombreprodCd}"/>
+                        </p:column>
+                        <p:column headerText="codigo Barras" filterBy="codigobarraCd" >
+                            <h:outputText value="#{item.codigobarraCd}"/>
+                        </p:column>
+                        <p:column headerText="precio producto" >
+                            <h:outputText value="#{item.precioproductCd}"/>
+                        </p:column>
+                           
+                        <p:column headerText="Cantidad" >
+                            <h:outputText value="#{item.cantidad}"/>
+                        </p:column>
+
+                        <p:column headerText="precio Total" >
+                            <h:outputText value="#{item.totalcompdetalle}"/>
+                        </p:column>
+
+
+                    </p:dataTable>
+
+
+                </h:form>    
+            </ui:define>
+
+            <ui:define name="bottom">
+                bottom
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

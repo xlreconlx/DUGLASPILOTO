@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 4/01/2017 09:04:07 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Pojos.Compras" table="compras" catalog="bdduglas" optimistic-lock="version">
+        <id name="idcompras" type="java.lang.Integer">
+            <column name="idcompras" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="empleado" class="Pojos.Empleado" fetch="select">
+            <column name="idempleado" not-null="true" />
+        </many-to-one>
+        <many-to-one name="proveedor" class="Pojos.Proveedor" fetch="select">
+            <column name="idproveedor" not-null="true" />
+        </many-to-one>
+        <property name="subtotal" type="java.lang.Long">
+            <column name="subtotal" />
+        </property>
+        <property name="iva" type="java.lang.Long">
+            <column name="iva" />
+        </property>
+        <property name="preciototal" type="java.lang.Long">
+            <column name="preciototal" />
+        </property>
+        <property name="fechaCompra" type="timestamp">
+            <column name="fechaCompra" length="19" not-null="true" />
+        </property>
+        <set name="compradetalles" table="compradetalle" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idcompras" not-null="true" />
+            </key>
+            <one-to-many class="Pojos.Compradetalle" />
+        </set>
+    </class>
+</hibernate-mapping>

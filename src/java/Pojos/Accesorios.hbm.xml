@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 4/01/2017 09:04:07 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Pojos.Accesorios" table="accesorios" catalog="bdduglas" optimistic-lock="version">
+        <id name="idaccesorios" type="java.lang.Integer">
+            <column name="idaccesorios" />
+            <generator class="identity" />
+        </id>
+        <property name="codigoBrras" type="string">
+            <column name="codigoBrras" length="45" />
+        </property>
+        <property name="nombre" type="string">
+            <column name="nombre" length="155" not-null="true" />
+        </property>
+        <property name="precioCosto" type="int">
+            <column name="precioCosto" not-null="true" />
+        </property>
+        <property name="cantidad" type="int">
+            <column name="cantidad" not-null="true" />
+        </property>
+        <set name="compradetalles" table="compradetalle" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idaccesorios" not-null="true" />
+            </key>
+            <one-to-many class="Pojos.Compradetalle" />
+        </set>
+    </class>
+</hibernate-mapping>

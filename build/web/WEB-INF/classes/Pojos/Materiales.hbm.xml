@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 4/01/2017 09:04:07 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Pojos.Materiales" table="materiales" catalog="bdduglas" optimistic-lock="version">
+        <id name="idmateriales" type="java.lang.Integer">
+            <column name="idmateriales" />
+            <generator class="identity" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" length="95" not-null="true" />
+        </property>
+        <property name="codBarra" type="string">
+            <column name="codBarra" length="25" not-null="true" />
+        </property>
+        <property name="preciocost" type="java.lang.Integer">
+            <column name="preciocost" />
+        </property>
+        <property name="precioAnonizado" type="java.lang.Integer">
+            <column name="precioAnonizado" />
+        </property>
+        <property name="precioPintura" type="java.lang.Integer">
+            <column name="precioPintura" />
+        </property>
+    </class>
+</hibernate-mapping>
