@@ -1805,7 +1805,7 @@ public class Factura {
                                     proyec.setAnchoFijo(this.anchoFijo);
                                     proyec.setPrecioTrabajo(this.manObra);
                                     proyec.setPrecioDescuento(this.ganancia);
-                                    proyec.setTipoProducto(this.tipoVentana);
+                                    proyec.setTipoProducto(opcionVentana);
                                     proyec.setPrecioCabezal(this.lista.get(131).getPreciocost());
                                     proyec.setPrecioSillar(this.lista.get(137).getPreciocost());
                                     proyec.setPrecioJamba(this.lista.get(132).getPreciocost());
@@ -1825,7 +1825,7 @@ public class Factura {
                                     proyec.setAnchoFijo(this.anchoFijo);
                                     proyec.setPrecioTrabajo(this.manObra);
                                     proyec.setPrecioDescuento(this.ganancia);
-                                    proyec.setTipoProducto(this.tipoVentana);
+                                    proyec.setTipoProducto(opcionVentana);
                                     proyec.setPrecioCabezal(this.lista.get(131).getPrecioAnonizado());
                                     proyec.setPrecioSillar(this.lista.get(137).getPrecioAnonizado());
                                     proyec.setPrecioJamba(this.lista.get(132).getPrecioAnonizado());
@@ -1845,7 +1845,7 @@ public class Factura {
                                     proyec.setAnchoFijo(this.anchoFijo);
                                     proyec.setPrecioTrabajo(this.manObra);
                                     proyec.setPrecioDescuento(this.ganancia);
-                                    proyec.setTipoProducto(this.tipoVentana);
+                                    proyec.setTipoProducto(opcionVentana);
                                     proyec.setPrecioCabezal(this.lista.get(131).getPrecioPintura());
                                     proyec.setPrecioSillar(this.lista.get(137).getPrecioPintura());
                                     proyec.setPrecioJamba(this.lista.get(132).getPrecioPintura());
@@ -1950,7 +1950,7 @@ public class Factura {
                                     corredera.setAnchoFijo(this.anchoFijo);
                                     corredera.setPrecioTrabajo(this.manObra);
                                     corredera.setPrecioDescuento(this.ganancia);
-                                    corredera.setTipoProducto(this.tipoVentana);
+                                    corredera.setTipoProducto(opcionVentana);
                                     corredera.setPrecioCabezal(this.lista.get(232).getPreciocost());
                                     corredera.setPrecioSillar(this.lista.get(233).getPreciocost());
                                     corredera.setPrecioJamba(this.lista.get(230).getPreciocost());
@@ -1978,7 +1978,7 @@ public class Factura {
                                     corredera.setAnchoFijo(this.anchoFijo);
                                     corredera.setPrecioTrabajo(this.manObra);
                                     corredera.setPrecioDescuento(this.ganancia);
-                                    corredera.setTipoProducto(this.tipoVentana);
+                                    corredera.setTipoProducto(opcionVentana);
                                     corredera.setPrecioCabezal(this.lista.get(232).getPrecioAnonizado());
                                     corredera.setPrecioSillar(this.lista.get(233).getPrecioAnonizado());
                                     corredera.setPrecioJamba(this.lista.get(230).getPrecioAnonizado());
@@ -2005,7 +2005,7 @@ public class Factura {
                                     corredera.setAnchoFijo(this.anchoFijo);
                                     corredera.setPrecioTrabajo(this.manObra);
                                     corredera.setPrecioDescuento(this.ganancia);
-                                    corredera.setTipoProducto(this.tipoVentana);
+                                    corredera.setTipoProducto(opcionVentana);
                                     corredera.setPrecioCabezal(this.lista.get(232).getPrecioPintura());
                                     corredera.setPrecioSillar(this.lista.get(233).getPrecioPintura());
                                     corredera.setPrecioJamba(this.lista.get(230).getPrecioPintura());
@@ -2036,7 +2036,7 @@ public class Factura {
                                     corredera.setAnchoFijo(this.anchoFijo);
                                     corredera.setPrecioTrabajo(this.manObra);
                                     corredera.setPrecioDescuento(this.ganancia);
-                                    corredera.setTipoProducto(this.tipoVentana);
+                                    corredera.setTipoProducto(opcionVentana);
                                     corredera.setPrecioCabezal(this.lista.get(146).getPreciocost());
                                     corredera.setPrecioSillar(this.lista.get(145).getPreciocost());
                                     corredera.setPrecioJamba(this.lista.get(144).getPreciocost());
@@ -2060,7 +2060,7 @@ public class Factura {
                                     corredera.setAnchoFijo(this.anchoFijo);
                                     corredera.setPrecioTrabajo(this.manObra);
                                     corredera.setPrecioDescuento(this.ganancia);
-                                    corredera.setTipoProducto(this.tipoVentana);
+                                    corredera.setTipoProducto(opcionVentana);
                                     corredera.setPrecioCabezal(this.lista.get(146).getPrecioAnonizado());
                                     corredera.setPrecioSillar(this.lista.get(145).getPrecioAnonizado());
                                     corredera.setPrecioJamba(this.lista.get(144).getPrecioAnonizado());
@@ -2083,7 +2083,7 @@ public class Factura {
                                     corredera.setAnchoFijo(this.anchoFijo);
                                     corredera.setPrecioTrabajo(this.manObra);
                                     corredera.setPrecioDescuento(this.ganancia);
-                                    corredera.setTipoProducto(this.tipoVentana);
+                                    corredera.setTipoProducto(opcionVentana);
                                     corredera.setPrecioCabezal(this.lista.get(146).getPrecioPintura());
                                     corredera.setPrecioSillar(this.lista.get(145).getPrecioPintura());
                                     corredera.setPrecioJamba(this.lista.get(144).getPrecioPintura());
