@@ -493,7 +493,7 @@ public class VentanaCorre extends Ventanas {
 
                 break;
             case 11:
-                //           con este codigo fabricamos una ventana de 6 cuerpos moviles 0XX0/0000      FALTABA
+                //           con este codigo fabricamos una ventana de 8 cuerpos moviles 0XX0/0000      FALTABA
                 //   fijo  movol fijo  sobre fijo fijo fijo  basica alf 
                 setCabezal(getAncho());
                 setSillar(getAncho());
@@ -653,7 +653,7 @@ public class VentanaCorre extends Ventanas {
                 break;
 
             case 15:
-                //con este codigo fabricamos una ventana de 2 cuerpos 0XX0 DOBLE
+                //con este codigo fabricamos una ventana de 4 cuerpos 0XX0 DOBLE
                 setCabezal(getAncho());
                 setSillar(getAncho()); //Este apunta al sillar alfagia
                 setJamba(getAlto() * 2); //Jamba es la jamba normal

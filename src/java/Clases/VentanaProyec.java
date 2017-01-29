@@ -31,7 +31,7 @@ public class VentanaProyec extends Ventanas {
     }
 
     public void VentanaProyec(int precioPisavidrio, int precioNave, int precioAfajia, int precioDivisor, int precioJambaPlus,
-            int precioCabezalPlus, int precioMarcoHInferior) {
+        int precioCabezalPlus, int precioMarcoHInferior) {
         this.precioPisavidrio = precioPisavidrio;
         this.precioNave = precioNave;
         this.precioAfajia = precioAfajia;

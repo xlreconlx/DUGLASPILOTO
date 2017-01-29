@@ -1395,7 +1395,7 @@ public class Factura {
                                 case 1:
                                     acce = new Accesorios();
                                     nombreVentana = "2 cuerpo X0";
-                                    opcionVentana = 22;
+                                    opcionVentana = 1;
                                     acce = daoAccesorios.getById(this.session, 89);//Se realiza el mismo procedimiento para todos los accesorios
                                     rodachina = acce.getPrecioCosto() * 2;
                                     acce.setCantidad(acce.getCantidad() - (2 * this.cantidadProducto));
@@ -1419,7 +1419,7 @@ public class Factura {
                                 case 2:
                                     acce = new Accesorios();
                                     nombreVentana = "2 cuerpo XX";
-                                    opcionVentana = 23;
+                                    opcionVentana = 2;
                                     acce = daoAccesorios.getById(this.session, 89);//Se realiza el mismo procedimiento para todos los accesorios
                                     rodachina = acce.getPrecioCosto() * 4;
                                     acce.setCantidad(acce.getCantidad() - (4 * this.cantidadProducto));
@@ -1443,7 +1443,7 @@ public class Factura {
                                     //ventana corrediza vc 3825
                                     acce = new Accesorios();
                                     nombreVentana = "2 cuerpos X0 plus basica alfa";
-                                    opcionVentana = 33;
+                                    opcionVentana = 12;
                                     acce = daoAccesorios.getById(this.session, 89);//Se realiza el mismo procedimiento para todos los accesorios
                                     rodachina = acce.getPrecioCosto() * 2;
                                     acce.setCantidad(acce.getCantidad() - (2 * this.cantidadProducto));
@@ -1469,7 +1469,7 @@ public class Factura {
                                     acce = new Accesorios();
                                     //ventana corrediza vc 3825
                                     nombreVentana = "2 cuerpos XX Alf BASICA";
-                                    opcionVentana = 34;
+                                    opcionVentana = 13;
                                     acce = daoAccesorios.getById(this.session, 89);//Se realiza el mismo procedimiento para todos los accesorios
                                     rodachina = acce.getPrecioCosto() * 4;
                                     acce.setCantidad(acce.getCantidad() - (4 * this.cantidadProducto));
@@ -1495,7 +1495,7 @@ public class Factura {
                                     acce = new Accesorios();
                                     //ventana corrediza vc 3825
                                     nombreVentana = "2 cuerpos X0 plus Reforzada";
-                                    opcionVentana = 35;
+                                    opcionVentana = 14;
                                     acce = daoAccesorios.getById(this.session, 89);//Se realiza el mismo procedimiento para todos los accesorios
                                     rodachina = acce.getPrecioCosto() * 4;
                                     acce.setCantidad(acce.getCantidad() - (4 * this.cantidadProducto));
@@ -1525,7 +1525,7 @@ public class Factura {
                                 case 1:
                                     acce = new Accesorios();
                                     nombreVentana = "3 cuerpos X0X BASICA";
-                                    opcionVentana = 24;
+                                    opcionVentana = 4;
                                     acce = daoAccesorios.getById(this.session, 89);//Se realiza el mismo procedimiento para todos los accesorios
                                     rodachina = acce.getPrecioCosto() * 4;
                                     acce.setCantidad(acce.getCantidad() - (4 * this.cantidadProducto));
@@ -1545,7 +1545,7 @@ public class Factura {
                                 case 2:
                                     acce = new Accesorios();
                                     nombreVentana = "3 cuerpos OXO BASICA";
-                                    opcionVentana = 25;
+                                    opcionVentana = 5;
                                     acce = daoAccesorios.getById(this.session, 89);//Se realiza el mismo procedimiento para todos los accesorios
                                     rodachina = acce.getPrecioCosto() * 2;
                                     acce.setCantidad(acce.getCantidad() - (2 * this.cantidadProducto));
@@ -1565,7 +1565,7 @@ public class Factura {
                                 case 3:
                                     acce = new Accesorios();
                                     nombreVentana = "3 cuerpos OXX BASICA";
-                                    opcionVentana = 26;
+                                    opcionVentana = 6;
                                     acce = daoAccesorios.getById(this.session, 89);//Se realiza el mismo procedimiento para todos los accesorios
                                     rodachina = acce.getPrecioCosto() * 4;
                                     acce.setCantidad(acce.getCantidad() - (4 * this.cantidadProducto));
@@ -1586,7 +1586,7 @@ public class Factura {
                                     acce = new Accesorios();
 
                                     nombreVentana = "3 cuerpos X0/O";
-                                    opcionVentana = 27;
+                                    opcionVentana = 8;
                                     acce = daoAccesorios.getById(this.session, 89);//Se realiza el mismo procedimiento para todos los accesorios
                                     rodachina = acce.getPrecioCosto() * 2;
                                     acce.setCantidad(acce.getCantidad() - (2 * this.cantidadProducto));
@@ -1611,7 +1611,7 @@ public class Factura {
                                 case 1:
                                     acce = new Accesorios();
                                     nombreVentana = "4 cuerpos OXXO BASICA";
-                                    opcionVentana = 28;
+                                    opcionVentana = 3;
                                     acce = daoAccesorios.getById(this.session, 89);//Se realiza el mismo procedimiento para todos los accesorios
                                     rodachina = acce.getPrecioCosto() * 4;
                                     acce.setCantidad(acce.getCantidad() - (4 * this.cantidadProducto));
@@ -1631,7 +1631,7 @@ public class Factura {
                                 case 2:
                                     acce = new Accesorios();
                                     nombreVentana = "4 cuerpos X0/00 Basica Alf";
-                                    opcionVentana = 29;
+                                    opcionVentana = 9;
                                     acce = daoAccesorios.getById(this.session, 89);//Se realiza el mismo procedimiento para todos los accesorios
                                     rodachina = acce.getPrecioCosto() * 2;
                                     acce.setCantidad(acce.getCantidad() - (2 * this.cantidadProducto));
@@ -1651,10 +1651,11 @@ public class Factura {
 
                                 //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
                                 //VENTANA COREDIZA VC 3825
+                                   
                                 case 3:
                                     acce = new Accesorios();
                                     nombreVentana = "4 cuerpos 0XX0 1672 DOBLE";
-                                    opcionVentana = 36;
+                                    opcionVentana = 15;
                                     acce = daoAccesorios.getById(this.session, 89);//Se realiza el mismo procedimiento para todos los accesorios
                                     rodachina = acce.getPrecioCosto() * 4;
                                     acce.setCantidad(acce.getCantidad() - (4 * this.cantidadProducto));
@@ -1682,8 +1683,8 @@ public class Factura {
                             switch (diseno) {
                                 case 1:
                                     acce = new Accesorios();
-                                    nombreVentana = "4 cuerpos 0XX XXO BASICA";
-                                    opcionVentana = 30;
+                                    nombreVentana = "6 cuerpos 0XX XXO BASICA";
+                                    opcionVentana = 7;
                                     acce = daoAccesorios.getById(this.session, 89);//Se realiza el mismo procedimiento para todos los accesorios
                                     rodachina = acce.getPrecioCosto() * 8;
                                     acce.setCantidad(acce.getCantidad() - (8 * this.cantidadProducto));
@@ -1702,8 +1703,8 @@ public class Factura {
                                     break;
                                 case 2:
                                     acce = new Accesorios();
-                                    nombreVentana = "4 cuerpos OXO /OOO BASICA";
-                                    opcionVentana = 31;
+                                    nombreVentana = "6 cuerpos OXO /OOO BASICA";
+                                    opcionVentana = 10;
                                     acce = daoAccesorios.getById(this.session, 89);//Se realiza el mismo procedimiento para todos los accesorios
                                     rodachina = acce.getPrecioCosto() * 2;
                                     acce.setCantidad(acce.getCantidad() - (2 * this.cantidadProducto));
@@ -1726,8 +1727,8 @@ public class Factura {
                             switch (diseno) {
                                 case 1:
                                     acce = new Accesorios();
-                                    nombreVentana = "4 cuerpos OXXO /OOO0 BASICA";
-                                    opcionVentana = 32;
+                                    nombreVentana = "8 cuerpos OXXO /OOO0 BASICA";
+                                    opcionVentana = 11;
                                     acce = daoAccesorios.getById(this.session, 89);//Se realiza el mismo procedimiento para todos los accesorios
                                     rodachina = acce.getPrecioCosto() * 4;
                                     acce.setCantidad(acce.getCantidad() - (4 * this.cantidadProducto));
@@ -1936,6 +1937,7 @@ public class Factura {
                     break;
 
                 case 2: //////Caso 2 ventanas 
+                    System.out.println("Ventana Corredera XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
                     VentanaCorre corredera = new VentanaCorre();
                     switch (this.tipoAluminioCorred) {
                         case 1: // este constructoer es para ventanas Correderas de aluminio  y con sus distintos colores
@@ -2026,7 +2028,7 @@ public class Factura {
                             switch (tipoColor) {
                                 case 1:
                                     // este es para una ventana con aluminio AS 1800 Natural 
-                                  //  estos posiciones hay que revisarlas porque el codigo no existe en la base de datos
+                                    //  estos posiciones hay que revisarlas porque el codigo no existe en la base de datos
                                     corredera = new VentanaCorre();
                                     corredera.setAlto(alto);
                                     corredera.setAncho(ancho);
@@ -2039,16 +2041,15 @@ public class Factura {
                                     corredera.setPrecioSillar(this.lista.get(145).getPreciocost());
                                     corredera.setPrecioJamba(this.lista.get(144).getPreciocost());
                                     corredera.setPrecioHsuperior(this.lista.get(151).getPreciocost());
-                                    corredera.setPrecioHinferior(this.lista.get(149).getPreciocost());                
+                                    corredera.setPrecioHinferior(this.lista.get(149).getPreciocost());
                                     corredera.setPrecioTraslape(this.lista.get(150).getPreciocost());
-                                      corredera.setPrecioAdaptador(this.lista.get(117).getPreciocost()); 
+                                    corredera.setPrecioAdaptador(this.lista.get(117).getPreciocost());
                                     corredera.setPrecioEmpaque(this.lista.get(362).getPreciocost());
                                     corredera.setPreciofelpa(this.lista.get(366).getPreciocost());
 
                                     corredera.calcularVentanaCorre(0, this.lista.get(147).getPreciocost(),
-                                            0, 0, this.lista.get(152).getPreciocost(),   0, 0, 0, 0, 0, 0);
-                                
-                                     
+                                            0, 0, this.lista.get(152).getPreciocost(), 0, 0, 0, 0, 0, 0);
+
                                     break;
                                 case 2:
                                     // este es para una ventana con aluminio AS 1800 Anolo
@@ -2060,18 +2061,18 @@ public class Factura {
                                     corredera.setPrecioTrabajo(this.manObra);
                                     corredera.setPrecioDescuento(this.ganancia);
                                     corredera.setTipoProducto(this.tipoVentana);
-                                         corredera.setPrecioCabezal(this.lista.get(146).getPrecioAnonizado());
+                                    corredera.setPrecioCabezal(this.lista.get(146).getPrecioAnonizado());
                                     corredera.setPrecioSillar(this.lista.get(145).getPrecioAnonizado());
                                     corredera.setPrecioJamba(this.lista.get(144).getPrecioAnonizado());
                                     corredera.setPrecioHsuperior(this.lista.get(151).getPrecioAnonizado());
-                                    corredera.setPrecioHinferior(this.lista.get(149).getPrecioAnonizado());                
+                                    corredera.setPrecioHinferior(this.lista.get(149).getPrecioAnonizado());
                                     corredera.setPrecioTraslape(this.lista.get(150).getPrecioAnonizado());
-                                      corredera.setPrecioAdaptador(this.lista.get(117).getPrecioAnonizado()); 
+                                    corredera.setPrecioAdaptador(this.lista.get(117).getPrecioAnonizado());
                                     corredera.setPrecioEmpaque(this.lista.get(362).getPrecioAnonizado());
                                     corredera.setPreciofelpa(this.lista.get(366).getPrecioAnonizado());
 
                                     corredera.calcularVentanaCorre(0, this.lista.get(147).getPrecioAnonizado(),
-                                            0, 0, this.lista.get(152).getPrecioAnonizado(),   0, 0, 0, 0, 0, 0);
+                                            0, 0, this.lista.get(152).getPrecioAnonizado(), 0, 0, 0, 0, 0, 0);
                                     break;
                                 case 3:
                                     // este es para una ventana con aluminio AS 1800 pintura
@@ -2083,23 +2084,22 @@ public class Factura {
                                     corredera.setPrecioTrabajo(this.manObra);
                                     corredera.setPrecioDescuento(this.ganancia);
                                     corredera.setTipoProducto(this.tipoVentana);
-                                          corredera.setPrecioCabezal(this.lista.get(146).getPrecioPintura());
+                                    corredera.setPrecioCabezal(this.lista.get(146).getPrecioPintura());
                                     corredera.setPrecioSillar(this.lista.get(145).getPrecioPintura());
                                     corredera.setPrecioJamba(this.lista.get(144).getPrecioPintura());
                                     corredera.setPrecioHsuperior(this.lista.get(151).getPrecioPintura());
-                                    corredera.setPrecioHinferior(this.lista.get(149).getPrecioPintura());                
+                                    corredera.setPrecioHinferior(this.lista.get(149).getPrecioPintura());
                                     corredera.setPrecioTraslape(this.lista.get(150).getPrecioPintura());
-                                      corredera.setPrecioAdaptador(this.lista.get(117).getPrecioPintura()); 
+                                    corredera.setPrecioAdaptador(this.lista.get(117).getPrecioPintura());
                                     corredera.setPrecioEmpaque(this.lista.get(362).getPrecioPintura());
                                     corredera.setPreciofelpa(this.lista.get(366).getPrecioPintura());
 
                                     corredera.calcularVentanaCorre(0, this.lista.get(147).getPrecioPintura(),
-                                            0, 0, this.lista.get(152).getPrecioPintura(),   0, 0, 0, 0, 0, 0);
+                                            0, 0, this.lista.get(152).getPrecioPintura(), 0, 0, 0, 0, 0, 0);
                                     break;
                             }
                             break;
-                    
-                     
+
                     }
                     precioInstala = this.precioInstalacion;
                     precioInstala = (precioInstala * (corredera.getAlto() * corredera.getAncho())) / 10000;
@@ -2117,7 +2117,7 @@ public class Factura {
                     switch (this.tipoAluminioBati) {
                         case 1: // este constructoer es para ventanas Abatibles celosial de aluminio 3835 y con sus distintos colores
                             switch (tipoColor) {
-                            
+
                             }
                             break;
                     }
@@ -3207,4 +3207,5 @@ public class Factura {
         this.anchoFijo = anchoFijo;
     }
 
+   
 }
