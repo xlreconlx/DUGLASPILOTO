@@ -474,6 +474,7 @@ public class MbCalcular {
                                     acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
                                     tronillos = acce.getPrecioCosto() * 31;
                                     this.precioAccesorios = BrazosBasculantes + manijas + tronillos;
+                                            System.out.println("precio brazos:::" +  this.precioAccesorios );
                                 
                                     break;
                                 case 2:
@@ -971,6 +972,7 @@ public class MbCalcular {
                 this.precioVidrio = this.precioVidrio * (Integer.valueOf(alto) * Integer.valueOf(ancho));
                 int espacios = String.valueOf(this.precioVidrio).length();
                 this.precioVidrio = Integer.valueOf(String.valueOf(this.precioVidrio).substring(0, espacios - 4));
+                  System.out.println("precio vidrio bd:::" +  this.precioVidrio);
             }
             if (this.idVidrio == 0) {
                 this.precioVidrio = 0;
@@ -1126,12 +1128,12 @@ public class MbCalcular {
                                     corredera.setPrecioDescuento(this.ganancia);
                                     corredera.setTipoProducto(this.tipoVentana);
                                     corredera.setPrecioCabezal(this.lista.get(232).getPreciocost());
-                                    corredera.setPrecioSillar(this.lista.get(250).getPreciocost());
-                                    corredera.setPrecioJamba(this.lista.get(230).getPreciocost());
+                                    corredera.setPrecioSillar(this.lista.get(233).getPreciocost());
+                                    corredera.setPrecioJamba(this.lista.get(257).getPreciocost());
                                     corredera.setPrecioHsuperior(this.lista.get(234).getPreciocost());
                                     corredera.setPrecioHinferior(this.lista.get(236).getPreciocost());//este apunta al hInferiorNave
                                     corredera.setPrecioEnganche(this.lista.get(235).getPreciocost());
-                                    corredera.setPrecioTraslape(this.lista.get(273).getPreciocost());//este apunta al vertical cerradura
+                                    corredera.setPrecioTraslape(this.lista.get(231).getPreciocost());//este apunta al vertical cerradura
                                     corredera.setPrecioAdaptador(this.lista.get(246).getPreciocost());
                                     corredera.setPrecioEmpaque(this.lista.get(365).getPreciocost());
                                     corredera.setPreciofelpa(this.lista.get(366).getPreciocost());
@@ -1139,7 +1141,7 @@ public class MbCalcular {
                                     corredera.calcularVentanaCorre(this.lista.get(295).getPreciocost(), this.lista.get(278).getPreciocost(),
                                             this.lista.get(284).getPreciocost(), this.lista.get(218).getPreciocost(), this.lista.get(279).getPreciocost(),
                                             this.lista.get(220).getPreciocost(), this.lista.get(361).getPreciocost(), this.lista.get(248).getPreciocost(),
-                                            this.lista.get(249).getPreciocost(), this.lista.get(285).getPreciocost());
+                                            this.lista.get(249).getPreciocost(), this.lista.get(285).getPreciocost(),this.lista.get(250).getPreciocost());
                                     break;
 
                                 case 2:
@@ -1152,7 +1154,7 @@ public class MbCalcular {
                                     corredera.setPrecioDescuento(this.ganancia);
                                     corredera.setTipoProducto(this.tipoVentana);
                                     corredera.setPrecioCabezal(this.lista.get(232).getPrecioAnonizado());
-                                    corredera.setPrecioSillar(this.lista.get(250).getPrecioAnonizado());
+                                    corredera.setPrecioSillar(this.lista.get(233).getPrecioAnonizado());
                                     corredera.setPrecioJamba(this.lista.get(230).getPrecioAnonizado());
                                     corredera.setPrecioHsuperior(this.lista.get(234).getPrecioAnonizado());
                                     corredera.setPrecioHinferior(this.lista.get(236).getPrecioAnonizado());//este apunta al hInferiorNave
@@ -1165,7 +1167,7 @@ public class MbCalcular {
                                     corredera.calcularVentanaCorre(this.lista.get(295).getPrecioAnonizado(), this.lista.get(278).getPrecioAnonizado(),
                                             this.lista.get(284).getPrecioAnonizado(), this.lista.get(218).getPrecioAnonizado(), this.lista.get(279).getPrecioAnonizado(),
                                             this.lista.get(220).getPrecioAnonizado(), this.lista.get(361).getPrecioAnonizado(), this.lista.get(248).getPrecioAnonizado(),
-                                            this.lista.get(249).getPrecioAnonizado(), this.lista.get(285).getPrecioAnonizado());
+                                            this.lista.get(249).getPrecioAnonizado(), this.lista.get(285).getPrecioAnonizado(),this.lista.get(250).getPrecioAnonizado());
                                     break;
 
                                 case 3:
@@ -1177,7 +1179,7 @@ public class MbCalcular {
                                     corredera.setPrecioDescuento(this.ganancia);
                                     corredera.setTipoProducto(this.tipoVentana);
                                     corredera.setPrecioCabezal(this.lista.get(232).getPrecioPintura());
-                                    corredera.setPrecioSillar(this.lista.get(250).getPrecioPintura());
+                                    corredera.setPrecioSillar(this.lista.get(233).getPrecioPintura());
                                     corredera.setPrecioJamba(this.lista.get(230).getPrecioPintura());
                                     corredera.setPrecioHsuperior(this.lista.get(234).getPrecioPintura());
                                     corredera.setPrecioHinferior(this.lista.get(236).getPrecioPintura());//este apunta al hInferiorNave
@@ -1190,7 +1192,7 @@ public class MbCalcular {
                                     corredera.calcularVentanaCorre(this.lista.get(295).getPrecioPintura(), this.lista.get(278).getPrecioPintura(),
                                             this.lista.get(284).getPrecioPintura(), this.lista.get(218).getPrecioPintura(), this.lista.get(279).getPrecioPintura(),
                                             this.lista.get(220).getPrecioPintura(), this.lista.get(361).getPrecioPintura(), this.lista.get(248).getPrecioPintura(),
-                                            this.lista.get(249).getPrecioPintura(), this.lista.get(285).getPrecioPintura());
+                                            this.lista.get(249).getPrecioPintura(), this.lista.get(285).getPrecioPintura(),this.lista.get(250).getPrecioPintura());
                                     break;
                             }
                             break;
@@ -1205,7 +1207,7 @@ public class MbCalcular {
                                     corredera.setPrecioDescuento(this.ganancia);
                                     corredera.setTipoProducto(this.tipoVentana);
                                     corredera.setPrecioCabezal(this.lista.get(232).getPreciocost());
-                                    corredera.setPrecioSillar(this.lista.get(250).getPreciocost());
+                                    corredera.setPrecioSillar(this.lista.get(233).getPreciocost());
                                     corredera.setPrecioJamba(this.lista.get(230).getPreciocost());
                                     corredera.setPrecioHsuperior(this.lista.get(234).getPreciocost());
                                     corredera.setPrecioHinferior(this.lista.get(236).getPreciocost());//este apunta al hInferiorNave
@@ -1218,7 +1220,7 @@ public class MbCalcular {
                                     corredera.calcularVentanaCorre(this.lista.get(295).getPreciocost(), this.lista.get(278).getPreciocost(),
                                             this.lista.get(284).getPreciocost(), this.lista.get(218).getPreciocost(), this.lista.get(279).getPreciocost(),
                                             this.lista.get(220).getPreciocost(), this.lista.get(361).getPreciocost(), this.lista.get(248).getPreciocost(),
-                                            this.lista.get(249).getPreciocost(), this.lista.get(285).getPreciocost());
+                                            this.lista.get(249).getPreciocost(), this.lista.get(285).getPreciocost(),this.lista.get(250).getPreciocost());
                                     break;
                                 case 2:
                                     // este es para una ventana con aluminio AS 1800 Anolo
@@ -1229,7 +1231,7 @@ public class MbCalcular {
                                     corredera.setPrecioDescuento(this.ganancia);
                                     corredera.setTipoProducto(this.tipoVentana);
                                     corredera.setPrecioCabezal(this.lista.get(232).getPrecioAnonizado());
-                                    corredera.setPrecioSillar(this.lista.get(250).getPrecioAnonizado());
+                                    corredera.setPrecioSillar(this.lista.get(233).getPrecioAnonizado());
                                     corredera.setPrecioJamba(this.lista.get(230).getPrecioAnonizado());
                                     corredera.setPrecioHsuperior(this.lista.get(234).getPrecioAnonizado());
                                     corredera.setPrecioHinferior(this.lista.get(236).getPrecioAnonizado());//este apunta al hInferiorNave
@@ -1242,7 +1244,7 @@ public class MbCalcular {
                                     corredera.calcularVentanaCorre(this.lista.get(295).getPrecioAnonizado(), this.lista.get(278).getPrecioAnonizado(),
                                             this.lista.get(284).getPrecioAnonizado(), this.lista.get(218).getPrecioAnonizado(), this.lista.get(279).getPrecioAnonizado(),
                                             this.lista.get(220).getPrecioAnonizado(), this.lista.get(361).getPrecioAnonizado(), this.lista.get(248).getPrecioAnonizado(),
-                                            this.lista.get(249).getPrecioAnonizado(), this.lista.get(285).getPrecioAnonizado());
+                                            this.lista.get(249).getPrecioAnonizado(), this.lista.get(285).getPrecioAnonizado(),this.lista.get(250).getPreciocost());
                                     break;
                                 case 3:
                                     // este es para una ventana con aluminio AS 1800 pintura
@@ -1253,7 +1255,7 @@ public class MbCalcular {
                                     corredera.setPrecioDescuento(this.ganancia);
                                     corredera.setTipoProducto(this.tipoVentana);
                                     corredera.setPrecioCabezal(this.lista.get(232).getPrecioPintura());
-                                    corredera.setPrecioSillar(this.lista.get(250).getPrecioPintura());
+                                    corredera.setPrecioSillar(this.lista.get(233).getPrecioPintura());
                                     corredera.setPrecioJamba(this.lista.get(230).getPrecioPintura());
                                     corredera.setPrecioHsuperior(this.lista.get(234).getPrecioPintura());
                                     corredera.setPrecioHinferior(this.lista.get(236).getPrecioPintura());//este apunta al hInferiorNave
@@ -1266,7 +1268,7 @@ public class MbCalcular {
                                     corredera.calcularVentanaCorre(this.lista.get(295).getPrecioPintura(), this.lista.get(278).getPrecioPintura(),
                                             this.lista.get(284).getPrecioPintura(), this.lista.get(218).getPrecioPintura(), this.lista.get(279).getPrecioPintura(),
                                             this.lista.get(220).getPrecioPintura(), this.lista.get(361).getPrecioPintura(), this.lista.get(248).getPrecioPintura(),
-                                            this.lista.get(249).getPrecioPintura(), this.lista.get(285).getPrecioPintura());
+                                            this.lista.get(249).getPrecioPintura(), this.lista.get(285).getPrecioPintura(),this.lista.get(250).getPrecioPintura());
                                     break;
                             }
                             break;
@@ -1281,7 +1283,7 @@ public class MbCalcular {
                                     corredera.setPrecioDescuento(this.ganancia);
                                     corredera.setTipoProducto(this.tipoVentana);
                                     corredera.setPrecioCabezal(this.lista.get(232).getPreciocost());
-                                    corredera.setPrecioSillar(this.lista.get(250).getPreciocost());
+                                    corredera.setPrecioSillar(this.lista.get(233).getPreciocost());
                                     corredera.setPrecioJamba(this.lista.get(230).getPreciocost());
                                     corredera.setPrecioHsuperior(this.lista.get(234).getPreciocost());
                                     corredera.setPrecioHinferior(this.lista.get(236).getPreciocost());//este apunta al hInferiorNave
@@ -1294,7 +1296,7 @@ public class MbCalcular {
                                     corredera.calcularVentanaCorre(this.lista.get(295).getPreciocost(), this.lista.get(278).getPreciocost(),
                                             this.lista.get(284).getPreciocost(), this.lista.get(218).getPreciocost(), this.lista.get(279).getPreciocost(),
                                             this.lista.get(220).getPreciocost(), this.lista.get(361).getPreciocost(), this.lista.get(248).getPreciocost(),
-                                            this.lista.get(249).getPreciocost(), this.lista.get(285).getPreciocost());
+                                            this.lista.get(249).getPreciocost(), this.lista.get(285).getPreciocost(),this.lista.get(250).getPreciocost());
                                     break;
                                 case 2:
                                     // este es para una ventana con aluminio AS 1900 Anolo
@@ -1306,7 +1308,7 @@ public class MbCalcular {
                                     corredera.setPrecioDescuento(this.ganancia);
                                     corredera.setTipoProducto(this.tipoVentana);
                                     corredera.setPrecioCabezal(this.lista.get(232).getPrecioAnonizado());
-                                    corredera.setPrecioSillar(this.lista.get(250).getPrecioAnonizado());
+                                    corredera.setPrecioSillar(this.lista.get(233).getPrecioAnonizado());
                                     corredera.setPrecioJamba(this.lista.get(230).getPrecioAnonizado());
                                     corredera.setPrecioHsuperior(this.lista.get(234).getPrecioAnonizado());
                                     corredera.setPrecioHinferior(this.lista.get(236).getPrecioAnonizado());//este apunta al hInferiorNave
@@ -1319,7 +1321,7 @@ public class MbCalcular {
                                     corredera.calcularVentanaCorre(this.lista.get(295).getPrecioAnonizado(), this.lista.get(278).getPrecioAnonizado(),
                                             this.lista.get(284).getPrecioAnonizado(), this.lista.get(218).getPrecioAnonizado(), this.lista.get(279).getPrecioAnonizado(),
                                             this.lista.get(220).getPrecioAnonizado(), this.lista.get(361).getPrecioAnonizado(), this.lista.get(248).getPrecioAnonizado(),
-                                            this.lista.get(249).getPrecioAnonizado(), this.lista.get(285).getPrecioAnonizado());
+                                            this.lista.get(249).getPrecioAnonizado(), this.lista.get(285).getPrecioAnonizado(),this.lista.get(250).getPreciocost());
                                     break;
                                 case 3:
                                     // este es para una ventana con aluminio AS 1900 Pintura
@@ -1331,7 +1333,7 @@ public class MbCalcular {
                                     corredera.setPrecioDescuento(this.ganancia);
                                     corredera.setTipoProducto(this.tipoVentana);
                                     corredera.setPrecioCabezal(this.lista.get(232).getPrecioPintura());
-                                    corredera.setPrecioSillar(this.lista.get(250).getPrecioPintura());
+                                    corredera.setPrecioSillar(this.lista.get(233).getPrecioPintura());
                                     corredera.setPrecioJamba(this.lista.get(230).getPrecioPintura());
                                     corredera.setPrecioHsuperior(this.lista.get(234).getPrecioPintura());
                                     corredera.setPrecioHinferior(this.lista.get(236).getPrecioPintura());//este apunta al hInferiorNave
@@ -1344,7 +1346,7 @@ public class MbCalcular {
                                     corredera.calcularVentanaCorre(this.lista.get(295).getPrecioPintura(), this.lista.get(278).getPrecioPintura(),
                                             this.lista.get(284).getPrecioPintura(), this.lista.get(218).getPrecioPintura(), this.lista.get(279).getPrecioPintura(),
                                             this.lista.get(220).getPrecioPintura(), this.lista.get(361).getPrecioPintura(), this.lista.get(248).getPrecioPintura(),
-                                            this.lista.get(249).getPrecioPintura(), this.lista.get(285).getPrecioPintura());
+                                            this.lista.get(249).getPrecioPintura(), this.lista.get(285).getPrecioPintura(),this.lista.get(250).getPreciocost());
                                     break;
                             }
                             break;
@@ -1361,6 +1363,7 @@ public class MbCalcular {
                     precioTotalCantidad = precioTotal * this.cantidadProducto;
                     mensajeCanti = ""+cantidadProducto;
                     break;
+                    
 
                 case 3: //////Caso 2 ventanas de  Abatibles celosial
                     VentanaAbati abatible = new VentanaAbati();
