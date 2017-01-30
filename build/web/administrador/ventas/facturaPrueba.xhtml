@@ -249,6 +249,7 @@
                                 <f:selectItem itemValue="3" itemLabel="4 cuerpos"/>
                                 <f:selectItem itemValue="4" itemLabel="6 cuerpos"/>
                             </h:selectOneMenu>
+                            
                             <h:selectOneMenu  value="#{factura.tipoVentana}" styleClass="form-control"
                                               rendered="#{factura.tipoModeloVentana==2 and factura.tipoAluminioCorred==2}">
                                 <f:ajax event="change" render="@form"></f:ajax>

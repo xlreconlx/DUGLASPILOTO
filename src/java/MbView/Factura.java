@@ -1914,6 +1914,7 @@ public class Factura {
                     System.out.println("Ventana Corredera XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
                     VentanaCorre corredera = new VentanaCorre();
                     switch (this.tipoAluminioCorred) {
+                         
                         case 1: // este constructoer es para ventanas Correderas de aluminio  y con sus distintos colores
                             switch (tipoColor) {
                                 case 1:// este es para una ventana con aluminio AS 1700 natutal
@@ -1940,8 +1941,9 @@ public class Factura {
                                             this.lista.get(284).getPreciocost(), this.lista.get(218).getPreciocost(), this.lista.get(279).getPreciocost(),
                                             this.lista.get(220).getPreciocost(), this.lista.get(361).getPreciocost(), this.lista.get(248).getPreciocost(),
                                             this.lista.get(249).getPreciocost(), this.lista.get(285).getPreciocost(), this.lista.get(250).getPreciocost());
+                                    System.out.println("entro a correedera 1700:::" + this.tipoAluminioCorred);
                                     break;
-
+ 
                                 case 2:
                                     // este es para una ventana con aluminio AS 1700 Anolo
 
@@ -2023,7 +2025,11 @@ public class Factura {
 
                                     corredera.calcularVentanaCorre(0, this.lista.get(147).getPreciocost(),
                                             0, 0, this.lista.get(152).getPreciocost(), 0, 0, 0, 0, 0, 0);
+  System.out.println("entro a correedera 3825................................:::" + this.tipoAluminioCorred);
+  System.out.println("entro a tipo modelo ventana 3825................................:::" + this.tipoModeloVentana);
+  System.out.println("entro a diseno................................:::" + this.diseno);
 
+   System.out.println("entro a opcion ventana 3825................................:::" + opcionVentana);
                                     break;
                                 case 2:
                                     // este es para una ventana con aluminio AS 1800 Anolo
@@ -2075,6 +2081,7 @@ public class Factura {
                             break;
 
                     }
+                   
                     precioInstala = this.precioInstalacion;
                     precioInstala = (precioInstala * (corredera.getAlto() * corredera.getAncho())) / 10000;
                     Long precioExtrac = this.precioVidrio + this.precioAccesorios + corredera.getSumaTotal();
