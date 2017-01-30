@@ -1035,12 +1035,8 @@ public class DespieceVentana {
                         despie.setTipoProducto(32);
                        
                         break;
-
-                }
-                break;
-            case 3://Batiente
-                switch (tipoVentana) {
-                    case 1:   // ventana de 2 cuerpos XO plus basica alfa
+                             case 12:   // ventana de 2 cuerpos XO plus basica alfa
+                                   // VENTANAS VC 3825
                         despie.setCantProducto(cantidadProducto);
                         despie.setCantidadCabezal(1 * cantidadProducto);
                         despie.setCantidadSillarAlfaljia(1 * cantidadProducto);
@@ -1077,7 +1073,8 @@ public class DespieceVentana {
                        
                         break;
 
-                    case 2:  // ventana Abatible de 2 cuerpos XX Basica Alfa
+                    case 13:  // ventana Abatible de 2 cuerpos XX Basica Alfa
+                          // VENTANAS VC 3825
                         despie.setCantProducto(cantidadProducto);
                         despie.setCantidadCabezal(1 * cantidadProducto);
                         despie.setCantidadSillarAlfaljia(1 * cantidadProducto);
@@ -1107,7 +1104,8 @@ public class DespieceVentana {
                         despie.setTipoProducto(34);
                         
                         break;
-                    case 3:        // con este codigo fabricamos una ventana de 2 cuerpos X0 plus reforzada
+                    case 14:        // con este codigo fabricamos una ventana de 2 cuerpos X0 plus reforzada
+                          // VENTANAS VC 3825
                         despie.setCantProducto(cantidadProducto);
                         despie.setCantidadCabezal(1 * cantidadProducto);
                         despie.setCantidadSillarAlfaljia(1 * cantidadProducto);
@@ -1141,7 +1139,8 @@ public class DespieceVentana {
                         despie.setTipoProducto(35);
                        
                         break;
-                    case 4:          //con este codigo fabricamos una ventana de 4 cuerpos 0XX0 1672 DOBLE
+                    case 15:          //con este codigo fabricamos una ventana de 4 cuerpos 0XX0 1672 DOBLE
+                        // VENTANAS VC 3825
                         despie.setCantProducto(cantidadProducto);
                         despie.setCantidadCabezal(1 * cantidadProducto);
                         despie.setCantidadSillarAlfaljia(1 * cantidadProducto);
@@ -1173,6 +1172,12 @@ public class DespieceVentana {
                         despie.setTipoProducto(36);
                       
                         break;
+
+                }
+                break;
+            case 3://Batiente
+                switch (tipoVentana) {
+               
                 }
                 break;
         }

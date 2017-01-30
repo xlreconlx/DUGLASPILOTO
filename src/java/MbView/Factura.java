@@ -1047,7 +1047,8 @@ public class Factura {
                                     tronillos = acce.getPrecioCosto() * 17;
                                     acce.setCantidad(acce.getCantidad() - (17 * this.cantidadProducto));
                                     daoAccesorios.actualizar(this.session, acce);
-                                    this.precioAccesorios = BrazosBasculantes + tronillos;
+                                    this.precioAccesorios = BrazosBasculantes + tronillos + manijas;
+                                       System.out.println("precio accesorios vProyectante 1 CUERPO X:::" + this.precioAccesorios);
                                     break;
                                 case 2:
                                     acce = new Accesorios();
@@ -1058,6 +1059,7 @@ public class Factura {
                                     acce.setCantidad(acce.getCantidad() - (24 * this.cantidadProducto));
                                     daoAccesorios.actualizar(this.session, acce);
                                     this.precioAccesorios = tronillos;
+                                            System.out.println("precio accesorios vProyectante 1 CUERPO 0:::" + this.precioAccesorios);
                                     break;
                             }
                             break;
@@ -1084,7 +1086,7 @@ public class Factura {
                                     System.out.println("precio tornillos:::" + tronillos);
                                     daoAccesorios.actualizar(this.session, acce);
                                     this.precioAccesorios = BrazosBasculantes + manijas + tronillos;
-                                    System.out.println("precio accesorios:::" + this.precioAccesorios);
+                                         System.out.println("precio accesorios vProyectante 2 CUERPO XX:::" + this.precioAccesorios);
                                     break;
                                 case 2:
                                     acce = new Accesorios();
@@ -1095,6 +1097,7 @@ public class Factura {
                                     acce.setCantidad(acce.getCantidad() - (17 * this.cantidadProducto));
                                     daoAccesorios.actualizar(this.session, acce);
                                     this.precioAccesorios = tronillos;
+                                            System.out.println("precio accesorios vProyectante 2 CUERPO 00:::" + this.precioAccesorios);
                                     break;
                                 case 3:
                                     acce = new Accesorios();
@@ -1105,6 +1108,7 @@ public class Factura {
                                     acce.setCantidad(acce.getCantidad() - (43 * this.cantidadProducto));
                                     daoAccesorios.actualizar(this.session, acce);
                                     this.precioAccesorios = tronillos;
+                                            System.out.println("precio accesorios vProyectante 2 CUERPO O/O:::" + this.precioAccesorios);
                                     break;
                                 case 4:
                                     acce = new Accesorios();
@@ -1125,6 +1129,7 @@ public class Factura {
                                     daoAccesorios.actualizar(this.session, acce);
 
                                     this.precioAccesorios = BrazosBasculantes + manijas + tronillos;
+                                    
                                     break;
                                 case 5:
                                     acce = new Accesorios();
@@ -1143,6 +1148,7 @@ public class Factura {
                                     acce.setCantidad(acce.getCantidad() - (41 * this.cantidadProducto));
                                     daoAccesorios.actualizar(this.session, acce);
                                     this.precioAccesorios = BrazosBasculantes + manijas + tronillos;
+                                         System.out.println("precio accesorios vProyectante 2 CUERPO X-0:::" + this.precioAccesorios);
                                     break;
                                 case 6:
                                     acce = new Accesorios();
@@ -1161,6 +1167,7 @@ public class Factura {
                                     acce.setCantidad(acce.getCantidad() - (42 * this.cantidadProducto));
                                     daoAccesorios.actualizar(this.session, acce);
                                     this.precioAccesorios = BrazosBasculantes + manijas + tronillos;
+                                         System.out.println("precio accesorios vProyectante 2 CUERPO X/O plus alfalgia:::" + this.precioAccesorios);
                                     break;
                                 case 7:
                                     acce = new Accesorios();
@@ -1179,6 +1186,7 @@ public class Factura {
                                     acce.setCantidad(acce.getCantidad() - (42 * this.cantidadProducto));
                                     daoAccesorios.actualizar(this.session, acce);
                                     this.precioAccesorios = BrazosBasculantes + manijas + tronillos;
+                                       System.out.println("precio accesorios vProyectante 2 CUERPO X/X alfalgia:::" + this.precioAccesorios);
                                     break;
                                 case 8:
                                     acce = new Accesorios();
@@ -1197,6 +1205,7 @@ public class Factura {
                                     acce.setCantidad(acce.getCantidad() - (42 * this.cantidadProducto));
                                     daoAccesorios.actualizar(this.session, acce);
                                     this.precioAccesorios = BrazosBasculantes + manijas + tronillos;
+                                         System.out.println("precio accesorios vProyectante 2 CUERPO X/0 Boreal alfaljia:::" + this.precioAccesorios);
                                     break;
                                 case 9:
                                     acce = new Accesorios();
@@ -1215,6 +1224,7 @@ public class Factura {
                                     acce.setCantidad(acce.getCantidad() - (43 * this.cantidadProducto));
                                     daoAccesorios.actualizar(this.session, acce);
                                     this.precioAccesorios = BrazosBasculantes + manijas + tronillos;
+                                          System.out.println("precio accesorios vProyectante 2 CUERPO 0/0 Boreal alfaljia:::" + this.precioAccesorios);
                                     break;
 
                             }
@@ -1238,6 +1248,7 @@ public class Factura {
                                     acce.setCantidad(acce.getCantidad() - (43 * this.cantidadProducto));
                                     daoAccesorios.actualizar(this.session, acce);
                                     this.precioAccesorios = BrazosBasculantes + manijas + tronillos;
+                                          System.out.println("precio accesorios vProyectante 3 CUERPO XXX alfaljia:::" + this.precioAccesorios);
                                     break;
                                 case 2:
                                     acce = new Accesorios();
@@ -1256,6 +1267,7 @@ public class Factura {
                                     acce.setCantidad(acce.getCantidad() - (42 * this.cantidadProducto));
                                     daoAccesorios.actualizar(this.session, acce);
                                     this.precioAccesorios = BrazosBasculantes + manijas + tronillos;
+                                         System.out.println("precio accesorios vProyectante 3 CUERPO 0-x-0 alfaljia:::" + this.precioAccesorios);
                                     break;
                                 case 3:
                                     acce = new Accesorios();
@@ -1275,6 +1287,7 @@ public class Factura {
                                     acce.setCantidad(acce.getCantidad() - (44 * this.cantidadProducto));
                                     daoAccesorios.actualizar(this.session, acce);
                                     this.precioAccesorios = BrazosBasculantes + manijas + tronillos;
+                                       System.out.println("precio accesorios vProyectante 3 CUERPO alfajia x-0-x:::" + this.precioAccesorios);
                                     break;
                                 case 4:
                                     acce = new Accesorios();
@@ -1285,6 +1298,7 @@ public class Factura {
                                     acce.setCantidad(acce.getCantidad() - (24 * this.cantidadProducto));
                                     daoAccesorios.actualizar(this.session, acce);
                                     this.precioAccesorios = tronillos;
+                                     System.out.println("precio accesorios vProyectante 3 CUERPO 0-0-0 ALFALJIA:::" + this.precioAccesorios);
                                     break;
 
                             }
@@ -1307,6 +1321,7 @@ public class Factura {
                                     acce.setCantidad(acce.getCantidad() - (43 * this.cantidadProducto));
                                     daoAccesorios.actualizar(this.session, acce);
                                     this.precioAccesorios = BrazosBasculantes + manijas + tronillos;
+                                             System.out.println("precio accesorios vProyectante 4 CUERPO alfajia XXXX:::" + this.precioAccesorios);
                                     break;
 
                                 case 2:
@@ -1318,6 +1333,7 @@ public class Factura {
                                     acce.setCantidad(acce.getCantidad() - (23 * this.cantidadProducto));
                                     daoAccesorios.actualizar(this.session, acce);
                                     this.precioAccesorios = tronillos;
+                                     System.out.println("precio accesorios vProyectante 4 CUERPO 0-0-0-0 :::" + this.precioAccesorios);
                                     break;
                                 case 3:
                                     nombreVentana = "4 cuerpos 0/0/0/0/ ALFALJIA ";
@@ -1327,6 +1343,7 @@ public class Factura {
                                     acce.setCantidad(acce.getCantidad() - (48 * this.cantidadProducto));
                                     daoAccesorios.actualizar(this.session, acce);
                                     this.precioAccesorios = tronillos;
+                                        System.out.println("precio accesorios vProyectante 4 CUERPO 0/0/0/0/ ALFALJIA  :::" + this.precioAccesorios);
                                     break;
                                 case 4:
                                     acce = new Accesorios();
@@ -1345,6 +1362,7 @@ public class Factura {
                                     acce.setCantidad(acce.getCantidad() - (46 * this.cantidadProducto));
                                     daoAccesorios.actualizar(this.session, acce);
                                     this.precioAccesorios = BrazosBasculantes + manijas + tronillos;
+                                        System.out.println("precio accesorios vProyectante 4 CUERPO xx/00 ALFALJIA  :::" + this.precioAccesorios);
                                     break;
                                 case 5:
                                     acce = new Accesorios();
@@ -1363,6 +1381,7 @@ public class Factura {
                                     acce.setCantidad(acce.getCantidad() - (42 * this.cantidadProducto));
                                     daoAccesorios.actualizar(this.session, acce);
                                     this.precioAccesorios = BrazosBasculantes + manijas + tronillos;
+                                        System.out.println("precio accesorios vProyectante 4 CUERPO  X/X/0/0 ALFALJIA  :::" + this.precioAccesorios);
                                     break;
                                 case 6:
                                     acce = new Accesorios();
@@ -1381,6 +1400,7 @@ public class Factura {
                                     acce.setCantidad(acce.getCantidad() - (44 * this.cantidadProducto));
                                     daoAccesorios.actualizar(this.session, acce);
                                     this.precioAccesorios = BrazosBasculantes + manijas + tronillos;
+                                      System.out.println("precio accesorios vProyectante 4 CUERPO  4 ALFALJIA :::" + this.precioAccesorios);
                                     break;
 
                             }
@@ -1413,6 +1433,7 @@ public class Factura {
                                     System.out.println("precio tronillos:::" + tronillos);
                                     this.precioAccesorios = rodachina + cierre + tronillos;
                                     System.out.println("precio accesorios totla:::" + this.precioAccesorios);
+                                     System.out.println("precio accesorios CORREDIZA 2 CUERPO  4 XO :::" + this.precioAccesorios);
                                     break;
                                 case 2:
                                     acce = new Accesorios();
@@ -1433,6 +1454,7 @@ public class Factura {
                                     acce.setCantidad(acce.getCantidad() - (21 * this.cantidadProducto));
                                     daoAccesorios.actualizar(this.session, acce);
                                     this.precioAccesorios = rodachina + cierre + tronillos;
+                                     System.out.println("precio accesorios CORRDIZA 2 CUERPO  XX :::" + this.precioAccesorios);
                                     break;
 
                                 //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                        
@@ -1462,6 +1484,7 @@ public class Factura {
                                     acce.setCantidad(acce.getCantidad() - (9 * this.cantidadProducto));
                                     daoAccesorios.actualizar(this.session, acce);
                                     this.precioAccesorios = rodachina + cierre + tronillos + tronillos1;
+                                       System.out.println("precio accesorios CORRDIZA  3825 2 CUERPO  X0 PLUS BASICA ALFA :::" + this.precioAccesorios);
                                     break;
                                 case 4:
                                     acce = new Accesorios();
@@ -1488,6 +1511,7 @@ public class Factura {
                                     acce.setCantidad(acce.getCantidad() - (9 * this.cantidadProducto));
                                     daoAccesorios.actualizar(this.session, acce);
                                     this.precioAccesorios = rodachina + cierre + tronillos + tronillos1;
+                                       System.out.println("precio accesorios CORRDIZA 3825 2 CUERPO  XX ALF BASICA :::" + this.precioAccesorios);
                                     break;
                                 case 5:
                                     acce = new Accesorios();
@@ -1514,6 +1538,7 @@ public class Factura {
                                     acce.setCantidad(acce.getCantidad() - (9 * this.cantidadProducto));
                                     daoAccesorios.actualizar(this.session, acce);
                                     this.precioAccesorios = rodachina + cierre + tronillos + tronillos1;
+                                          System.out.println("precio accesorios CORRDIZA 3825 2 CUERPO  XO PLUS REFORZADA :::" + this.precioAccesorios);
                                     break;
 
                             }
@@ -1539,6 +1564,7 @@ public class Factura {
                                     acce.setCantidad(acce.getCantidad() - (27 * this.cantidadProducto));
                                     daoAccesorios.actualizar(this.session, acce);
                                     this.precioAccesorios = rodachina + cierre + tronillos;
+                                                System.out.println("precio accesorios CORRDIZA 3 CUERPO X0X BASICA :::" + this.precioAccesorios);
                                     break;
                                 case 2:
                                     acce = new Accesorios();
@@ -1559,6 +1585,7 @@ public class Factura {
                                     acce.setCantidad(acce.getCantidad() - (26 * this.cantidadProducto));
                                     daoAccesorios.actualizar(this.session, acce);
                                     this.precioAccesorios = rodachina + cierre + tronillos;
+                                           System.out.println("precio accesorios CORRDIZA 3 CUERPO 0X0 BASICA :::" + this.precioAccesorios);
                                     break;
                                 case 3:
                                     acce = new Accesorios();
@@ -1579,6 +1606,7 @@ public class Factura {
                                     acce.setCantidad(acce.getCantidad() - (27 * this.cantidadProducto));
                                     daoAccesorios.actualizar(this.session, acce);
                                     this.precioAccesorios = rodachina + cierre + tronillos;
+                                           System.out.println("precio accesorios CORRDIZA 3 CUERPO 0XX BASICA :::" + this.precioAccesorios);
                                     break;
                                 case 4:
                                     acce = new Accesorios();
@@ -1600,6 +1628,7 @@ public class Factura {
                                     acce.setCantidad(acce.getCantidad() - (22 * this.cantidadProducto));
                                     daoAccesorios.actualizar(this.session, acce);
                                     this.precioAccesorios = rodachina + cierre + tronillos;
+                                           System.out.println("precio accesorios CORRDIZA 3 CUERPO X0/O :::" + this.precioAccesorios);
                                     break;
 
                             }
@@ -1625,6 +1654,7 @@ public class Factura {
                                     acce.setCantidad(acce.getCantidad() - (39 * this.cantidadProducto));
                                     daoAccesorios.actualizar(this.session, acce);
                                     this.precioAccesorios = rodachina + cierre + tronillos;
+                                    System.out.println("precio accesorios CORRDIZA 4 CUERPO OXXO BASICA :::" + this.precioAccesorios);
                                     break;
                                 case 2:
                                     acce = new Accesorios();
@@ -1645,6 +1675,7 @@ public class Factura {
                                     acce.setCantidad(acce.getCantidad() - (39 * this.cantidadProducto));
                                     daoAccesorios.actualizar(this.session, acce);
                                     this.precioAccesorios = rodachina + cierre + tronillos;
+                                     System.out.println("precio accesorios CORRDIZA 4 CUERPO  X0/00 Basica Alf :::" + this.precioAccesorios);
                                     break;
 
                                 //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -1674,6 +1705,7 @@ public class Factura {
                                     acce.setCantidad(acce.getCantidad() - (16 * this.cantidadProducto));
                                     daoAccesorios.actualizar(this.session, acce);
                                     this.precioAccesorios = rodachina + cierre + tronillos + tronillos1;
+                                      System.out.println("precio accesorios CORRDIZA 4 CUERPO  0XX0 1672 DOBLE :::" + this.precioAccesorios);
                                     break;
 
                             }
@@ -1698,6 +1730,7 @@ public class Factura {
                                     acce.setCantidad(acce.getCantidad() - (36 * this.cantidadProducto));
                                     daoAccesorios.actualizar(this.session, acce);
                                     this.precioAccesorios = rodachina + cierre + tronillos;
+                                            System.out.println("precio accesorios CORRDIZA 6 CUERPO  0XX XXO BASICA :::" + this.precioAccesorios);
                                     break;
                                 case 2:
                                     acce = new Accesorios();
@@ -1718,6 +1751,7 @@ public class Factura {
                                     acce.setCantidad(acce.getCantidad() - (32 * this.cantidadProducto));
                                     daoAccesorios.actualizar(this.session, acce);
                                     this.precioAccesorios = rodachina + cierre + tronillos;
+                                           System.out.println("precio accesorios CORRDIZA 6 CUERPO  OXO /OOO BASICA:::" + this.precioAccesorios);
                                     break;
 
                             }
@@ -1742,6 +1776,7 @@ public class Factura {
                                     acce.setCantidad(acce.getCantidad() - (36 * this.cantidadProducto));
                                     daoAccesorios.actualizar(this.session, acce);
                                     this.precioAccesorios = rodachina + cierre + tronillos;
+                                           System.out.println("precio accesorios CORRDIZA 8 CUERPO OXXO /OOO0 BASICA:::" + this.precioAccesorios);
                                     break;
 
                             }
