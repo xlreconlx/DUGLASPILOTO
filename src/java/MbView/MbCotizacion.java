@@ -1791,7 +1791,8 @@ public class MbCotizacion {
 
                                     proyec.VentanaProyec(this.lista.get(134).getPreciocost(), this.lista.get(138).getPreciocost(),
                                             this.lista.get(169).getPreciocost(), this.lista.get(135).getPreciocost(),
-                                            this.lista.get(343).getPreciocost(), this.lista.get(342).getPreciocost(), this.lista.get(346).getPreciocost());
+                                            this.lista.get(343).getPreciocost(), this.lista.get(342).getPreciocost(), this.lista.get(346).getPreciocost()
+                                    , this.lista.get(347).getPreciocost());
                                     break;
 
                                 case 2:// para ventanas proyectante  de aluminio 3831 Anolo linea ECOMICA ALE
@@ -1809,7 +1810,8 @@ public class MbCotizacion {
 
                                     proyec.VentanaProyec(this.lista.get(134).getPrecioAnonizado(), this.lista.get(138).getPrecioAnonizado(),
                                             this.lista.get(169).getPrecioAnonizado(), this.lista.get(135).getPrecioAnonizado(),
-                                            this.lista.get(343).getPrecioAnonizado(), this.lista.get(342).getPrecioAnonizado(), this.lista.get(346).getPrecioAnonizado());
+                                            this.lista.get(343).getPrecioAnonizado(), this.lista.get(342).getPrecioAnonizado(), this.lista.get(346).getPrecioAnonizado()
+                                    , this.lista.get(347).getPrecioAnonizado());
                                     break;
 
                                 case 3:// para ventanas proyectante  de aluminio 3831 Pintura linea ECOMICA ALE
@@ -1827,67 +1829,12 @@ public class MbCotizacion {
 
                                     proyec.VentanaProyec(this.lista.get(134).getPrecioPintura(), this.lista.get(138).getPrecioPintura(),
                                             this.lista.get(169).getPrecioPintura(), this.lista.get(135).getPrecioPintura(),
-                                            this.lista.get(343).getPrecioPintura(), this.lista.get(342).getPrecioPintura(), this.lista.get(346).getPrecioPintura());
+                                            this.lista.get(343).getPrecioPintura(), this.lista.get(342).getPrecioPintura(), this.lista.get(346).getPrecioPintura(),
+                                             this.lista.get(347).getPrecioPintura());
                                     break;
                             }
                             break;
-                        case 2:
-                            switch (tipoColor) {
-                                case 1:// para ventanas proyectante  de aluminio 3831 Natural en la linea FINA VITRAL
-                                    proyec = new VentanaProyec();
-                                    proyec.setAlto(alto);
-                                    proyec.setAncho(ancho);
-                                    proyec.setPrecioTrabajo(this.manObra);
-                                    proyec.setPrecioDescuento(this.ganancia);
-                                    proyec.setTipoProducto(opcionVentana);
-                                    proyec.setPrecioCabezal(this.lista.get(131).getPreciocost());
-                                    proyec.setPrecioSillar(this.lista.get(137).getPreciocost());
-                                    proyec.setPrecioJamba(this.lista.get(132).getPreciocost());
-                                    proyec.setPrecioAdaptador(this.lista.get(133).getPreciocost());
-                                    proyec.setPrecioEmpaque(this.lista.get(354).getPreciocost());
-
-                                    proyec.VentanaProyec(this.lista.get(134).getPreciocost(), this.lista.get(138).getPreciocost(),
-                                            this.lista.get(169).getPreciocost(), this.lista.get(135).getPreciocost(),
-                                            this.lista.get(343).getPreciocost(), this.lista.get(342).getPreciocost(), this.lista.get(346).getPreciocost());
-                                    break;
-
-                                case 2:// para ventanas proyectante  de aluminio 3831 ANOLO en la linea FINA VITRAL
-                                    proyec = new VentanaProyec();
-                                    proyec.setAlto(alto);
-                                    proyec.setAncho(ancho);
-                                    proyec.setPrecioTrabajo(this.manObra);
-                                    proyec.setPrecioDescuento(this.ganancia);
-                                    proyec.setTipoProducto(opcionVentana);
-                                    proyec.setPrecioCabezal(this.lista.get(131).getPrecioAnonizado());
-                                    proyec.setPrecioSillar(this.lista.get(137).getPrecioAnonizado());
-                                    proyec.setPrecioJamba(this.lista.get(132).getPrecioAnonizado());
-                                    proyec.setPrecioAdaptador(this.lista.get(133).getPrecioAnonizado());
-                                    proyec.setPrecioEmpaque(this.lista.get(354).getPrecioAnonizado());
-
-                                    proyec.VentanaProyec(this.lista.get(134).getPrecioAnonizado(), this.lista.get(138).getPrecioAnonizado(),
-                                            this.lista.get(169).getPrecioAnonizado(), this.lista.get(135).getPrecioAnonizado(),
-                                            this.lista.get(343).getPrecioAnonizado(), this.lista.get(342).getPrecioAnonizado(), this.lista.get(346).getPrecioAnonizado());
-                                    break;
-
-                                case 3:// para ventanas proyectante  de aluminio 3831 Pintura en la linea FINA VITRAL
-                                    proyec = new VentanaProyec();
-                                    proyec.setAlto(alto);
-                                    proyec.setAncho(ancho);
-                                    proyec.setPrecioTrabajo(this.manObra);
-                                    proyec.setPrecioDescuento(this.ganancia);
-                                    proyec.setTipoProducto(opcionVentana);
-                                    proyec.setPrecioCabezal(this.lista.get(131).getPrecioPintura());
-                                    proyec.setPrecioSillar(this.lista.get(137).getPrecioPintura());
-                                    proyec.setPrecioJamba(this.lista.get(132).getPrecioPintura());
-                                    proyec.setPrecioAdaptador(this.lista.get(133).getPrecioPintura());
-                                    proyec.setPrecioEmpaque(this.lista.get(354).getPrecioPintura());
-
-                                    proyec.VentanaProyec(this.lista.get(134).getPrecioPintura(), this.lista.get(138).getPrecioPintura(),
-                                            this.lista.get(169).getPrecioPintura(), this.lista.get(135).getPrecioPintura(),
-                                            this.lista.get(343).getPrecioPintura(), this.lista.get(342).getPrecioPintura(), this.lista.get(346).getPrecioPintura());
-                                    break;
-                            }
-                            break;
+                
                     }
 
                     precioInstala = this.precioInstalacion;

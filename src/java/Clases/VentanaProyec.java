@@ -15,6 +15,7 @@ public class VentanaProyec extends Ventanas {
     private int nave;
     private int alfajia;
     private int divisor;
+       private int divisor2;
     private int jambaPlus;
     private int cabezalPlus;
     private int marcoHInferior;
@@ -23,6 +24,7 @@ public class VentanaProyec extends Ventanas {
     private int precioNave;
     private int precioAfajia;
     private int precioDivisor;
+      private int precioDivisor2;
     private int precioJambaPlus;
     private int precioCabezalPlus;
     private int PrecioMarcoHInferior;
@@ -31,7 +33,7 @@ public class VentanaProyec extends Ventanas {
     }
 
     public void VentanaProyec(int precioPisavidrio, int precioNave, int precioAfajia, int precioDivisor, int precioJambaPlus,
-        int precioCabezalPlus, int precioMarcoHInferior) {
+        int precioCabezalPlus, int precioMarcoHInferior, int precioDivisor2) {
         this.precioPisavidrio = precioPisavidrio;
         this.precioNave = precioNave;
         this.precioAfajia = precioAfajia;
@@ -39,6 +41,7 @@ public class VentanaProyec extends Ventanas {
         this.precioJambaPlus = precioJambaPlus;
         this.precioCabezalPlus = precioCabezalPlus;
         this.PrecioMarcoHInferior = precioMarcoHInferior;
+        this.precioDivisor2= precioDivisor2;
 
         switch (getTipoProducto()) {
             case 1:
@@ -183,8 +186,8 @@ public class VentanaProyec extends Ventanas {
                 this.precioAfajia = this.alfajia * this.precioAfajia;
                 setPrecioEmpaque(getEmpaque() * getPrecioEmpaque());
 
-                setSumaTotal(getPrecioCabezal() + getPrecioJamba() + this.precioPisavidrio
-                        + this.precioAfajia + getPrecioEmpaque());
+                setSumaTotal((getPrecioCabezal() + getPrecioJamba() + this.precioPisavidrio*1
+                        + this.precioAfajia)*105 + getPrecioEmpaque());
 
                 setSubTotal(getSumaTotal());
                 setPrecioTrabajo(getPrecioTrabajo() * 100);
@@ -357,7 +360,7 @@ public class VentanaProyec extends Ventanas {
                 this.pisavidrio = (getAncho() * 4) + (getAlto() * 2);
                 this.nave = (getAnchoFijo()* 2) + (getAlto() * 2);
                 this.alfajia = getAncho();
-                this.divisor = getAncho();
+                this.divisor2 = getAncho();
                 setAdaptador(getAlto() * 2);
                 setEmpaque((getAncho() * 12) + (getAlto() * 6));
 
@@ -367,12 +370,12 @@ public class VentanaProyec extends Ventanas {
                 this.precioPisavidrio = this.pisavidrio * this.precioPisavidrio;
                 this.precioNave = this.nave * this.precioNave;
                 this.precioAfajia = this.alfajia * this.precioAfajia;
-                this.precioDivisor = this.divisor * (this.precioDivisor / 6);
+                this.precioDivisor2 = this.divisor2 * (this.precioDivisor2 / 6);
                 setPrecioAdaptador(getAdaptador() * getPrecioAdaptador());
                 setPrecioEmpaque(getEmpaque() * getPrecioEmpaque());
 
                 setSumaTotal(getPrecioCabezal() + this.precioJambaPlus + this.PrecioMarcoHInferior + this.precioPisavidrio + this.precioNave
-                        + this.precioAfajia + this.precioDivisor + getPrecioAdaptador() + getPrecioEmpaque());
+                        + this.precioAfajia + this.precioDivisor2 + getPrecioAdaptador() + getPrecioEmpaque());
 
                 setSubTotal(getSumaTotal());
                 setPrecioTrabajo(getPrecioTrabajo() * 100);
@@ -544,7 +547,7 @@ public class VentanaProyec extends Ventanas {
                 this.nave = (getAncho() * 2) + (getAltoFijo()* 2);
                 this.alfajia = getAncho();
                 setAdaptador((getAncho() * 2) + (getAlto() * 2));
-                this.divisor = getAncho();
+                this.divisor2 = getAncho();
                 setEmpaque((getAncho() * 12) + (getAlto() * 6));
 
                 this.precioCabezalPlus = this.cabezalPlus * (this.precioCabezalPlus / 6);
@@ -553,11 +556,11 @@ public class VentanaProyec extends Ventanas {
                 this.precioNave = this.nave * this.precioNave;
                 this.precioAfajia = this.alfajia * this.precioAfajia;
                 setPrecioAdaptador(getAdaptador() + getPrecioAdaptador());
-                this.precioDivisor = this.divisor * (this.precioDivisor / 6);
+                this.precioDivisor2 = this.divisor2 * (this.precioDivisor2 / 6);
                 setPrecioEmpaque(getEmpaque() * getPrecioEmpaque());
 
                 setSumaTotal(this.precioCabezalPlus + this.precioJambaPlus + this.precioPisavidrio + this.precioNave
-                        + this.precioAfajia + getPrecioAdaptador() + this.precioDivisor + getPrecioEmpaque());
+                        + this.precioAfajia + getPrecioAdaptador() + this.precioDivisor2 + getPrecioEmpaque());
 
                 setSubTotal(getSumaTotal());
                 setPrecioTrabajo(getPrecioTrabajo() * 100);
@@ -573,7 +576,7 @@ public class VentanaProyec extends Ventanas {
                 this.nave = (getAncho() * 2) + (getAltoFijo()*2);
                 this.alfajia = getAncho();
                 setAdaptador((getAncho() * 2) + (getAlto() * 2));
-                this.divisor = getAncho();
+                this.divisor2 = getAncho();
                 setEmpaque((getAncho() * 12) + (getAlto() * 6));
 
                 this.precioCabezalPlus = this.cabezalPlus * (this.precioCabezalPlus / 6);
@@ -582,11 +585,11 @@ public class VentanaProyec extends Ventanas {
                 this.precioNave = this.nave * this.precioNave;
                 this.precioAfajia = this.alfajia * this.precioAfajia;
                 setPrecioAdaptador(getAdaptador() + getPrecioAdaptador());
-                this.precioDivisor = this.divisor * (this.precioDivisor / 6);
+                this.precioDivisor2 = this.divisor2 * (this.precioDivisor2 / 6);
                 setPrecioEmpaque(getEmpaque() * getPrecioEmpaque());
 
                 setSumaTotal(this.precioCabezalPlus + this.precioJambaPlus + this.precioPisavidrio + this.precioNave
-                        + this.precioAfajia + getPrecioAdaptador() + this.precioDivisor + getPrecioEmpaque());
+                        + this.precioAfajia + getPrecioAdaptador() + this.precioDivisor2 + getPrecioEmpaque());
 
                 setSubTotal(getSumaTotal());
                 setPrecioTrabajo(getPrecioTrabajo() * 100);
@@ -741,6 +744,22 @@ public class VentanaProyec extends Ventanas {
 
     public void setPrecioMarcoHInferior(int PrecioMarcoHInferior) {
         this.PrecioMarcoHInferior = PrecioMarcoHInferior;
+    }
+
+    public int getDivisor2() {
+        return divisor2;
+    }
+
+    public void setDivisor2(int divisor2) {
+        this.divisor2 = divisor2;
+    }
+
+    public int getPrecioDivisor2() {
+        return precioDivisor2;
+    }
+
+    public void setPrecioDivisor2(int precioDivisor2) {
+        this.precioDivisor2 = precioDivisor2;
     }
 
 }

@@ -111,11 +111,12 @@ public class VentanaCorre extends Ventanas {
                 setSumaTotal(getPrecioCabezal() + this.precioSillarRiel + getPrecioJamba() + getPrecioHsuperior()
                         + getPrecioHinferior() + this.precioHIferiorFijo + getPrecioTraslape()
                         + getPrecioEnganche() + getPrecioEmpaque() + getPreciofelpa());
+                   System.out.println("suma total perfiles :...." + getSumaTotal());
 
                 setSubTotal(getSumaTotal());
                 setPrecioTrabajo(getPrecioTrabajo() * 100);
                 setSumaTotal(getSumaTotal() + getPrecioTrabajo());
-                System.out.println("suma total perfiles :...." + getSumaTotal());
+                System.out.println("suma total perfiles + precio trabajo:...." + getSumaTotal());
                 setSumaTotal(recortar(String.valueOf(getSumaTotal())));
 
                 break;
@@ -132,7 +133,7 @@ public class VentanaCorre extends Ventanas {
                 setFelpa(getAncho() * 4 + getAlto() * 4);
 
                 setPrecioCabezal((getPrecioCabezal() / 6) * getCabezal());
-                System.out.println("precio cabezal caso 2 xx  suma:::" + getPrecioCabezal());
+                System.out.println("precio cabezal caso 2 xx AS 1700  suma:::" + getPrecioCabezal());
 
                 setPrecioSillar(getSillar() * (getPrecioSillar() / 6));
                 System.out.println("precio sillar caso 2 suma" + getPrecioSillar());
@@ -175,27 +176,27 @@ public class VentanaCorre extends Ventanas {
                 this.hIferiorFijo = getAncho() / 2;
                 sethInferior(getAncho() / 2);// este es el h inferior nave
                 setTraslape(getAlto() * 4);  // este es el vertical cerradura
-                setEnganche(getAlto() * 4);
+                      this.engancheReforzado = getAlto() * 4;
                 setAdaptador(getAlto());
                 setEmpaque(getAncho() * 2 + getAlto() * 8);
                 setFelpa(getAncho() * 4 + getAlto() * 8);
 
                 setPrecioCabezal((getPrecioCabezal() / 6) * getCabezal());
-                System.out.println("precio cabezal caso 0XX0 suma:::" + getPrecioCabezal());
+                System.out.println("precio cabezal caso 0XX0 AS 1700 suma:::" + getPrecioCabezal());
                 setPrecioSillar(getSillar() * (getPrecioSillar() / 6));
                 setPrecioJamba(getJamba() * (getPrecioJamba() / 6));
                 setPrecioHsuperior(gethSuperior() * (getPrecioHsuperior() / 6));
                 setPrecioHinferior(gethInferior() * (getPrecioHinferior() / 6));
                 this.precioHIferiorFijo = this.hIferiorFijo * this.precioHIferiorFijo;
                 setPrecioTraslape(getTraslape() * (getPrecioTraslape() / 6));
-                setPrecioEnganche(getEnganche() * (getPrecioEnganche() / 6));
+                this.precioEngancheReforzado = this.engancheReforzado * this.precioEngancheReforzado;
                 setPrecioAdaptador(getAdaptador() * (getPrecioAdaptador() / 6));
                 setPrecioEmpaque(getEmpaque() * getPrecioEmpaque());
                 setPreciofelpa(getFelpa() * getPreciofelpa());
 
                 setSumaTotal(getPrecioCabezal() + getPrecioSillar() + getPrecioJamba() + getPrecioHsuperior()
                         + getPrecioHinferior() + this.precioHIferiorFijo + getPrecioTraslape()
-                        + getPrecioEnganche() + getPrecioAdaptador() + getPrecioEmpaque() + getPreciofelpa());
+                           + this.precioEngancheReforzado + getPrecioAdaptador() + getPrecioEmpaque() + getPreciofelpa());
 
                 setSubTotal(getSumaTotal());
                 setPrecioTrabajo(getPrecioTrabajo() * 100);
@@ -217,7 +218,7 @@ public class VentanaCorre extends Ventanas {
                 setFelpa(getAncho() * 4 + getAlto() * 6);
 
                 setPrecioCabezal((getPrecioCabezal() / 6) * getCabezal());
-                System.out.println("precio cabezal caso xox suma:::" + getPrecioCabezal());
+                System.out.println("precio cabezal caso xox AS 1700 suma:::" + getPrecioCabezal());
                 setPrecioSillar(getSillar() * (getPrecioSillar() / 6));
                 setPrecioJamba(getJamba() * (getPrecioJamba() / 6));
                 setPrecioHsuperior(gethSuperior() * (getPrecioHsuperior() / 6));
@@ -253,7 +254,7 @@ public class VentanaCorre extends Ventanas {
                 setFelpa(getAncho() * 4 + getAlto() * 6);
 
                 setPrecioCabezal((getPrecioCabezal() / 6) * getCabezal());
-                System.out.println("precio cabezal caso 0x0 suma:::" + getPrecioCabezal());
+                System.out.println("precio cabezal caso 0x0 AS 1700 suma:::" + getPrecioCabezal());
                 setPrecioSillar(getSillar() * (getPrecioSillar() / 6));
                 setPrecioJamba(getJamba() * (getPrecioJamba() / 6));
                 setPrecioHsuperior(gethSuperior() * (getPrecioHsuperior() / 6));
@@ -290,6 +291,7 @@ public class VentanaCorre extends Ventanas {
                 setFelpa(getAncho() * 4 + getAlto() * 6);
 
                 setPrecioCabezal((getPrecioCabezal() / 6) * getCabezal());
+                    System.out.println("precio cabezal caso 0XX AS 1700 suma:::" + getPrecioCabezal());
                 setPrecioSillar(getSillar() * (getPrecioSillar() / 6));
                 this.precioAdactadorSuperior = this.adaptadorSuperior * this.precioAdactadorSuperior;
                 this.precioAdactadorInferior = this.adaptadorInferior * this.precioAdactadorInferior;
@@ -329,7 +331,7 @@ public class VentanaCorre extends Ventanas {
                 setFelpa(getAncho() * 4 + getAlto() * 12);
 
                 setPrecioCabezal((getPrecioCabezal() / 6) * getCabezal());
-                System.out.println("precio cabezal caso 0XX XX0 suma:::" + getPrecioCabezal());
+                System.out.println("precio cabezal caso 0XX XX0 AS 1700 suma:::" + getPrecioCabezal());
                 setPrecioSillar(getSillar() * (getPrecioSillar() / 6));
                 this.precioAdactadorSuperior = this.adaptadorSuperior * (this.precioAdactadorSuperior / 6);
                 this.precioAdactadorInferior = this.adaptadorInferior * this.precioAdactadorInferior;
@@ -373,7 +375,7 @@ public class VentanaCorre extends Ventanas {
                 setFelpa(getAncho() * 4 + getAlto() * 4);
 
                 setPrecioCabezal((getPrecioCabezal() / 6) * getCabezal());
-                System.out.println("precio cabezal caso xo/0 suma:::" + getPrecioCabezal());
+                System.out.println("precio cabezal caso xo/0 AS 1700 suma:::" + getPrecioCabezal());
                 setPrecioSillar(getSillar() * (getPrecioSillar() / 6));
                 setPrecioJamba(getJamba() * (getPrecioJamba() / 6));
                 setPrecioHsuperior(gethSuperior() * (getPrecioHsuperior() / 6));
@@ -417,7 +419,7 @@ public class VentanaCorre extends Ventanas {
                 setFelpa(getAncho() * 4 + getAlto() * 4);
 
                 setPrecioCabezal((getPrecioCabezal() / 6) * getCabezal());
-                System.out.println("precio cabezal caso xo/00  suma:::" + getPrecioCabezal());
+                System.out.println("precio cabezal caso xo/00 AS 1700 suma:::" + getPrecioCabezal());
                 setPrecioSillar(getSillar() * (getPrecioSillar() / 6));
                 setPrecioJamba(getJamba() * (getPrecioJamba() / 6));
                 setPrecioHsuperior(gethSuperior() * (getPrecioHsuperior() / 6));
@@ -464,7 +466,7 @@ public class VentanaCorre extends Ventanas {
                 setFelpa(getAncho() * 4 + getAlto() * 6);
 
                 setPrecioCabezal((getPrecioCabezal() / 6) * getCabezal());
-                System.out.println("precio cabezal caso 0X0/000  suma:::" + getPrecioCabezal());
+                System.out.println("precio cabezal caso 0X0/000 AS 1700 suma:::" + getPrecioCabezal());
                 setPrecioSillar(getSillar() * (getPrecioSillar() / 6));
                 setPrecioJamba(getJamba() * (getPrecioJamba() / 6));
                 setPrecioHsuperior(gethSuperior() * (getPrecioHsuperior() / 6));
@@ -512,7 +514,7 @@ public class VentanaCorre extends Ventanas {
                 setFelpa(getAncho() * 4 + getAlto() * 8);
 
                 setPrecioCabezal((getPrecioCabezal() / 6) * getCabezal());
-                System.out.println("precio cabezal caso 0XX0/0000  suma:::" + getPrecioCabezal());
+                System.out.println("precio cabezal caso 0XX0/0000 AS 1700 suma:::" + getPrecioCabezal());
                 setPrecioSillar(getSillar() * (getPrecioSillar() / 6));
                 setPrecioJamba(getJamba() * (getPrecioJamba() / 6));
                 setPrecioHsuperior(gethSuperior() * (getPrecioHsuperior() / 6));

@@ -1205,7 +1205,8 @@ public class MbCalcular {
 
                                     proyec.VentanaProyec(this.lista.get(134).getPreciocost(), this.lista.get(138).getPreciocost(),
                                             this.lista.get(169).getPreciocost(), this.lista.get(135).getPreciocost(),
-                                            this.lista.get(343).getPreciocost(), this.lista.get(342).getPreciocost(), this.lista.get(346).getPreciocost());
+                                            this.lista.get(343).getPreciocost(), this.lista.get(342).getPreciocost(), this.lista.get(346).getPreciocost()
+                                    , this.lista.get(347).getPreciocost());
                                     break;
 
                                 case 2:// para ventanas proyectante  de aluminio 3831 Anolo linea ECOMICA ALE
@@ -1223,7 +1224,8 @@ public class MbCalcular {
 
                                     proyec.VentanaProyec(this.lista.get(134).getPrecioAnonizado(), this.lista.get(138).getPrecioAnonizado(),
                                             this.lista.get(169).getPrecioAnonizado(), this.lista.get(135).getPrecioAnonizado(),
-                                            this.lista.get(343).getPrecioAnonizado(), this.lista.get(342).getPrecioAnonizado(), this.lista.get(346).getPrecioAnonizado());
+                                            this.lista.get(343).getPrecioAnonizado(), this.lista.get(342).getPrecioAnonizado(), this.lista.get(346).getPrecioAnonizado()
+                                    , this.lista.get(347).getPrecioAnonizado());
                                     break;
 
                                 case 3:// para ventanas proyectante  de aluminio 3831 Pintura linea ECOMICA ALE
@@ -1241,7 +1243,8 @@ public class MbCalcular {
 
                                     proyec.VentanaProyec(this.lista.get(134).getPrecioPintura(), this.lista.get(138).getPrecioPintura(),
                                             this.lista.get(169).getPrecioPintura(), this.lista.get(135).getPrecioPintura(),
-                                            this.lista.get(343).getPrecioPintura(), this.lista.get(342).getPrecioPintura(), this.lista.get(346).getPrecioPintura());
+                                            this.lista.get(343).getPrecioPintura(), this.lista.get(342).getPrecioPintura(), this.lista.get(346).getPrecioPintura(),
+                                            this.lista.get(347).getPrecioPintura());
                                     break;
                             }
                             break;

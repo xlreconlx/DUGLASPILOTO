@@ -1038,6 +1038,11 @@ public class Factura {
                                     BrazosBasculantes = acce.getPrecioCosto() * 2;
                                     acce.setCantidad(acce.getCantidad() - (2 * this.cantidadProducto));//Descuenta la cantidad
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
+                                        acce = daoAccesorios.getById(this.session, 21);
+                                    manijas = acce.getPrecioCosto() * 1;
+                                    acce.setCantidad(acce.getCantidad() - (1 * this.cantidadProducto));//Descuenta la cantidad
+                                    daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
+                                    System.out.println("precio manijas:::" + manijas);
                                     acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
                                     tronillos = acce.getPrecioCosto() * 17;
                                     acce.setCantidad(acce.getCantidad() - (17 * this.cantidadProducto));
@@ -1805,9 +1810,10 @@ public class Factura {
                                     proyec.setPrecioAdaptador(this.lista.get(133).getPreciocost());
                                     proyec.setPrecioEmpaque(this.lista.get(354).getPreciocost());
 
-                                    proyec.VentanaProyec(this.lista.get(134).getPreciocost(), this.lista.get(138).getPreciocost(),
+                                    proyec.VentanaProyec(this.lista.get(134).getPreciocost(), this.lista.get(136).getPreciocost(),
                                             this.lista.get(169).getPreciocost(), this.lista.get(135).getPreciocost(),
-                                            this.lista.get(343).getPreciocost(), this.lista.get(342).getPreciocost(), this.lista.get(346).getPreciocost());
+                                            this.lista.get(343).getPreciocost(), this.lista.get(342).getPreciocost(), this.lista.get(346).getPreciocost()
+                                    , this.lista.get(347).getPreciocost());
                                     break;
 
                                 case 2:// para ventanas proyectante  de aluminio 3831 Anolo linea ECOMICA ALE
@@ -1827,7 +1833,8 @@ public class Factura {
 
                                     proyec.VentanaProyec(this.lista.get(134).getPrecioAnonizado(), this.lista.get(138).getPrecioAnonizado(),
                                             this.lista.get(169).getPrecioAnonizado(), this.lista.get(135).getPrecioAnonizado(),
-                                            this.lista.get(343).getPrecioAnonizado(), this.lista.get(342).getPrecioAnonizado(), this.lista.get(346).getPrecioAnonizado());
+                                            this.lista.get(343).getPrecioAnonizado(), this.lista.get(342).getPrecioAnonizado(), this.lista.get(346).getPrecioAnonizado()
+                                     , this.lista.get(347).getPrecioAnonizado());
                                     break;
 
                                 case 3:// para ventanas proyectante  de aluminio 3831 Pintura linea ECOMICA ALE
@@ -1847,7 +1854,8 @@ public class Factura {
 
                                     proyec.VentanaProyec(this.lista.get(134).getPrecioPintura(), this.lista.get(138).getPrecioPintura(),
                                             this.lista.get(169).getPrecioPintura(), this.lista.get(135).getPrecioPintura(),
-                                            this.lista.get(343).getPrecioPintura(), this.lista.get(342).getPrecioPintura(), this.lista.get(346).getPrecioPintura());
+                                            this.lista.get(343).getPrecioPintura(), this.lista.get(342).getPrecioPintura(), this.lista.get(346).getPrecioPintura()
+                                , this.lista.get(347).getPrecioPintura());
                                     break;
                             }
                             break;
