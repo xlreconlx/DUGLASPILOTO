@@ -109,6 +109,8 @@ public class MbCotizacion {
     private int tipoModeloPuerta;
     private int diseno;
     private int precioInstalacion;
+      private String altoFijo;
+    private String anchoFijo;
 
     public MbCotizacion() {
         this.lista = new ArrayList<>();
@@ -964,38 +966,30 @@ public class MbCotizacion {
             String nombreAluminio = "";
             String nombreVentana = "";
             String modeloVentana = "";
-            switch (tipoAluminioProy) {
+           switch (tipoAluminioProy) {
                 case 1:
                     nombreAluminio = " Aluminio 3831 ALE";
                     break;
-                case 2:
-                    nombreAluminio = " Aluminio 3831 VITRAL";
-                    break;
-//                case 3:
-//                    nombreAluminio = " Aluminio 8025";
+//                case 2:
+//                    nombreAluminio = " Aluminio 3831 VITRAL";
 //                    break;
+////                case 3:
+////                    nombreAluminio = " Aluminio 8025";
+////                    break;
             }
             switch (tipoAluminioCorred) {
                 case 1:
-                    nombreAluminio = " Aluminio AS 1700";
+                    nombreAluminio = " VC AS 1700";
                     break;
                 case 2:
-                    nombreAluminio = " Aluminio AS 1800";
+                    nombreAluminio = " VC 3825";
                     break;
-                case 3:
-                    nombreAluminio = " Aluminio AS 1900";
-                    break;
+              
             }
             switch (tipoAluminioBati) {
                 case 1:
-                    nombreAluminio = " Aluminio 3825";
+                    nombreAluminio = " Aluminio batiente";
                     break;
-//                case 2:
-//                    nombreAluminio = " Aluminio 5020";
-//                    break;
-//                case 3:
-//                    nombreAluminio = " Aluminio 8025";
-//                    break;
             }
 
             switch (tipoColor) {
@@ -1018,7 +1012,7 @@ public class MbCotizacion {
             int cierre = 0;
             int opcionVentana = 0;
             Accesorios acce = new Accesorios();
-            switch (tipoModeloVentana) {
+ switch (tipoModeloVentana) {
                 case 1://Proyectante
                     switch (tipoVentana) {
                         case 1://1 cuerpos
@@ -1041,7 +1035,7 @@ public class MbCotizacion {
                                     acce = new Accesorios();
                                     nombreVentana = "1 cuerpo O";
                                     opcionVentana = 5;
-                                    acce = daoAccesorios.getById(this.session, 105);
+                                    acce = daoAccesorios.getById(this.session, 104);
                                     tronillos = acce.getPrecioCosto() * 24;
                                     acce.setCantidad(acce.getCantidad() - (24 * this.cantidadProducto));
                                     daoAccesorios.actualizar(this.session, acce);
@@ -1060,17 +1054,19 @@ public class MbCotizacion {
                                     BrazosBasculantes = acce.getPrecioCosto() * 4;
                                     acce.setCantidad(acce.getCantidad() - (4 * this.cantidadProducto));//Descuenta la cantidad
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
-
-                                    acce = daoAccesorios.getById(this.session, 34);
+                                    System.out.println("precio brazos:::" + BrazosBasculantes);
+                                    acce = daoAccesorios.getById(this.session, 21);
                                     manijas = acce.getPrecioCosto() * 2;
                                     acce.setCantidad(acce.getCantidad() - (2 * this.cantidadProducto));//Descuenta la cantidad
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
-
+                                    System.out.println("precio manijas:::" + manijas);
                                     acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
-                                    tronillos = acce.getPrecioCosto() * 17;
-                                    acce.setCantidad(acce.getCantidad() - (17 * this.cantidadProducto));
+                                    tronillos = acce.getPrecioCosto() * 31;
+                                    acce.setCantidad(acce.getCantidad() - (31 * this.cantidadProducto));
+                                    System.out.println("precio tornillos:::" + tronillos);
                                     daoAccesorios.actualizar(this.session, acce);
                                     this.precioAccesorios = BrazosBasculantes + manijas + tronillos;
+                                    System.out.println("precio accesorios:::" + this.precioAccesorios);
                                     break;
                                 case 2:
                                     acce = new Accesorios();
@@ -1101,7 +1097,7 @@ public class MbCotizacion {
                                     acce.setCantidad(acce.getCantidad() - (2 * this.cantidadProducto));//Descuenta la cantidad
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
 
-                                    acce = daoAccesorios.getById(this.session, 34);
+                                    acce = daoAccesorios.getById(this.session, 20);
                                     manijas = acce.getPrecioCosto() * 1;
                                     acce.setCantidad(acce.getCantidad() - (1 * this.cantidadProducto));//Descuenta la cantidad
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
@@ -1120,7 +1116,7 @@ public class MbCotizacion {
                                     BrazosBasculantes = acce.getPrecioCosto() * 4;
                                     acce.setCantidad(acce.getCantidad() - (4 * this.cantidadProducto));//Descuenta la cantidad
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
-                                    acce = daoAccesorios.getById(this.session, 34);
+                                    acce = daoAccesorios.getById(this.session, 20);
                                     manijas = acce.getPrecioCosto() * 1;
                                     acce.setCantidad(acce.getCantidad() - (1 * this.cantidadProducto));//Descuenta la cantidad
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
@@ -1138,7 +1134,7 @@ public class MbCotizacion {
                                     BrazosBasculantes = acce.getPrecioCosto() * 2;
                                     acce.setCantidad(acce.getCantidad() - (2 * this.cantidadProducto));//Descuenta la cantidad
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
-                                    acce = daoAccesorios.getById(this.session, 34);
+                                    acce = daoAccesorios.getById(this.session, 20);
                                     manijas = acce.getPrecioCosto() * 1;
                                     acce.setCantidad(acce.getCantidad() - (1 * this.cantidadProducto));//Descuenta la cantidad
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
@@ -1156,7 +1152,7 @@ public class MbCotizacion {
                                     BrazosBasculantes = acce.getPrecioCosto() * 4;
                                     acce.setCantidad(acce.getCantidad() - (4 * this.cantidadProducto));//Descuenta la cantidad
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
-                                    acce = daoAccesorios.getById(this.session, 34);
+                                    acce = daoAccesorios.getById(this.session, 20);
                                     manijas = acce.getPrecioCosto() * 2;
                                     acce.setCantidad(acce.getCantidad() - (2 * this.cantidadProducto));//Descuenta la cantidad
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
@@ -1174,7 +1170,7 @@ public class MbCotizacion {
                                     BrazosBasculantes = acce.getPrecioCosto() * 2;
                                     acce.setCantidad(acce.getCantidad() - (2 * this.cantidadProducto));//Descuenta la cantidad
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
-                                    acce = daoAccesorios.getById(this.session, 34);
+                                    acce = daoAccesorios.getById(this.session, 20);
                                     manijas = acce.getPrecioCosto() * 1;
                                     acce.setCantidad(acce.getCantidad() - (1 * this.cantidadProducto));//Descuenta la cantidad
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
@@ -1192,7 +1188,7 @@ public class MbCotizacion {
                                     BrazosBasculantes = acce.getPrecioCosto() * 2;
                                     acce.setCantidad(acce.getCantidad() - (2 * this.cantidadProducto));//Descuenta la cantidad
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
-                                    acce = daoAccesorios.getById(this.session, 34);
+                                    acce = daoAccesorios.getById(this.session, 20);
                                     manijas = acce.getPrecioCosto() * 1;
                                     acce.setCantidad(acce.getCantidad() - (1 * this.cantidadProducto));//Descuenta la cantidad
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
@@ -1215,7 +1211,7 @@ public class MbCotizacion {
                                     BrazosBasculantes = acce.getPrecioCosto() * 6;
                                     acce.setCantidad(acce.getCantidad() - (6 * this.cantidadProducto));//Descuenta la cantidad
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
-                                    acce = daoAccesorios.getById(this.session, 34);
+                                    acce = daoAccesorios.getById(this.session, 20);
                                     manijas = acce.getPrecioCosto() * 3;
                                     acce.setCantidad(acce.getCantidad() - (3 * this.cantidadProducto));//Descuenta la cantidad
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
@@ -1233,7 +1229,7 @@ public class MbCotizacion {
                                     BrazosBasculantes = acce.getPrecioCosto() * 6;
                                     acce.setCantidad(acce.getCantidad() - (6 * this.cantidadProducto));//Descuenta la cantidad
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
-                                    acce = daoAccesorios.getById(this.session, 34);
+                                    acce = daoAccesorios.getById(this.session, 20);
                                     manijas = acce.getPrecioCosto() * 2;
                                     acce.setCantidad(acce.getCantidad() - (2 * this.cantidadProducto));//Descuenta la cantidad
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
@@ -1251,7 +1247,7 @@ public class MbCotizacion {
                                     BrazosBasculantes = acce.getPrecioCosto() * 4;
                                     acce.setCantidad(acce.getCantidad() - (4 * this.cantidadProducto));//Descuenta la cantidad
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
-                                    acce = daoAccesorios.getById(this.session, 34);
+                                    acce = daoAccesorios.getById(this.session, 20);
                                     manijas = acce.getPrecioCosto() * 2;
                                     acce.setCantidad(acce.getCantidad() - (2 * this.cantidadProducto));//Descuenta la cantidad
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
@@ -1266,7 +1262,7 @@ public class MbCotizacion {
                                     acce = new Accesorios();
                                     nombreVentana = "3 cuerpos 0-0-0 ALFALJIA";
                                     opcionVentana = 15;
-                                    acce = daoAccesorios.getById(this.session, 104);//Se realiza el mismo procedimiento para todos los accesorios
+                                    acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
                                     tronillos = acce.getPrecioCosto() * 24;
                                     acce.setCantidad(acce.getCantidad() - (24 * this.cantidadProducto));
                                     daoAccesorios.actualizar(this.session, acce);
@@ -1284,7 +1280,7 @@ public class MbCotizacion {
                                     BrazosBasculantes = acce.getPrecioCosto() * 8;
                                     acce.setCantidad(acce.getCantidad() - (8 * this.cantidadProducto));//Descuenta la cantidad
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
-                                    acce = daoAccesorios.getById(this.session, 34);
+                                    acce = daoAccesorios.getById(this.session, 20);
                                     manijas = acce.getPrecioCosto() * 4;
                                     acce.setCantidad(acce.getCantidad() - (4 * this.cantidadProducto));//Descuenta la cantidad
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
@@ -1322,7 +1318,7 @@ public class MbCotizacion {
                                     BrazosBasculantes = acce.getPrecioCosto() * 4;
                                     acce.setCantidad(acce.getCantidad() - (4 * this.cantidadProducto));//Descuenta la cantidad
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
-                                    acce = daoAccesorios.getById(this.session, 34);
+                                    acce = daoAccesorios.getById(this.session, 20);
                                     manijas = acce.getPrecioCosto() * 2;
                                     acce.setCantidad(acce.getCantidad() - (2 * this.cantidadProducto));//Descuenta la cantidad
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
@@ -1340,7 +1336,7 @@ public class MbCotizacion {
                                     BrazosBasculantes = acce.getPrecioCosto() * 4;
                                     acce.setCantidad(acce.getCantidad() - (4 * this.cantidadProducto));//Descuenta la cantidad
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
-                                    acce = daoAccesorios.getById(this.session, 34);
+                                    acce = daoAccesorios.getById(this.session, 20);
                                     manijas = acce.getPrecioCosto() * 2;
                                     acce.setCantidad(acce.getCantidad() - (2 * this.cantidadProducto));//Descuenta la cantidad
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
@@ -1358,7 +1354,7 @@ public class MbCotizacion {
                                     BrazosBasculantes = acce.getPrecioCosto() * 2;
                                     acce.setCantidad(acce.getCantidad() - (2 * this.cantidadProducto));//Descuenta la cantidad
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
-                                    acce = daoAccesorios.getById(this.session, 34);
+                                    acce = daoAccesorios.getById(this.session, 20);
                                     manijas = acce.getPrecioCosto() * 2;
                                     acce.setCantidad(acce.getCantidad() - (2 * this.cantidadProducto));//Descuenta la cantidad
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
@@ -1384,17 +1380,21 @@ public class MbCotizacion {
                                     rodachina = acce.getPrecioCosto() * 2;
                                     acce.setCantidad(acce.getCantidad() - (2 * this.cantidadProducto));
                                     daoAccesorios.actualizar(this.session, acce);
+                                    System.out.println("precio rodachina:::" + rodachina);
 
                                     acce = daoAccesorios.getById(this.session, 24);//Se realiza el mismo procedimiento para todos los accesorios
                                     cierre = acce.getPrecioCosto() * 1;
                                     acce.setCantidad(acce.getCantidad() - (1 * this.cantidadProducto));
                                     daoAccesorios.actualizar(this.session, acce);
+                                    System.out.println("precio cierre:::" + cierre);
 
                                     acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
                                     tronillos = acce.getPrecioCosto() * 25;
                                     acce.setCantidad(acce.getCantidad() - (25 * this.cantidadProducto));
                                     daoAccesorios.actualizar(this.session, acce);
+                                    System.out.println("precio tronillos:::" + tronillos);
                                     this.precioAccesorios = rodachina + cierre + tronillos;
+                                    System.out.println("precio accesorios totla:::" + this.precioAccesorios);
                                     break;
                                 case 2:
                                     acce = new Accesorios();
@@ -1416,6 +1416,88 @@ public class MbCotizacion {
                                     daoAccesorios.actualizar(this.session, acce);
                                     this.precioAccesorios = rodachina + cierre + tronillos;
                                     break;
+
+                                //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                        
+                                //VENTANAS CORREDIZAS VC3825 OJO                  
+                                case 3:
+                                    //ventana corrediza vc 3825
+                                    acce = new Accesorios();
+                                    nombreVentana = "2 cuerpos X0 plus basica alfa";
+                                    opcionVentana = 33;
+                                    acce = daoAccesorios.getById(this.session, 89);//Se realiza el mismo procedimiento para todos los accesorios
+                                    rodachina = acce.getPrecioCosto() * 2;
+                                    acce.setCantidad(acce.getCantidad() - (2 * this.cantidadProducto));
+                                    daoAccesorios.actualizar(this.session, acce);
+
+                                    acce = daoAccesorios.getById(this.session, 24);//Se realiza el mismo procedimiento para todos los accesorios
+                                    cierre = acce.getPrecioCosto() * 1;
+                                    acce.setCantidad(acce.getCantidad() - (1 * this.cantidadProducto));
+                                    daoAccesorios.actualizar(this.session, acce);
+
+                                    acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
+                                    tronillos = acce.getPrecioCosto() * 10;
+                                    acce.setCantidad(acce.getCantidad() - (10 * this.cantidadProducto));
+                                    daoAccesorios.actualizar(this.session, acce);
+
+                                    acce = daoAccesorios.getById(this.session, 103);//Se realiza el mismo procedimiento para todos los accesorios
+                                    tronillos1 = acce.getPrecioCosto() * 9;
+                                    acce.setCantidad(acce.getCantidad() - (9 * this.cantidadProducto));
+                                    daoAccesorios.actualizar(this.session, acce);
+                                    this.precioAccesorios = rodachina + cierre + tronillos + tronillos1;
+                                    break;
+                                case 4:
+                                    acce = new Accesorios();
+                                    //ventana corrediza vc 3825
+                                    nombreVentana = "2 cuerpos XX Alf BASICA";
+                                    opcionVentana = 34;
+                                    acce = daoAccesorios.getById(this.session, 89);//Se realiza el mismo procedimiento para todos los accesorios
+                                    rodachina = acce.getPrecioCosto() * 4;
+                                    acce.setCantidad(acce.getCantidad() - (4 * this.cantidadProducto));
+                                    daoAccesorios.actualizar(this.session, acce);
+
+                                    acce = daoAccesorios.getById(this.session, 24);//Se realiza el mismo procedimiento para todos los accesorios
+                                    cierre = acce.getPrecioCosto() * 1;
+                                    acce.setCantidad(acce.getCantidad() - (1 * this.cantidadProducto));
+                                    daoAccesorios.actualizar(this.session, acce);
+
+                                    acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
+                                    tronillos = acce.getPrecioCosto() * 36;
+                                    acce.setCantidad(acce.getCantidad() - (36 * this.cantidadProducto));
+                                    daoAccesorios.actualizar(this.session, acce);
+
+                                    acce = daoAccesorios.getById(this.session, 103);//Se realiza el mismo procedimiento para todos los accesorios
+                                    tronillos1 = acce.getPrecioCosto() * 9;
+                                    acce.setCantidad(acce.getCantidad() - (9 * this.cantidadProducto));
+                                    daoAccesorios.actualizar(this.session, acce);
+                                    this.precioAccesorios = rodachina + cierre + tronillos + tronillos1;
+                                    break;
+                                case 5:
+                                    acce = new Accesorios();
+                                    //ventana corrediza vc 3825
+                                    nombreVentana = "2 cuerpos X0 plus Reforzada";
+                                    opcionVentana = 35;
+                                    acce = daoAccesorios.getById(this.session, 89);//Se realiza el mismo procedimiento para todos los accesorios
+                                    rodachina = acce.getPrecioCosto() * 4;
+                                    acce.setCantidad(acce.getCantidad() - (4 * this.cantidadProducto));
+                                    daoAccesorios.actualizar(this.session, acce);
+
+                                    acce = daoAccesorios.getById(this.session, 24);//Se realiza el mismo procedimiento para todos los accesorios
+                                    cierre = acce.getPrecioCosto() * 1;
+                                    acce.setCantidad(acce.getCantidad() - (1 * this.cantidadProducto));
+                                    daoAccesorios.actualizar(this.session, acce);
+
+                                    acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
+                                    tronillos = acce.getPrecioCosto() * 36;
+                                    acce.setCantidad(acce.getCantidad() - (36 * this.cantidadProducto));
+                                    daoAccesorios.actualizar(this.session, acce);
+
+                                    acce = daoAccesorios.getById(this.session, 103);//Se realiza el mismo procedimiento para todos los accesorios
+                                    tronillos1 = acce.getPrecioCosto() * 9;
+                                    acce.setCantidad(acce.getCantidad() - (9 * this.cantidadProducto));
+                                    daoAccesorios.actualizar(this.session, acce);
+                                    this.precioAccesorios = rodachina + cierre + tronillos + tronillos1;
+                                    break;
+
                             }
                             break;
                         case 2:// 3 CUERPOS
@@ -1449,7 +1531,7 @@ public class MbCotizacion {
                                     acce.setCantidad(acce.getCantidad() - (2 * this.cantidadProducto));
                                     daoAccesorios.actualizar(this.session, acce);
 
-                                    acce = daoAccesorios.getById(this.session, 24);//Se realiza el mismo procedimiento para todos los accesorios
+                                    acce = daoAccesorios.getById(this.session, 23);//Se realiza el mismo procedimiento para todos los accesorios
                                     cierre = acce.getPrecioCosto() * 1;
                                     acce.setCantidad(acce.getCantidad() - (1 * this.cantidadProducto));
                                     daoAccesorios.actualizar(this.session, acce);
@@ -1547,6 +1629,34 @@ public class MbCotizacion {
                                     this.precioAccesorios = rodachina + cierre + tronillos;
                                     break;
 
+                                //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                                //VENTANA COREDIZA VC 3825
+                                case 3:
+                                    acce = new Accesorios();
+                                    nombreVentana = "4 cuerpos 0XX0 1672 DOBLE";
+                                    opcionVentana = 36;
+                                    acce = daoAccesorios.getById(this.session, 89);//Se realiza el mismo procedimiento para todos los accesorios
+                                    rodachina = acce.getPrecioCosto() * 4;
+                                    acce.setCantidad(acce.getCantidad() - (4 * this.cantidadProducto));
+                                    daoAccesorios.actualizar(this.session, acce);
+
+                                    acce = daoAccesorios.getById(this.session, 24);//Se realiza el mismo procedimiento para todos los accesorios
+                                    cierre = acce.getPrecioCosto() * 1;
+                                    acce.setCantidad(acce.getCantidad() - (1 * this.cantidadProducto));
+                                    daoAccesorios.actualizar(this.session, acce);
+
+                                    acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
+                                    tronillos = acce.getPrecioCosto() * 20;
+                                    acce.setCantidad(acce.getCantidad() - (20 * this.cantidadProducto));
+                                    daoAccesorios.actualizar(this.session, acce);
+
+                                    acce = daoAccesorios.getById(this.session, 103);//Se realiza el mismo procedimiento para todos los accesorios
+                                    tronillos1 = acce.getPrecioCosto() * 16;
+                                    acce.setCantidad(acce.getCantidad() - (16 * this.cantidadProducto));
+                                    daoAccesorios.actualizar(this.session, acce);
+                                    this.precioAccesorios = rodachina + cierre + tronillos + tronillos1;
+                                    break;
+
                             }
                         case 4:// 6 cuerpos
                             switch (diseno) {
@@ -1623,109 +1733,11 @@ public class MbCotizacion {
                     switch (tipoVentana) {
                         case 1:
                             switch (diseno) {
-                                case 1:
-                                    acce = new Accesorios();
-                                    nombreVentana = "2 cuerpos X0 plus basica alfa";
-                                    opcionVentana = 33;
-                                    acce = daoAccesorios.getById(this.session, 89);//Se realiza el mismo procedimiento para todos los accesorios
-                                    rodachina = acce.getPrecioCosto() * 2;
-                                    acce.setCantidad(acce.getCantidad() - (2 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
 
-                                    acce = daoAccesorios.getById(this.session, 24);//Se realiza el mismo procedimiento para todos los accesorios
-                                    cierre = acce.getPrecioCosto() * 1;
-                                    acce.setCantidad(acce.getCantidad() - (1 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
-
-                                    acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
-                                    tronillos = acce.getPrecioCosto() * 10;
-                                    acce.setCantidad(acce.getCantidad() - (10 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
-
-                                    acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
-                                    tronillos1 = acce.getPrecioCosto() * 9;
-                                    acce.setCantidad(acce.getCantidad() - (9 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
-                                    this.precioAccesorios = rodachina + cierre + tronillos + tronillos1;
-                                    break;
-                                case 2:
-                                    acce = new Accesorios();
-                                    nombreVentana = "2 cuerpos XX Alf BASICA";
-                                    opcionVentana = 34;
-                                    acce = daoAccesorios.getById(this.session, 89);//Se realiza el mismo procedimiento para todos los accesorios
-                                    rodachina = acce.getPrecioCosto() * 4;
-                                    acce.setCantidad(acce.getCantidad() - (4 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
-
-                                    acce = daoAccesorios.getById(this.session, 24);//Se realiza el mismo procedimiento para todos los accesorios
-                                    cierre = acce.getPrecioCosto() * 1;
-                                    acce.setCantidad(acce.getCantidad() - (1 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
-
-                                    acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
-                                    tronillos = acce.getPrecioCosto() * 36;
-                                    acce.setCantidad(acce.getCantidad() - (36 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
-
-                                    acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
-                                    tronillos1 = acce.getPrecioCosto() * 9;
-                                    acce.setCantidad(acce.getCantidad() - (9 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
-                                    this.precioAccesorios = rodachina + cierre + tronillos + tronillos1;
-                                    break;
-                                case 3:
-                                    acce = new Accesorios();
-                                    nombreVentana = "2 cuerpos X0 plus Reforzada";
-                                    opcionVentana = 35;
-                                    acce = daoAccesorios.getById(this.session, 89);//Se realiza el mismo procedimiento para todos los accesorios
-                                    rodachina = acce.getPrecioCosto() * 4;
-                                    acce.setCantidad(acce.getCantidad() - (4 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
-
-                                    acce = daoAccesorios.getById(this.session, 24);//Se realiza el mismo procedimiento para todos los accesorios
-                                    cierre = acce.getPrecioCosto() * 1;
-                                    acce.setCantidad(acce.getCantidad() - (1 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
-
-                                    acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
-                                    tronillos = acce.getPrecioCosto() * 36;
-                                    acce.setCantidad(acce.getCantidad() - (36 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
-
-                                    acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
-                                    tronillos1 = acce.getPrecioCosto() * 9;
-                                    acce.setCantidad(acce.getCantidad() - (9 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
-                                    this.precioAccesorios = rodachina + cierre + tronillos + tronillos1;
-                                    break;
                             }
                         case 2:
                             switch (diseno) {
-                                case 1:
-                                    acce = new Accesorios();
-                                    nombreVentana = "4 cuerpos 0XX0 1672 DOBLE";
-                                    opcionVentana = 36;
-                                    acce = daoAccesorios.getById(this.session, 89);//Se realiza el mismo procedimiento para todos los accesorios
-                                    rodachina = acce.getPrecioCosto() * 4;
-                                    acce.setCantidad(acce.getCantidad() - (4 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
 
-                                    acce = daoAccesorios.getById(this.session, 24);//Se realiza el mismo procedimiento para todos los accesorios
-                                    cierre = acce.getPrecioCosto() * 1;
-                                    acce.setCantidad(acce.getCantidad() - (1 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
-
-                                    acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
-                                    tronillos = acce.getPrecioCosto() * 20;
-                                    acce.setCantidad(acce.getCantidad() - (20 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
-
-                                    acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
-                                    tronillos1 = acce.getPrecioCosto() * 16;
-                                    acce.setCantidad(acce.getCantidad() - (16 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
-                                    this.precioAccesorios = rodachina + cierre + tronillos + tronillos1;
-                                    break;
                             }
                             break;
 
@@ -1809,7 +1821,7 @@ public class MbCotizacion {
                                     proyec.setTipoProducto(opcionVentana);
                                     proyec.setPrecioCabezal(this.lista.get(131).getPrecioPintura());
                                     proyec.setPrecioSillar(this.lista.get(137).getPrecioPintura());
-                                    proyec.setPrecioJamba(this.lista.get(2).getPrecioPintura());
+                                    proyec.setPrecioJamba(this.lista.get(132).getPrecioPintura());
                                     proyec.setPrecioAdaptador(this.lista.get(133).getPrecioPintura());
                                     proyec.setPrecioEmpaque(this.lista.get(354).getPrecioPintura());
 
@@ -1866,7 +1878,7 @@ public class MbCotizacion {
                                     proyec.setTipoProducto(opcionVentana);
                                     proyec.setPrecioCabezal(this.lista.get(131).getPrecioPintura());
                                     proyec.setPrecioSillar(this.lista.get(137).getPrecioPintura());
-                                    proyec.setPrecioJamba(this.lista.get(2).getPrecioPintura());
+                                    proyec.setPrecioJamba(this.lista.get(132).getPrecioPintura());
                                     proyec.setPrecioAdaptador(this.lista.get(133).getPrecioPintura());
                                     proyec.setPrecioEmpaque(this.lista.get(354).getPrecioPintura());
 
@@ -1890,16 +1902,18 @@ public class MbCotizacion {
 
                 case 2: //////Caso 2 ventanas 
                     VentanaCorre corredera = new VentanaCorre();
-                    switch (this.tipoAluminioCorred) {
+                        switch (this.tipoAluminioCorred) {
                         case 1: // este constructoer es para ventanas Correderas de aluminio  y con sus distintos colores
                             switch (tipoColor) {
                                 case 1:// este es para una ventana con aluminio AS 1700 natutal
                                     corredera = new VentanaCorre();
                                     corredera.setAlto(alto);
                                     corredera.setAncho(ancho);
+                                    corredera.setAltoFijo(this.altoFijo);
+                                    corredera.setAnchoFijo(this.anchoFijo);
                                     corredera.setPrecioTrabajo(this.manObra);
                                     corredera.setPrecioDescuento(this.ganancia);
-                                    corredera.setTipoProducto(this.tipoVentana);
+                                    corredera.setTipoProducto(opcionVentana);
                                     corredera.setPrecioCabezal(this.lista.get(232).getPreciocost());
                                     corredera.setPrecioSillar(this.lista.get(233).getPreciocost());
                                     corredera.setPrecioJamba(this.lista.get(230).getPreciocost());
@@ -1909,12 +1923,12 @@ public class MbCotizacion {
                                     corredera.setPrecioTraslape(this.lista.get(273).getPreciocost());//este apunta al vertical cerradura
                                     corredera.setPrecioAdaptador(this.lista.get(246).getPreciocost());
                                     corredera.setPrecioEmpaque(this.lista.get(365).getPreciocost());
-                                    corredera.setPreciofelpa(this.lista.get(66).getPreciocost());
+                                    corredera.setPreciofelpa(this.lista.get(366).getPreciocost());
 
                                     corredera.calcularVentanaCorre(this.lista.get(295).getPreciocost(), this.lista.get(278).getPreciocost(),
                                             this.lista.get(284).getPreciocost(), this.lista.get(218).getPreciocost(), this.lista.get(279).getPreciocost(),
-                                            this.lista.get(220).getPreciocost(), this.lista.get(367).getPreciocost(), this.lista.get(248).getPreciocost(),
-                                            this.lista.get(249).getPreciocost(), this.lista.get(285).getPreciocost(),this.lista.get(250).getPreciocost());
+                                            this.lista.get(220).getPreciocost(), this.lista.get(361).getPreciocost(), this.lista.get(248).getPreciocost(),
+                                            this.lista.get(249).getPreciocost(), this.lista.get(285).getPreciocost(), this.lista.get(250).getPreciocost());
                                     break;
 
                                 case 2:
@@ -1923,9 +1937,11 @@ public class MbCotizacion {
                                     corredera = new VentanaCorre();
                                     corredera.setAlto(alto);
                                     corredera.setAncho(ancho);
+                                    corredera.setAltoFijo(this.altoFijo);
+                                    corredera.setAnchoFijo(this.anchoFijo);
                                     corredera.setPrecioTrabajo(this.manObra);
                                     corredera.setPrecioDescuento(this.ganancia);
-                                    corredera.setTipoProducto(this.tipoVentana);
+                                    corredera.setTipoProducto(opcionVentana);
                                     corredera.setPrecioCabezal(this.lista.get(232).getPrecioAnonizado());
                                     corredera.setPrecioSillar(this.lista.get(233).getPrecioAnonizado());
                                     corredera.setPrecioJamba(this.lista.get(230).getPrecioAnonizado());
@@ -1935,12 +1951,12 @@ public class MbCotizacion {
                                     corredera.setPrecioTraslape(this.lista.get(273).getPrecioAnonizado());//este apunta al vertical cerradura
                                     corredera.setPrecioAdaptador(this.lista.get(246).getPrecioAnonizado());
                                     corredera.setPrecioEmpaque(this.lista.get(365).getPrecioAnonizado());
-                                    corredera.setPreciofelpa(this.lista.get(66).getPreciocost());
+                                    corredera.setPreciofelpa(this.lista.get(366).getPreciocost());
 
                                     corredera.calcularVentanaCorre(this.lista.get(295).getPrecioAnonizado(), this.lista.get(278).getPrecioAnonizado(),
                                             this.lista.get(284).getPrecioAnonizado(), this.lista.get(218).getPrecioAnonizado(), this.lista.get(279).getPrecioAnonizado(),
-                                            this.lista.get(220).getPrecioAnonizado(), this.lista.get(367).getPrecioAnonizado(), this.lista.get(248).getPrecioAnonizado(),
-                                            this.lista.get(249).getPrecioAnonizado(), this.lista.get(285).getPrecioAnonizado(),this.lista.get(250).getPreciocost());
+                                            this.lista.get(220).getPrecioAnonizado(), this.lista.get(361).getPrecioAnonizado(), this.lista.get(248).getPrecioAnonizado(),
+                                            this.lista.get(249).getPrecioAnonizado(), this.lista.get(285).getPrecioAnonizado(), this.lista.get(250).getPrecioAnonizado());
                                     break;
 
                                 case 3:
@@ -1948,9 +1964,11 @@ public class MbCotizacion {
                                     corredera = new VentanaCorre();
                                     corredera.setAlto(alto);
                                     corredera.setAncho(ancho);
+                                    corredera.setAltoFijo(this.altoFijo);
+                                    corredera.setAnchoFijo(this.anchoFijo);
                                     corredera.setPrecioTrabajo(this.manObra);
                                     corredera.setPrecioDescuento(this.ganancia);
-                                    corredera.setTipoProducto(this.tipoVentana);
+                                    corredera.setTipoProducto(opcionVentana);
                                     corredera.setPrecioCabezal(this.lista.get(232).getPrecioPintura());
                                     corredera.setPrecioSillar(this.lista.get(233).getPrecioPintura());
                                     corredera.setPrecioJamba(this.lista.get(230).getPrecioPintura());
@@ -1960,169 +1978,94 @@ public class MbCotizacion {
                                     corredera.setPrecioTraslape(this.lista.get(273).getPrecioPintura());//este apunta al vertical cerradura
                                     corredera.setPrecioAdaptador(this.lista.get(246).getPrecioPintura());
                                     corredera.setPrecioEmpaque(this.lista.get(365).getPrecioPintura());
-                                    corredera.setPreciofelpa(this.lista.get(66).getPrecioPintura());
+                                    corredera.setPreciofelpa(this.lista.get(366).getPrecioPintura());
 
                                     corredera.calcularVentanaCorre(this.lista.get(295).getPrecioPintura(), this.lista.get(278).getPrecioPintura(),
                                             this.lista.get(284).getPrecioPintura(), this.lista.get(218).getPrecioPintura(), this.lista.get(279).getPrecioPintura(),
-                                            this.lista.get(220).getPrecioPintura(), this.lista.get(367).getPrecioPintura(), this.lista.get(248).getPrecioPintura(),
-                                            this.lista.get(249).getPrecioPintura(), this.lista.get(285).getPrecioPintura(),this.lista.get(250).getPreciocost());
+                                            this.lista.get(220).getPrecioPintura(), this.lista.get(361).getPrecioPintura(), this.lista.get(248).getPrecioPintura(),
+                                            this.lista.get(249).getPrecioPintura(), this.lista.get(285).getPrecioPintura(), this.lista.get(250).getPrecioPintura());
                                     break;
                             }
                             break;
-                        case 2:    // este es para una ventana con aluminio AS 1800 Natural
+      //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                      
+                        case 2:    // este es para una ventana CORREDERA VC3825 
                             switch (tipoColor) {
                                 case 1:
-                                    // este es para una ventana con aluminio AS 1800 Natural
+                                    // este es para una ventana CORREDERA VC3825 
+                                  //  estos posiciones hay que revisarlas porque el codigo no existe en la base de datos
                                     corredera = new VentanaCorre();
                                     corredera.setAlto(alto);
                                     corredera.setAncho(ancho);
+                                    corredera.setAltoFijo(this.altoFijo);
+                                    corredera.setAnchoFijo(this.anchoFijo);
                                     corredera.setPrecioTrabajo(this.manObra);
                                     corredera.setPrecioDescuento(this.ganancia);
-                                    corredera.setTipoProducto(this.tipoVentana);
-                                    corredera.setPrecioCabezal(this.lista.get(232).getPreciocost());
-                                    corredera.setPrecioSillar(this.lista.get(233).getPreciocost());
-                                    corredera.setPrecioJamba(this.lista.get(230).getPreciocost());
-                                    corredera.setPrecioHsuperior(this.lista.get(234).getPreciocost());
-                                    corredera.setPrecioHinferior(this.lista.get(236).getPreciocost());//este apunta al hInferiorNave
-                                    corredera.setPrecioEnganche(this.lista.get(235).getPreciocost());
-                                    corredera.setPrecioTraslape(this.lista.get(273).getPreciocost());//este apunta al vertical cerradura
-                                    corredera.setPrecioAdaptador(this.lista.get(246).getPreciocost());
-                                    corredera.setPrecioEmpaque(this.lista.get(365).getPreciocost());
-                                    corredera.setPreciofelpa(this.lista.get(66).getPreciocost());
+                                    corredera.setTipoProducto(opcionVentana);
+                                    corredera.setPrecioCabezal(this.lista.get(146).getPreciocost());
+                                    corredera.setPrecioSillar(this.lista.get(145).getPreciocost());
+                                    corredera.setPrecioJamba(this.lista.get(144).getPreciocost());
+                                    corredera.setPrecioHsuperior(this.lista.get(151).getPreciocost());
+                                    corredera.setPrecioHinferior(this.lista.get(149).getPreciocost());                
+                                    corredera.setPrecioTraslape(this.lista.get(150).getPreciocost());
+                                      corredera.setPrecioAdaptador(this.lista.get(117).getPreciocost()); 
+                                    corredera.setPrecioEmpaque(this.lista.get(362).getPreciocost());
+                                    corredera.setPreciofelpa(this.lista.get(366).getPreciocost());
 
-                                    corredera.calcularVentanaCorre(this.lista.get(295).getPreciocost(), this.lista.get(278).getPreciocost(),
-                                            this.lista.get(284).getPreciocost(), this.lista.get(218).getPreciocost(), this.lista.get(279).getPreciocost(),
-                                            this.lista.get(220).getPreciocost(), this.lista.get(62).getPreciocost(), this.lista.get(248).getPreciocost(),
-                                            this.lista.get(249).getPreciocost(), this.lista.get(285).getPreciocost(),this.lista.get(250).getPreciocost());
+                                    corredera.calcularVentanaCorre(0, this.lista.get(147).getPreciocost(),
+                                            0, 0, this.lista.get(152).getPreciocost(),   0, 0, 0, 0, 0, 0);
+                                
+                                     
                                     break;
                                 case 2:
-                                    // este es para una ventana con aluminio AS 1800 Anolo
+                                    // este es para una ventana CORREDERA VC3825  Anolo
                                     corredera = new VentanaCorre();
                                     corredera.setAlto(alto);
                                     corredera.setAncho(ancho);
+                                    corredera.setAltoFijo(this.altoFijo);
+                                    corredera.setAnchoFijo(this.anchoFijo);
                                     corredera.setPrecioTrabajo(this.manObra);
                                     corredera.setPrecioDescuento(this.ganancia);
-                                    corredera.setTipoProducto(this.tipoVentana);
-                                    corredera.setPrecioCabezal(this.lista.get(232).getPrecioAnonizado());
-                                    corredera.setPrecioSillar(this.lista.get(233).getPrecioAnonizado());
-                                    corredera.setPrecioJamba(this.lista.get(230).getPrecioAnonizado());
-                                    corredera.setPrecioHsuperior(this.lista.get(234).getPrecioAnonizado());
-                                    corredera.setPrecioHinferior(this.lista.get(236).getPrecioAnonizado());//este apunta al hInferiorNave
-                                    corredera.setPrecioEnganche(this.lista.get(235).getPrecioAnonizado());
-                                    corredera.setPrecioTraslape(this.lista.get(273).getPrecioAnonizado());//este apunta al vertical cerradura
-                                    corredera.setPrecioAdaptador(this.lista.get(246).getPrecioAnonizado());
-                                    corredera.setPrecioEmpaque(this.lista.get(365).getPrecioAnonizado());
-                                    corredera.setPreciofelpa(this.lista.get(66).getPreciocost());
+                                    corredera.setTipoProducto(opcionVentana);
+                                         corredera.setPrecioCabezal(this.lista.get(146).getPrecioAnonizado());
+                                    corredera.setPrecioSillar(this.lista.get(145).getPrecioAnonizado());
+                                    corredera.setPrecioJamba(this.lista.get(144).getPrecioAnonizado());
+                                    corredera.setPrecioHsuperior(this.lista.get(151).getPrecioAnonizado());
+                                    corredera.setPrecioHinferior(this.lista.get(149).getPrecioAnonizado());                
+                                    corredera.setPrecioTraslape(this.lista.get(150).getPrecioAnonizado());
+                                      corredera.setPrecioAdaptador(this.lista.get(117).getPrecioAnonizado()); 
+                                    corredera.setPrecioEmpaque(this.lista.get(362).getPrecioAnonizado());
+                                    corredera.setPreciofelpa(this.lista.get(366).getPrecioAnonizado());
 
-                                    corredera.calcularVentanaCorre(this.lista.get(295).getPrecioAnonizado(), this.lista.get(278).getPrecioAnonizado(),
-                                            this.lista.get(284).getPrecioAnonizado(), this.lista.get(218).getPrecioAnonizado(), this.lista.get(279).getPrecioAnonizado(),
-                                            this.lista.get(220).getPrecioAnonizado(), this.lista.get(62).getPrecioAnonizado(), this.lista.get(248).getPrecioAnonizado(),
-                                            this.lista.get(249).getPrecioAnonizado(), this.lista.get(285).getPrecioAnonizado(),this.lista.get(250).getPreciocost());
+                                    corredera.calcularVentanaCorre(0, this.lista.get(147).getPrecioAnonizado(),
+                                            0, 0, this.lista.get(152).getPrecioAnonizado(),   0, 0, 0, 0, 0, 0);
                                     break;
                                 case 3:
-                                    // este es para una ventana con aluminio AS 1800 pintura
+                                    // este es para una ventana CORREDERA VC3825  pintura
                                     corredera = new VentanaCorre();
                                     corredera.setAlto(alto);
                                     corredera.setAncho(ancho);
+                                    corredera.setAltoFijo(this.altoFijo);
+                                    corredera.setAnchoFijo(this.anchoFijo);
                                     corredera.setPrecioTrabajo(this.manObra);
                                     corredera.setPrecioDescuento(this.ganancia);
-                                    corredera.setTipoProducto(this.tipoVentana);
-                                    corredera.setPrecioCabezal(this.lista.get(232).getPrecioPintura());
-                                    corredera.setPrecioSillar(this.lista.get(233).getPrecioPintura());
-                                    corredera.setPrecioJamba(this.lista.get(230).getPrecioPintura());
-                                    corredera.setPrecioHsuperior(this.lista.get(234).getPrecioPintura());
-                                    corredera.setPrecioHinferior(this.lista.get(236).getPrecioPintura());//este apunta al hInferiorNave
-                                    corredera.setPrecioEnganche(this.lista.get(235).getPrecioPintura());
-                                    corredera.setPrecioTraslape(this.lista.get(273).getPrecioPintura());//este apunta al vertical cerradura
-                                    corredera.setPrecioAdaptador(this.lista.get(246).getPrecioPintura());
-                                    corredera.setPrecioEmpaque(this.lista.get(365).getPrecioPintura());
-                                    corredera.setPreciofelpa(this.lista.get(66).getPrecioPintura());
+                                    corredera.setTipoProducto(opcionVentana);
+                                          corredera.setPrecioCabezal(this.lista.get(146).getPrecioPintura());
+                                    corredera.setPrecioSillar(this.lista.get(145).getPrecioPintura());
+                                    corredera.setPrecioJamba(this.lista.get(144).getPrecioPintura());
+                                    corredera.setPrecioHsuperior(this.lista.get(151).getPrecioPintura());
+                                    corredera.setPrecioHinferior(this.lista.get(149).getPrecioPintura());                
+                                    corredera.setPrecioTraslape(this.lista.get(150).getPrecioPintura());
+                                      corredera.setPrecioAdaptador(this.lista.get(117).getPrecioPintura()); 
+                                    corredera.setPrecioEmpaque(this.lista.get(362).getPrecioPintura());
+                                    corredera.setPreciofelpa(this.lista.get(366).getPrecioPintura());
 
-                                    corredera.calcularVentanaCorre(this.lista.get(295).getPrecioPintura(), this.lista.get(278).getPrecioPintura(),
-                                            this.lista.get(284).getPrecioPintura(), this.lista.get(218).getPrecioPintura(), this.lista.get(279).getPrecioPintura(),
-                                            this.lista.get(220).getPrecioPintura(), this.lista.get(62).getPrecioPintura(), this.lista.get(248).getPrecioPintura(),
-                                            this.lista.get(249).getPrecioPintura(), this.lista.get(285).getPrecioPintura(),this.lista.get(250).getPreciocost());
+                                    corredera.calcularVentanaCorre(0, this.lista.get(147).getPrecioPintura(),
+                                            0, 0, this.lista.get(152).getPrecioPintura(),   0, 0, 0, 0, 0, 0);
                                     break;
                             }
                             break;
-                        case 3:  // este es para una ventana con aluminio AS 1900 Natural
-                            switch (tipoColor) {
-                                case 1:
-                                    // este es para una ventana con aluminio AS 1900 Natural
-                                    corredera = new VentanaCorre();
-                                    corredera.setAlto(alto);
-                                    corredera.setAncho(ancho);
-                                    corredera.setPrecioTrabajo(this.manObra);
-                                    corredera.setPrecioDescuento(this.ganancia);
-                                    corredera.setTipoProducto(this.tipoVentana);
-                                    corredera.setPrecioCabezal(this.lista.get(232).getPreciocost());
-                                    corredera.setPrecioSillar(this.lista.get(233).getPreciocost());
-                                    corredera.setPrecioJamba(this.lista.get(230).getPreciocost());
-                                    corredera.setPrecioHsuperior(this.lista.get(234).getPreciocost());
-                                    corredera.setPrecioHinferior(this.lista.get(236).getPreciocost());//este apunta al hInferiorNave
-                                    corredera.setPrecioEnganche(this.lista.get(235).getPreciocost());
-                                    corredera.setPrecioTraslape(this.lista.get(273).getPreciocost());//este apunta al vertical cerradura
-                                    corredera.setPrecioAdaptador(this.lista.get(246).getPreciocost());
-                                    corredera.setPrecioEmpaque(this.lista.get(365).getPreciocost());
-                                    corredera.setPreciofelpa(this.lista.get(66).getPreciocost());
-
-                                    corredera.calcularVentanaCorre(this.lista.get(295).getPreciocost(), this.lista.get(278).getPreciocost(),
-                                            this.lista.get(284).getPreciocost(), this.lista.get(218).getPreciocost(), this.lista.get(279).getPreciocost(),
-                                            this.lista.get(220).getPreciocost(), this.lista.get(62).getPreciocost(), this.lista.get(248).getPreciocost(),
-                                            this.lista.get(249).getPreciocost(), this.lista.get(285).getPreciocost(),this.lista.get(250).getPreciocost());
-                                    break;
-                                case 2:
-                                    // este es para una ventana con aluminio AS 1900 Anolo
-
-                                    corredera = new VentanaCorre();
-                                    corredera.setAlto(alto);
-                                    corredera.setAncho(ancho);
-                                    corredera.setPrecioTrabajo(this.manObra);
-                                    corredera.setPrecioDescuento(this.ganancia);
-                                    corredera.setTipoProducto(this.tipoVentana);
-                                    corredera.setPrecioCabezal(this.lista.get(232).getPrecioAnonizado());
-                                    corredera.setPrecioSillar(this.lista.get(233).getPrecioAnonizado());
-                                    corredera.setPrecioJamba(this.lista.get(230).getPrecioAnonizado());
-                                    corredera.setPrecioHsuperior(this.lista.get(234).getPrecioAnonizado());
-                                    corredera.setPrecioHinferior(this.lista.get(236).getPrecioAnonizado());//este apunta al hInferiorNave
-                                    corredera.setPrecioEnganche(this.lista.get(235).getPrecioAnonizado());
-                                    corredera.setPrecioTraslape(this.lista.get(273).getPrecioAnonizado());//este apunta al vertical cerradura
-                                    corredera.setPrecioAdaptador(this.lista.get(246).getPrecioAnonizado());
-                                    corredera.setPrecioEmpaque(this.lista.get(365).getPrecioAnonizado());
-                                    corredera.setPreciofelpa(this.lista.get(66).getPreciocost());
-
-                                    corredera.calcularVentanaCorre(this.lista.get(295).getPrecioAnonizado(), this.lista.get(278).getPrecioAnonizado(),
-                                            this.lista.get(284).getPrecioAnonizado(), this.lista.get(218).getPrecioAnonizado(), this.lista.get(279).getPrecioAnonizado(),
-                                            this.lista.get(220).getPrecioAnonizado(), this.lista.get(62).getPrecioAnonizado(), this.lista.get(248).getPrecioAnonizado(),
-                                            this.lista.get(249).getPrecioAnonizado(), this.lista.get(285).getPrecioAnonizado(),this.lista.get(250).getPreciocost());
-                                    break;
-                                case 3:
-                                    // este es para una ventana con aluminio AS 1900 Pintura
-
-                                    corredera = new VentanaCorre();
-                                    corredera.setAlto(alto);
-                                    corredera.setAncho(ancho);
-                                    corredera.setPrecioTrabajo(this.manObra);
-                                    corredera.setPrecioDescuento(this.ganancia);
-                                    corredera.setTipoProducto(this.tipoVentana);
-                                    corredera.setPrecioCabezal(this.lista.get(232).getPrecioPintura());
-                                    corredera.setPrecioSillar(this.lista.get(233).getPrecioPintura());
-                                    corredera.setPrecioJamba(this.lista.get(230).getPrecioPintura());
-                                    corredera.setPrecioHsuperior(this.lista.get(234).getPrecioPintura());
-                                    corredera.setPrecioHinferior(this.lista.get(236).getPrecioPintura());//este apunta al hInferiorNave
-                                    corredera.setPrecioEnganche(this.lista.get(235).getPrecioPintura());
-                                    corredera.setPrecioTraslape(this.lista.get(273).getPrecioPintura());//este apunta al vertical cerradura
-                                    corredera.setPrecioAdaptador(this.lista.get(246).getPrecioPintura());
-                                    corredera.setPrecioEmpaque(this.lista.get(365).getPrecioPintura());
-                                    corredera.setPreciofelpa(this.lista.get(66).getPrecioPintura());
-
-                                    corredera.calcularVentanaCorre(this.lista.get(295).getPrecioPintura(), this.lista.get(278).getPrecioPintura(),
-                                            this.lista.get(284).getPrecioPintura(), this.lista.get(218).getPrecioPintura(), this.lista.get(279).getPrecioPintura(),
-                                            this.lista.get(220).getPrecioPintura(), this.lista.get(62).getPrecioPintura(), this.lista.get(248).getPrecioPintura(),
-                                            this.lista.get(249).getPrecioPintura(), this.lista.get(285).getPrecioPintura(),this.lista.get(250).getPreciocost());
-                                    break;
-                            }
-                            break;
+                    
+                     
                     }
 
                     precioInstala = this.precioInstalacion;
@@ -2135,71 +2078,12 @@ public class MbCotizacion {
                             this.cantidadProducto, precioExtrac + precioInstala, this.cantidadProducto * (precioExtrac + precioInstala), this.manObra, this.ganancia, this.alto, this.ancho, ""));
                     break;
 
-                case 3: //////Caso 2 ventanas de  Abatibles celosial
+                  case 3: //////Caso 2 ventanas de  Abatibles celosial
                     VentanaAbati abatible = new VentanaAbati();
                     switch (this.tipoAluminioBati) {
                         case 1: // este constructoer es para ventanas Abatibles celosial de aluminio 3835 y con sus distintos colores
                             switch (tipoColor) {
-                                case 1: // este es para una ventana con aluminio AS 3825 Natural
-                                    abatible = new VentanaAbati();
-                                    abatible.setAlto(alto);
-                                    abatible.setAncho(ancho);
-                                    abatible.setPrecioTrabajo(this.manObra);
-                                    abatible.setPrecioDescuento(this.ganancia);
-                                    abatible.setTipoProducto(this.tipoVentana);
-                                    abatible.setPrecioCabezal(this.lista.get(0).getPreciocost());
-                                    abatible.setPrecioSillar(this.lista.get(0).getPreciocost());
-                                    abatible.setPrecioJamba(this.lista.get(2).getPreciocost());
-                                    abatible.setPrecioHinferior(this.lista.get(149).getPreciocost());
-                                    abatible.setPrecioTraslape(this.lista.get(4).getPreciocost());
-                                    abatible.setPrecioEmpaque(this.lista.get(362).getPreciocost());
-                                    abatible.setPreciofelpa(this.lista.get(360).getPreciocost());
-
-                                    abatible.CalcularVentana(this.lista.get(56).getPreciocost(), this.lista.get(59).getPreciocost(),
-                                            this.lista.get(79).getPreciocost(), this.lista.get(82).getPreciocost(), this.lista.get(47).getPreciocost());
-                                    break;
-
-                                case 2:
-                                    // este es para una ventana con aluminio AS 3825 Anolo
-                                    abatible = new VentanaAbati();
-                                    abatible.setAlto(alto);
-                                    abatible.setAncho(ancho);
-                                    abatible.setPrecioTrabajo(this.manObra);
-                                    abatible.setPrecioDescuento(this.ganancia);
-                                    abatible.setTipoProducto(this.tipoVentana);
-                                    abatible.setPrecioCabezal(this.lista.get(0).getPrecioAnonizado());
-                                    abatible.setPrecioJamba(this.lista.get(2).getPrecioAnonizado());
-                                    abatible.setPrecioSillar(this.lista.get(0).getPreciocost());
-                                    abatible.setPrecioHinferior(this.lista.get(149).getPrecioAnonizado());
-                                    abatible.setPrecioTraslape(this.lista.get(4).getPrecioAnonizado());
-                                    abatible.setPrecioEmpaque(this.lista.get(362).getPrecioAnonizado());
-                                    abatible.setPreciofelpa(this.lista.get(360).getPrecioAnonizado());
-
-                                    abatible.CalcularVentana(this.lista.get(56).getPrecioAnonizado(), this.lista.get(59).getPrecioAnonizado(),
-                                            this.lista.get(79).getPrecioAnonizado(), this.lista.get(82).getPrecioAnonizado(),
-                                            this.lista.get(47).getPrecioAnonizado());
-                                    break;
-
-                                case 3:
-                                    // este es para una ventana con aluminio AS 3825 Pintura
-                                    abatible = new VentanaAbati();
-                                    abatible.setAlto(alto);
-                                    abatible.setAncho(ancho);
-                                    abatible.setPrecioTrabajo(this.manObra);
-                                    abatible.setPrecioDescuento(this.ganancia);
-                                    abatible.setTipoProducto(this.tipoVentana);
-                                    abatible.setPrecioCabezal(this.lista.get(0).getPrecioPintura());
-                                    abatible.setPrecioJamba(this.lista.get(144).getPrecioPintura());
-                                    abatible.setPrecioHinferior(this.lista.get(149).getPrecioPintura());
-                                    abatible.setPrecioSillar(this.lista.get(0).getPrecioPintura());
-                                    abatible.setPrecioTraslape(this.lista.get(150).getPrecioPintura());
-                                    abatible.setPrecioEmpaque(this.lista.get(362).getPrecioPintura());
-                                    abatible.setPreciofelpa(this.lista.get(366).getPrecioPintura());
-
-                                    abatible.CalcularVentana(this.lista.get(0).getPrecioPintura(), this.lista.get(59).getPrecioPintura(),
-                                            this.lista.get(79).getPrecioPintura(), this.lista.get(82).getPrecioPintura(),
-                                            this.lista.get(47).getPrecioPintura());
-                                    break;
+                            
                             }
                             break;
                     }
@@ -3128,6 +3012,22 @@ public class MbCotizacion {
 
     public void setTipoModeloPuerta(int tipoModeloPuerta) {
         this.tipoModeloPuerta = tipoModeloPuerta;
+    }
+
+    public String getAltoFijo() {
+        return altoFijo;
+    }
+
+    public void setAltoFijo(String altoFijo) {
+        this.altoFijo = altoFijo;
+    }
+
+    public String getAnchoFijo() {
+        return anchoFijo;
+    }
+
+    public void setAnchoFijo(String anchoFijo) {
+        this.anchoFijo = anchoFijo;
     }
 
 }

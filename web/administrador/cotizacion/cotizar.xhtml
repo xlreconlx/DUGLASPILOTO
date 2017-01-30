@@ -46,7 +46,7 @@
                                 <div class="panel-body">
                                     <h:form  styleClass="form-group" >
                                         <p:growl id="growl" showDetail="true" sticky="true" /> 
-                                        <h:selectOneMenu  value="#{mbCalcular.productoTipo}" styleClass="form-control">
+                                        <h:selectOneMenu  value="#{mbCalcular.productoTipo}" styleClass="form-control" style="margin-top: 5px;">
                                             <f:selectItem itemValue="0" itemLabel="Seleccione un Producto"/>
                                             <f:ajax event="change" render="@form"/>
                                             <f:selectItem itemValue="1" itemLabel="Ventana"/>
@@ -54,7 +54,7 @@
                                             <f:selectItem itemValue="3" itemLabel="Vitrina"/>
                                             <f:selectItem itemValue="4" itemLabel="Vidrios"/>
                                         </h:selectOneMenu>
-                                        <h:selectOneMenu  rendered="#{mbCalcular.productoTipo==1}" value="#{mbCalcular.tipoModeloVentana}" styleClass="form-control">
+                                        <h:selectOneMenu  rendered="#{mbCalcular.productoTipo==1}" value="#{mbCalcular.tipoModeloVentana}" styleClass="form-control" style="margin-top: 5px;">
                                             <f:ajax event="change" render="@form"></f:ajax>
                                             <f:selectItem itemValue="0" itemLabel="Seleccione Tipo Ventana"/>
                                             <f:selectItem itemValue="1" itemLabel="Proyectante"/>
@@ -62,17 +62,17 @@
                                             <f:selectItem itemValue="3" itemLabel="Batiente"/>
                                         </h:selectOneMenu>
 
-                                        <h:selectOneMenu  rendered="#{mbCalcular.productoTipo==1 and mbCalcular.tipoModeloVentana==1}" value="#{mbCalcular.tipoAluminioProy}" styleClass="form-control">
+                                        <h:selectOneMenu  rendered="#{mbCalcular.productoTipo==1 and mbCalcular.tipoModeloVentana==1}" value="#{mbCalcular.tipoAluminioProy}" styleClass="form-control" style="margin-top: 5px;">
                                             <f:ajax event="change" render="@form"></f:ajax>
                                             <f:selectItem itemValue="0" itemLabel="Seleccione un Sistema"/>
                                             <f:selectItem itemValue="1" itemLabel="Aluminio 3831 ALE"/>
-                                            <f:selectItem itemValue="2" itemLabel="Aluminio 3831 VITRAL"/>
+
                                         </h:selectOneMenu>
 
 
 
-                                        <h:selectOneMenu id="tipoVentana" value="#{mbCalcular.tipoVentana}" styleClass="form-control"
-                                                         rendered="#{mbCalcular.tipoModeloVentana==1 and mbCalcular.tipoAluminioProy==1 || mbCalcular.tipoAluminioProy==2}">
+                                        <h:selectOneMenu id="tipoVentana" value="#{mbCalcular.tipoVentana}" styleClass="form-control" style="margin-top: 5px;"
+                                                         rendered="#{mbCalcular.tipoModeloVentana==1 and mbCalcular.tipoAluminioProy==1}">
                                             <f:ajax event="change" render="@form"></f:ajax>
                                             <f:selectItem itemValue="0" itemLabel="Seleccione cantidad de cuerpos"/>
                                             <f:selectItem itemValue="1" itemLabel="1 cuerpo"/>
@@ -81,7 +81,7 @@
                                             <f:selectItem itemValue="4" itemLabel="4 cuerpos"/>
                                         </h:selectOneMenu>
 
-                                        <h:selectOneMenu id="tipodiseno" value="#{mbCalcular.diseno}" styleClass="form-control"
+                                        <h:selectOneMenu id="tipodiseno" value="#{mbCalcular.diseno}" styleClass="form-control" style="margin-top: 5px;"
                                                          rendered="#{mbCalcular.tipoModeloVentana==1 and mbCalcular.tipoVentana==1}">
                                             <f:selectItem itemValue="0" itemLabel="Diseño"/>
                                             <f:selectItem itemValue="1" itemLabel="X"/>
@@ -89,7 +89,7 @@
                                         </h:selectOneMenu>
 
 
-                                        <h:selectOneMenu  value="#{mbCalcular.diseno}" styleClass="form-control"
+                                        <h:selectOneMenu  value="#{mbCalcular.diseno}" styleClass="form-control" style="margin-top: 5px;"
                                                           rendered="#{mbCalcular.tipoModeloVentana==1 and mbCalcular.tipoVentana==2}">
                                             <f:selectItem itemValue="0" itemLabel="Diseño"/>
                                             <f:selectItem itemValue="1" itemLabel="XX"/>
@@ -103,7 +103,7 @@
                                             <f:selectItem itemValue="9" itemLabel="0/0 Boreal alfalgia"/>
 
                                         </h:selectOneMenu>
-                                        <h:selectOneMenu  value="#{mbCalcular.diseno}" styleClass="form-control"
+                                        <h:selectOneMenu  value="#{mbCalcular.diseno}" styleClass="form-control" style="margin-top: 5px;"
                                                           rendered="#{mbCalcular.tipoModeloVentana==1 and mbCalcular.tipoVentana==3}">
                                             <f:selectItem itemValue="0" itemLabel="Diseño"/>
                                             <f:selectItem itemValue="1" itemLabel=" XXX alfajia"/>
@@ -111,7 +111,7 @@
                                             <f:selectItem itemValue="3" itemLabel=" x-0-x alfajia"/>
                                             <f:selectItem itemValue="4" itemLabel="0-0-0 ALFALJIA"/>
                                         </h:selectOneMenu>
-                                        <h:selectOneMenu  value="#{mbCalcular.diseno}" styleClass="form-control"
+                                        <h:selectOneMenu  value="#{mbCalcular.diseno}" styleClass="form-control" style="margin-top: 5px;"
                                                           rendered="#{mbCalcular.tipoModeloVentana==1 and mbCalcular.tipoVentana==4}">
                                             <f:selectItem itemValue="0" itemLabel="Diseño"/>
                                             <f:selectItem itemValue="1" itemLabel=" alfajia XXXX"/>
@@ -121,16 +121,15 @@
                                             <f:selectItem itemValue="5" itemLabel="X/X/0/0 ALFALJIA "/>
                                             <f:selectItem itemValue="6" itemLabel="4 ALFALJIA "/>
                                         </h:selectOneMenu>
-                                        <h:selectOneMenu  rendered="#{mbCalcular.productoTipo==1 and mbCalcular.tipoModeloVentana==2}" value="#{mbCalcular.tipoAluminioCorred}" styleClass="form-control">
+                                        <h:selectOneMenu  rendered="#{mbCalcular.productoTipo==1 and mbCalcular.tipoModeloVentana==2}" value="#{mbCalcular.tipoAluminioCorred}" styleClass="form-control" style="margin-top: 5px;">
                                             <f:ajax event="change" render="@form"></f:ajax>
                                             <f:selectItem itemValue="0" itemLabel="Seleccione un Sistema"/>
-                                            <f:selectItem itemValue="1" itemLabel="Aluminio AS 1700"/>
-                                            <f:selectItem itemValue="2" itemLabel="Aluminio AS 1700"/>
-                                            <f:selectItem itemValue="3" itemLabel="Aluminio AS 1900"/>
+                                            <f:selectItem itemValue="1" itemLabel="VC AS 1700"/>
+                                            <f:selectItem itemValue="2" itemLabel="VC 3825"/>
                                         </h:selectOneMenu>
 
-                                        <h:selectOneMenu  value="#{mbCalcular.tipoVentana}" styleClass="form-control"
-                                                          rendered="#{mbCalcular.tipoModeloVentana==2}">
+                                        <h:selectOneMenu  value="#{mbCalcular.tipoVentana}" styleClass="form-control" style="margin-top: 5px;"
+                                                          rendered="#{mbCalcular.tipoModeloVentana==2 and mbCalcular.tipoAluminioCorred==1}">
                                             <f:ajax event="change" render="@form"></f:ajax>
                                             <f:selectItem itemValue="0" itemLabel="Seleccione cantidad de cuerpos"/>
                                             <f:selectItem itemValue="1" itemLabel="2 cuerpo"/>
@@ -138,101 +137,95 @@
                                             <f:selectItem itemValue="3" itemLabel="4 cuerpos"/>
                                             <f:selectItem itemValue="4" itemLabel="6 cuerpos"/>
                                         </h:selectOneMenu>
-                                        <h:selectOneMenu value="#{mbCalcular.diseno}" styleClass="form-control"
-                                                         rendered="#{mbCalcular.tipoModeloVentana==2 and mbCalcular.tipoVentana==1}">
+                                     
+                                        <h:selectOneMenu value="#{mbCalcular.diseno}" styleClass="form-control" style="margin-top: 5px;"
+                                                         rendered="#{mbCalcular.tipoAluminioCorred==1 and mbCalcular.tipoVentana==1}">
                                             <f:selectItem itemValue="0" itemLabel="Diseño"/>
                                             <f:selectItem itemValue="1" itemLabel="X0 BASICA"/>
                                             <f:selectItem itemValue="2" itemLabel="XX BASICA"/>
                                         </h:selectOneMenu>
-                                        <h:selectOneMenu  value="#{mbCalcular.diseno}" styleClass="form-control"
-                                                          rendered="#{mbCalcular.tipoModeloVentana==2 and mbCalcular.tipoVentana==2}">
+                                        <h:selectOneMenu  value="#{mbCalcular.diseno}" styleClass="form-control" style="margin-top: 5px;"
+                                                          rendered="#{mbCalcular.tipoAluminioCorred==1 and mbCalcular.tipoVentana==2}">
                                             <f:selectItem itemValue="0" itemLabel="Diseño"/>
                                             <f:selectItem itemValue="1" itemLabel="X0X BASICA"/>
                                             <f:selectItem itemValue="2" itemLabel="OXO BASICA"/>
                                             <f:selectItem itemValue="3" itemLabel="OXX BASICA"/>
                                             <f:selectItem itemValue="4" itemLabel="X0/O"/>
                                         </h:selectOneMenu>
-                                        <h:selectOneMenu  value="#{mbCalcular.diseno}" styleClass="form-control"
-                                                          rendered="#{mbCalcular.tipoModeloVentana==2 and mbCalcular.tipoVentana==3}">
+                                        <h:selectOneMenu  value="#{mbCalcular.diseno}" styleClass="form-control" style="margin-top: 5px;"
+                                                          rendered="#{mbCalcular.tipoAluminioCorred==1 and mbCalcular.tipoVentana==3}">
                                             <f:selectItem itemValue="0" itemLabel="Diseño"/>
                                             <f:selectItem itemValue="1" itemLabel="OXXO BASICA"/>
                                             <f:selectItem itemValue="2" itemLabel="X0/00 Basica Alf"/>
 
                                         </h:selectOneMenu>
-                                        <h:selectOneMenu  value="#{mbCalcular.diseno}" styleClass="form-control"
-                                                          rendered="#{mbCalcular.tipoModeloVentana==2 and mbCalcular.tipoVentana==4}">
+                                        <h:selectOneMenu  value="#{mbCalcular.diseno}" styleClass="form-control" style="margin-top: 5px;"
+                                                          rendered="#{mbCalcular.tipoAluminioCorred==1 and mbCalcular.tipoVentana==4}">
                                             <f:selectItem itemValue="0" itemLabel="Diseño"/>
                                             <f:selectItem itemValue="1" itemLabel="0XX XXO BASICA"/>
                                             <f:selectItem itemValue="2" itemLabel="OXO /OOO BASICA"/>
                                         </h:selectOneMenu>
-                                        <h:selectOneMenu  value="#{mbCalcular.diseno}" styleClass="form-control"
-                                                          rendered="#{mbCalcular.tipoModeloVentana==2 and mbCalcular.tipoVentana==5}">
+                                        <h:selectOneMenu  value="#{mbCalcular.diseno}" styleClass="form-control" style="margin-top: 5px;"
+                                                          rendered="#{mbCalcular.tipoAluminioCorred==1 and mbCalcular.tipoVentana==5}">
                                             <f:selectItem itemValue="0" itemLabel="Diseño"/>
                                             <f:selectItem itemValue="1" itemLabel="OXXO /OOO0 BASICA"/>
                                         </h:selectOneMenu>
-                                        <h:selectOneMenu  rendered="#{mbCalcular.productoTipo==1and mbCalcular.tipoModeloVentana==3}" value="#{mbCalcular.tipoAluminioBati}" styleClass="form-control">
-                                            <f:ajax event="change" render="@form"></f:ajax>
-                                            <f:selectItem itemValue="0" itemLabel="Seleccione un tipo de Aluminio"/>
-                                            <f:selectItem itemValue="1" itemLabel="Aluminio 3825"/>
-
-                                        </h:selectOneMenu>
-                                        <h:selectOneMenu  value="#{mbCalcular.tipoVentana}" styleClass="form-control"
-                                                          rendered="#{mbCalcular.tipoModeloVentana==3}">
+                                           <h:selectOneMenu  value="#{mbCalcular.tipoVentana}" styleClass="form-control" style="margin-top: 5px;"
+                                                          rendered="#{mbCalcular.tipoModeloVentana==2 and mbCalcular.tipoAluminioCorred==2}">
                                             <f:ajax event="change" render="@form"></f:ajax>
                                             <f:selectItem itemValue="0" itemLabel="Seleccione cantidad de cuerpos"/>
                                             <f:selectItem itemValue="1" itemLabel="2 cuerpo"/>
                                             <f:selectItem itemValue="2" itemLabel="4 cuerpos"/>
 
                                         </h:selectOneMenu>
-                                        <h:selectOneMenu  value="#{mbCalcular.diseno}" styleClass="form-control"
-                                                          rendered="#{mbCalcular.tipoModeloVentana==3 and mbCalcular.tipoVentana==1}">
+                                        <h:selectOneMenu value="#{mbCalcular.diseno}" styleClass="form-control" style="margin-top: 5px;"
+                                                         rendered="#{mbCalcular.tipoAluminioCorred==2 and mbCalcular.tipoVentana==1 }">
                                             <f:selectItem itemValue="0" itemLabel="Diseño"/>
                                             <f:selectItem itemValue="1" itemLabel="X0 plusbasica alfa"/>
                                             <f:selectItem itemValue="2" itemLabel="XX Alf BASICA"/>
                                             <f:selectItem itemValue="3" itemLabel="X0 plus Reforzada"/>
-
                                         </h:selectOneMenu>
-                                        <h:selectOneMenu  value="#{mbCalcular.diseno}" styleClass="form-control"
-                                                          rendered="#{mbCalcular.tipoModeloVentana==3 and mbCalcular.tipoVentana==2}">
+                                        <h:selectOneMenu value="#{mbCalcular.diseno}" styleClass="form-control" style="margin-top: 5px;"
+                                                         rendered="#{mbCalcular.tipoAluminioCorred==2 and mbCalcular.tipoVentana==2 }">
                                             <f:selectItem itemValue="0" itemLabel="Diseño"/>
                                             <f:selectItem itemValue="1" itemLabel="OXXO 1672 DOBLE"/>
 
                                         </h:selectOneMenu>
 
 
-                                        <h:selectOneMenu  rendered="#{mbCalcular.productoTipo==2}" value="#{mbCalcular.tipoModeloPuerta}" styleClass="form-control">
+                                        <h:selectOneMenu  rendered="#{mbCalcular.productoTipo==2}" value="#{mbCalcular.tipoModeloPuerta}" styleClass="form-control" style="margin-top: 5px;">
                                             <f:ajax event="change" render="@form"></f:ajax>
                                             <f:selectItem itemValue="0" itemLabel="Seleccione Tipo Puerta"/>
                                             <f:selectItem itemValue="1" itemLabel="Corrediza"/>
                                             <f:selectItem itemValue="2" itemLabel="Abatible"/>
                                             <f:selectItem itemValue="3" itemLabel="Poket"/>
                                         </h:selectOneMenu>
-                                        <h:selectOneMenu  rendered="#{mbCalcular.productoTipo==2 and mbCalcular.tipoModeloPuerta==1}" value="#{mbCalcular.tipoAlumPuertaCor}" styleClass="form-control">
+                                        <h:selectOneMenu  rendered="#{mbCalcular.productoTipo==2 and mbCalcular.tipoModeloPuerta==1}" value="#{mbCalcular.tipoAlumPuertaCor}" styleClass="form-control" style="margin-top: 5px;">
                                             <f:ajax event="change" render="@form"></f:ajax>
                                             <f:selectItem itemValue="0" itemLabel="Seleccione un Sistema"/>
                                             <f:selectItem itemValue="1" itemLabel="Aluminio Corre 1000 ALE"/>
 
                                         </h:selectOneMenu>
-                                        <h:selectOneMenu  rendered="#{mbCalcular.productoTipo==2 and mbCalcular.tipoModeloPuerta==2}" value="#{mbCalcular.tipoAlumPuertaBat}" styleClass="form-control">
+                                        <h:selectOneMenu  rendered="#{mbCalcular.productoTipo==2 and mbCalcular.tipoModeloPuerta==2}" value="#{mbCalcular.tipoAlumPuertaBat}" styleClass="form-control" style="margin-top: 5px;">
                                             <f:ajax event="change" render="@form"></f:ajax>
                                             <f:selectItem itemValue="0" itemLabel="Seleccione un Sistema"/>
                                             <f:selectItem itemValue="1" itemLabel="Aluminio Batiente 2400 ALE"/>
 
                                         </h:selectOneMenu>
-                                        <h:selectOneMenu  rendered="#{mbCalcular.productoTipo==2 and mbCalcular.tipoModeloPuerta==3}" value="#{mbCalcular.tipoAlumPuertaPok}" styleClass="form-control">
+                                        <h:selectOneMenu  rendered="#{mbCalcular.productoTipo==2 and mbCalcular.tipoModeloPuerta==3}" value="#{mbCalcular.tipoAlumPuertaPok}" styleClass="form-control" style="margin-top: 5px;">
                                             <f:ajax event="change" render="@form"></f:ajax>
                                             <f:selectItem itemValue="0" itemLabel="Seleccione un Sistema"/>
                                             <f:selectItem itemValue="1" itemLabel="Aluminio Poket 2000 ALE"/>
 
                                         </h:selectOneMenu>
-                                        <h:selectOneMenu  rendered="#{mbCalcular.productoTipo!=0}" value="#{mbCalcular.tipoColor}" styleClass="form-control">
+                                        <h:selectOneMenu  rendered="#{mbCalcular.productoTipo!=0}" value="#{mbCalcular.tipoColor}" styleClass="form-control" style="margin-top: 5px;">
                                             <f:selectItem itemValue="0" itemLabel="Seleccione Acabado"/>
                                             <f:selectItem itemValue="1" itemLabel="Natural"/>
                                             <f:selectItem itemValue="2" itemLabel="Anolo"/>
                                             <f:selectItem itemValue="3" itemLabel="Colores"/>
                                         </h:selectOneMenu>
 
-                                        <h:selectOneMenu value="#{mbCalcular.tipoPuerta}" rendered="#{mbCalcular.productoTipo==2 and mbCalcular.tipoModeloPuerta==2}" styleClass="form-control">
+                                        <h:selectOneMenu value="#{mbCalcular.tipoPuerta}" rendered="#{mbCalcular.productoTipo==2 and mbCalcular.tipoModeloPuerta==2}" styleClass="form-control" style="margin-top: 5px;">
                                             <f:selectItem itemValue="0" itemLabel="Seleccione un modelo"/>
                                             <f:selectItem itemValue="1" itemLabel="XI XD Con divisor"/>
                                             <f:selectItem itemValue="2" itemLabel="XI XD PANORAMICA"/>
@@ -268,6 +261,19 @@
                                         <h:inputText id="alto"  disabled="#{mbCalcular.productoTipo==0}" pa:placeholder="Digite el alto cm." value="#{mbCalcular.alto}" styleClass="form-control" style="margin-top: 5px;"></h:inputText>
 
                                         <h:inputText id="ancho" disabled="#{mbCalcular.productoTipo==0}"  pa:placeholder="Digite el ancho cm." value="#{mbCalcular.ancho}" styleClass="form-control" style="margin-top: 5px;"></h:inputText>
+                                        <h:inputText id="altofijo"  rendered="#{mbCalcular.tipoModeloVentana==2 and mbCalcular.tipoVentana==2 and factura.diseno==4 
+                                                                                || mbCalcular.tipoModeloVentana==2 and mbCalcular.tipoVentana==3 and factura.diseno==2
+                                                                                || mbCalcular.tipoModeloVentana==2 and mbCalcular.tipoVentana==4 and factura.diseno==2
+                                                                                || mbCalcular.tipoModeloVentana==1 and mbCalcular.tipoVentana==2 and factura.diseno==4
+                                                                                || mbCalcular.tipoModeloVentana==1 and mbCalcular.tipoVentana==2 and factura.diseno==6
+                                                                                || mbCalcular.tipoModeloVentana==1 and mbCalcular.tipoVentana==4 and factura.diseno==4
+                                                                                || mbCalcular.tipoModeloVentana==1 and mbCalcular.tipoVentana==4 and factura.diseno==5
+                                                                                || mbCalcular.tipoModeloVentana==1 and mbCalcular.tipoVentana==2 and factura.diseno==8
+                                                                                || mbCalcular.tipoModeloVentana==1 and mbCalcular.tipoVentana==2 and factura.diseno==9}" pa:placeholder="Digite alto fijo cm." value="#{mbCalcular.altoFijo}" styleClass="form-control" style="margin-top: 5px;"></h:inputText>
+
+                                        <h:inputText id="anchofijo"  rendered="#{mbCalcular.tipoModeloVentana==1 and mbCalcular.tipoVentana==2 and mbCalcular.diseno==5
+                                                                                 || mbCalcular.tipoModeloVentana==1 and mbCalcular.tipoVentana==3 and mbCalcular.diseno==3}" pa:placeholder="Digite ancho fijo cm." value="#{mbCalcular.anchoFijo}" styleClass="form-control" style="margin-top: 5px;"></h:inputText>
+
 
                                         <h:inputText id="fondo" rendered="#{mbCalcular.productoTipo==3}" 
                                                      pa:placeholder="Digite el fondo cm." value="#{mbCalcular.fondo}" styleClass="form-control" style="margin-top: 5px;"></h:inputText>

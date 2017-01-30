@@ -150,7 +150,7 @@
 
                 <!--dialogo para mostar los productos-->
                 <p:dialog id="dlgProductos" widgetVar="dilogoProductos"   modal="true" showEffect="explode" resizable="false" hideEffect="explode">
-                    <h:form id="frmMenu"  style="color: #000000">
+                    <h:form id="frmMenu">
                         <p:growl id="growl" showDetail="true" sticky="true" />  
                         <p:panelGrid columns="2">
                             <h:selectOneMenu  value="#{factura.productoTipo}" styleClass="form-control">
@@ -174,13 +174,13 @@
                                 <f:ajax event="change" render="@form"></f:ajax>
                                 <f:selectItem itemValue="0" itemLabel="Seleccione un Sistema"/>
                                 <f:selectItem itemValue="1" itemLabel="Aluminio 3831 ALE"/>
-                                <f:selectItem itemValue="2" itemLabel="Aluminio 3831 VITRAL"/>
+                  
                             </h:selectOneMenu>
 
 
 
                             <h:selectOneMenu id="tipoVentana" value="#{factura.tipoVentana}" styleClass="form-control"
-                                             rendered="#{factura.tipoModeloVentana==1 and factura.tipoAluminioProy==1 || factura.tipoAluminioProy==2}">
+                                             rendered="#{factura.tipoModeloVentana==1 and factura.tipoAluminioProy==1}">
                                 <f:ajax event="change" render="@form"></f:ajax>
                                 <f:selectItem itemValue="0" itemLabel="Seleccione cantidad de cuerpos"/>
                                 <f:selectItem itemValue="1" itemLabel="1 cuerpo"/>
@@ -258,13 +258,44 @@
 
                             </h:selectOneMenu>
                             <h:selectOneMenu value="#{factura.diseno}" styleClass="form-control"
-                                             rendered="#{factura.tipoModeloVentana==2 and factura.tipoVentana==1}">
+                                             rendered="#{factura.tipoAluminioCorred==1 and factura.tipoVentana==1}">
                                 <f:selectItem itemValue="0" itemLabel="Diseño"/>
                                 <f:selectItem itemValue="1" itemLabel="X0 BASICA"/>
                                 <f:selectItem itemValue="2" itemLabel="XX BASICA"/>
                             </h:selectOneMenu>
 
-                            <h:selectOneMenu value="#{factura.diseno}" styleClass="form-control"
+                     
+                            <h:selectOneMenu  value="#{factura.diseno}" styleClass="form-control"
+                                              rendered="#{factura.tipoAluminioCorred==1 and factura.tipoVentana==2}">
+                                <f:ajax event="change" render="@form"></f:ajax>
+                                <f:selectItem itemValue="0" itemLabel="Diseño"/>
+                                <f:selectItem itemValue="1" itemLabel="X0X BASICA"/>
+                                <f:selectItem itemValue="2" itemLabel="OXO BASICA"/>
+                                <f:selectItem itemValue="3" itemLabel="OXX BASICA"/>
+                                <f:selectItem itemValue="4" itemLabel="X0/O"/>
+                            </h:selectOneMenu>
+                            <h:selectOneMenu  value="#{factura.diseno}" styleClass="form-control"
+                                              rendered="#{factura.tipoAluminioCorred==1 and factura.tipoVentana==3}">
+                                <f:ajax event="change" render="@form"></f:ajax>
+                                <f:selectItem itemValue="0" itemLabel="Diseño"/>
+                                <f:selectItem itemValue="1" itemLabel="OXXO BASICA"/>
+                                <f:selectItem itemValue="2" itemLabel="X0/00 Basica Alf"/>
+                            </h:selectOneMenu>
+
+
+                            <h:selectOneMenu  value="#{factura.diseno}" styleClass="form-control"
+                                              rendered="#{factura.tipoAluminioCorred==1 and factura.tipoVentana==4}">
+                                <f:ajax event="change" render="@form"></f:ajax>
+                                <f:selectItem itemValue="0" itemLabel="Diseño"/>
+                                <f:selectItem itemValue="1" itemLabel="0XX XXO BASICA"/>
+                                <f:selectItem itemValue="2" itemLabel="OXO /OOO BASICA"/>
+                            </h:selectOneMenu>
+                            <h:selectOneMenu  value="#{factura.diseno}" styleClass="form-control"
+                                              rendered="#{factura.tipoAluminioCorred==1 and factura.tipoVentana==5}">
+                                <f:selectItem itemValue="0" itemLabel="Diseño"/>
+                                <f:selectItem itemValue="1" itemLabel="OXXO /OOO0 BASICA"/>
+                            </h:selectOneMenu>
+                                   <h:selectOneMenu value="#{factura.diseno}" styleClass="form-control"
                                              rendered="#{factura.tipoAluminioCorred==2 and factura.tipoVentana==1 }">
                                 <f:selectItem itemValue="0" itemLabel="Diseño"/>
                                 <f:selectItem itemValue="1" itemLabel="X0 plusbasica alfa"/>
@@ -277,67 +308,8 @@
                                 <f:selectItem itemValue="1" itemLabel="OXXO 1672 DOBLE"/>
 
                             </h:selectOneMenu>
-                            <h:selectOneMenu  value="#{factura.diseno}" styleClass="form-control"
-                                              rendered="#{factura.tipoModeloVentana==2 and factura.tipoVentana==2}">
-                                <f:ajax event="change" render="@form"></f:ajax>
-                                <f:selectItem itemValue="0" itemLabel="Diseño"/>
-                                <f:selectItem itemValue="1" itemLabel="X0X BASICA"/>
-                                <f:selectItem itemValue="2" itemLabel="OXO BASICA"/>
-                                <f:selectItem itemValue="3" itemLabel="OXX BASICA"/>
-                                <f:selectItem itemValue="4" itemLabel="X0/O"/>
-                            </h:selectOneMenu>
-                            <h:selectOneMenu  value="#{factura.diseno}" styleClass="form-control"
-                                              rendered="#{factura.tipoModeloVentana==2 and factura.tipoVentana==3}">
-                                <f:ajax event="change" render="@form"></f:ajax>
-                                <f:selectItem itemValue="0" itemLabel="Diseño"/>
-                                <f:selectItem itemValue="1" itemLabel="OXXO BASICA"/>
-                                <f:selectItem itemValue="2" itemLabel="X0/00 Basica Alf"/>
-                            </h:selectOneMenu>
-
-
-                            <h:selectOneMenu  value="#{factura.diseno}" styleClass="form-control"
-                                              rendered="#{factura.tipoModeloVentana==2 and factura.tipoVentana==4}">
-                                <f:ajax event="change" render="@form"></f:ajax>
-                                <f:selectItem itemValue="0" itemLabel="Diseño"/>
-                                <f:selectItem itemValue="1" itemLabel="0XX XXO BASICA"/>
-                                <f:selectItem itemValue="2" itemLabel="OXO /OOO BASICA"/>
-                            </h:selectOneMenu>
-                            <h:selectOneMenu  value="#{factura.diseno}" styleClass="form-control"
-                                              rendered="#{factura.tipoModeloVentana==2 and factura.tipoVentana==5}">
-                                <f:selectItem itemValue="0" itemLabel="Diseño"/>
-                                <f:selectItem itemValue="1" itemLabel="OXXO /OOO0 BASICA"/>
-                            </h:selectOneMenu>
-                            <h:selectOneMenu  rendered="#{factura.productoTipo==1and factura.tipoModeloVentana==3}" value="#{factura.tipoAluminioBati}" styleClass="form-control">
-                                <f:ajax event="change" render="@form"></f:ajax>
-                                <f:selectItem itemValue="0" itemLabel="Seleccione un tipo de Aluminio"/>
-                                <f:selectItem itemValue="1" itemLabel="Aluminio 3825"/>
-
-                            </h:selectOneMenu>
-                            <h:selectOneMenu  value="#{factura.tipoVentana}" styleClass="form-control"
-                                              rendered="#{factura.tipoModeloVentana==3}">
-                                <f:ajax event="change" render="@form"></f:ajax>
-                                <f:selectItem itemValue="0" itemLabel="Seleccione cantidad de cuerpos"/>
-                                <f:selectItem itemValue="1" itemLabel="2 cuerpo"/>
-                                <f:selectItem itemValue="2" itemLabel="4 cuerpos"/>
-
-                            </h:selectOneMenu>
-                            <h:selectOneMenu  value="#{factura.diseno}" styleClass="form-control"
-                                              rendered="#{factura.tipoModeloVentana==3 and factura.tipoVentana==1}">
-                                <f:selectItem itemValue="0" itemLabel="Diseño"/>
-                                <f:selectItem itemValue="1" itemLabel="X0 plusbasica alfa"/>
-                                <f:selectItem itemValue="2" itemLabel="XX Alf BASICA"/>
-                                <f:selectItem itemValue="3" itemLabel="X0 plus Reforzada"/>
-
-                            </h:selectOneMenu>
-                            <h:selectOneMenu  value="#{factura.diseno}" styleClass="form-control"
-                                              rendered="#{factura.tipoModeloVentana==3 and factura.tipoVentana==2}">
-                                <f:selectItem itemValue="0" itemLabel="Diseño"/>
-                                <f:selectItem itemValue="1" itemLabel="OXXO 1672 DOBLE"/>
-
-                            </h:selectOneMenu>
-
-
-                            <h:selectOneMenu  rendered="#{factura.productoTipo==2}" value="#{factura.tipoModeloPuerta}" styleClass="form-control">
+                    
+                           <h:selectOneMenu  rendered="#{factura.productoTipo==2}" value="#{factura.tipoModeloPuerta}" styleClass="form-control">
                                 <f:ajax event="change" render="@form"></f:ajax>
                                 <f:selectItem itemValue="0" itemLabel="Seleccione Tipo Puerta"/>
                                 <f:selectItem itemValue="1" itemLabel="Corrediza"/>

@@ -150,7 +150,7 @@
                 <p:dialog id="dlgProductos" widgetVar="dilogoProductos"   modal="true" showEffect="explode" resizable="false" hideEffect="explode">
                     <h:form id="frmMenu"  style="color: #000000">
                         <p:growl id="growl" showDetail="true" sticky="true" />  
-                        <p:panelGrid columns="2">
+                            <p:panelGrid columns="2">
                             <h:selectOneMenu  value="#{mbCotizacion.productoTipo}" styleClass="form-control">
                                 <f:selectItem itemValue="0" itemLabel="Seleccione un Producto"/>
                                 <f:ajax event="change" render="@form"/>
@@ -167,12 +167,14 @@
                                 <f:selectItem itemValue="3" itemLabel="Batiente"/>
                             </h:selectOneMenu>
 
+
                             <h:selectOneMenu  rendered="#{mbCotizacion.productoTipo==1 and mbCotizacion.tipoModeloVentana==1}" value="#{mbCotizacion.tipoAluminioProy}" styleClass="form-control">
                                 <f:ajax event="change" render="@form"></f:ajax>
                                 <f:selectItem itemValue="0" itemLabel="Seleccione un Sistema"/>
                                 <f:selectItem itemValue="1" itemLabel="Aluminio 3831 ALE"/>
                                 <f:selectItem itemValue="2" itemLabel="Aluminio 3831 VITRAL"/>
                             </h:selectOneMenu>
+
 
 
                             <h:selectOneMenu id="tipoVentana" value="#{mbCotizacion.tipoVentana}" styleClass="form-control"
@@ -195,6 +197,7 @@
 
                             <h:selectOneMenu  value="#{mbCotizacion.diseno}" styleClass="form-control"
                                               rendered="#{mbCotizacion.tipoModeloVentana==1 and mbCotizacion.tipoVentana==2}">
+                                <f:ajax event="change" render="@form"></f:ajax>
                                 <f:selectItem itemValue="0" itemLabel="Diseño"/>
                                 <f:selectItem itemValue="1" itemLabel="XX"/>
                                 <f:selectItem itemValue="2" itemLabel="OO"/>
@@ -209,6 +212,7 @@
                             </h:selectOneMenu>
                             <h:selectOneMenu  value="#{mbCotizacion.diseno}" styleClass="form-control"
                                               rendered="#{mbCotizacion.tipoModeloVentana==1 and mbCotizacion.tipoVentana==3}">
+                                <f:ajax event="change" render="@form"></f:ajax>
                                 <f:selectItem itemValue="0" itemLabel="Diseño"/>
                                 <f:selectItem itemValue="1" itemLabel=" XXX alfajia"/>
                                 <f:selectItem itemValue="2" itemLabel="alfajia 0-x-0"/>
@@ -217,6 +221,7 @@
                             </h:selectOneMenu>
                             <h:selectOneMenu  value="#{mbCotizacion.diseno}" styleClass="form-control"
                                               rendered="#{mbCotizacion.tipoModeloVentana==1 and mbCotizacion.tipoVentana==4}">
+                                <f:ajax event="change" render="@form"></f:ajax>
                                 <f:selectItem itemValue="0" itemLabel="Diseño"/>
                                 <f:selectItem itemValue="1" itemLabel=" alfajia XXXX"/>
                                 <f:selectItem itemValue="2" itemLabel="0-0-0-0"/>
@@ -228,29 +233,51 @@
                             <h:selectOneMenu  rendered="#{mbCotizacion.productoTipo==1 and mbCotizacion.tipoModeloVentana==2}" value="#{mbCotizacion.tipoAluminioCorred}" styleClass="form-control">
                                 <f:ajax event="change" render="@form"></f:ajax>
                                 <f:selectItem itemValue="0" itemLabel="Seleccione un Sistema"/>
-                                <f:selectItem itemValue="1" itemLabel="Aluminio AS 1700"/>
-                                <f:selectItem itemValue="2" itemLabel="Aluminio AS 1700"/>
-                                <f:selectItem itemValue="3" itemLabel="Aluminio AS 1900"/>
+                                <f:selectItem itemValue="1" itemLabel="VC AS 1700"/>
+                                <f:selectItem itemValue="2" itemLabel="VC 3825"/>
+
                             </h:selectOneMenu>
 
                             <h:selectOneMenu  value="#{mbCotizacion.tipoVentana}" styleClass="form-control"
-                                              rendered="#{mbCotizacion.tipoModeloVentana==2}">
+                                              rendered="#{mbCotizacion.tipoModeloVentana==2 and mbCotizacion.tipoAluminioCorred==1}">
                                 <f:ajax event="change" render="@form"></f:ajax>
                                 <f:selectItem itemValue="0" itemLabel="Seleccione cantidad de cuerpos"/>
                                 <f:selectItem itemValue="1" itemLabel="2 cuerpo"/>
                                 <f:selectItem itemValue="2" itemLabel="3 cuerpos"/>
                                 <f:selectItem itemValue="3" itemLabel="4 cuerpos"/>
                                 <f:selectItem itemValue="4" itemLabel="6 cuerpos"/>
-                                <f:selectItem itemValue="5" itemLabel="8 cuerpos"/>
+                            </h:selectOneMenu>
+                            <h:selectOneMenu  value="#{mbCotizacion.tipoVentana}" styleClass="form-control"
+                                              rendered="#{mbCotizacion.tipoModeloVentana==2 and mbCotizacion.tipoAluminioCorred==2}">
+                                <f:ajax event="change" render="@form"></f:ajax>
+                                <f:selectItem itemValue="0" itemLabel="Seleccione cantidad de cuerpos"/>
+                                <f:selectItem itemValue="1" itemLabel="2 cuerpo"/>
+                                <f:selectItem itemValue="2" itemLabel="4 cuerpos"/>
+
                             </h:selectOneMenu>
                             <h:selectOneMenu value="#{mbCotizacion.diseno}" styleClass="form-control"
-                                             rendered="#{mbCotizacion.tipoModeloVentana==2 and mbCotizacion.tipoVentana==1}">
+                                             rendered="#{mbCotizacion.tipoAluminioCorred==1 and mbCotizacion.tipoVentana==1}">
                                 <f:selectItem itemValue="0" itemLabel="Diseño"/>
                                 <f:selectItem itemValue="1" itemLabel="X0 BASICA"/>
                                 <f:selectItem itemValue="2" itemLabel="XX BASICA"/>
                             </h:selectOneMenu>
+
+                            <h:selectOneMenu value="#{mbCotizacion.diseno}" styleClass="form-control"
+                                             rendered="#{mbCotizacion.tipoAluminioCorred==2 and mbCotizacion.tipoVentana==1 }">
+                                <f:selectItem itemValue="0" itemLabel="Diseño"/>
+                                <f:selectItem itemValue="1" itemLabel="X0 plusbasica alfa"/>
+                                <f:selectItem itemValue="2" itemLabel="XX Alf BASICA"/>
+                                <f:selectItem itemValue="3" itemLabel="X0 plus Reforzada"/>
+                            </h:selectOneMenu>
+                            <h:selectOneMenu value="#{mbCotizacion.diseno}" styleClass="form-control"
+                                             rendered="#{mbCotizacion.tipoAluminioCorred==2 and mbCotizacion.tipoVentana==2 }">
+                                <f:selectItem itemValue="0" itemLabel="Diseño"/>
+                                <f:selectItem itemValue="1" itemLabel="OXXO 1672 DOBLE"/>
+
+                            </h:selectOneMenu>
                             <h:selectOneMenu  value="#{mbCotizacion.diseno}" styleClass="form-control"
                                               rendered="#{mbCotizacion.tipoModeloVentana==2 and mbCotizacion.tipoVentana==2}">
+                                <f:ajax event="change" render="@form"></f:ajax>
                                 <f:selectItem itemValue="0" itemLabel="Diseño"/>
                                 <f:selectItem itemValue="1" itemLabel="X0X BASICA"/>
                                 <f:selectItem itemValue="2" itemLabel="OXO BASICA"/>
@@ -259,13 +286,16 @@
                             </h:selectOneMenu>
                             <h:selectOneMenu  value="#{mbCotizacion.diseno}" styleClass="form-control"
                                               rendered="#{mbCotizacion.tipoModeloVentana==2 and mbCotizacion.tipoVentana==3}">
+                                <f:ajax event="change" render="@form"></f:ajax>
                                 <f:selectItem itemValue="0" itemLabel="Diseño"/>
                                 <f:selectItem itemValue="1" itemLabel="OXXO BASICA"/>
                                 <f:selectItem itemValue="2" itemLabel="X0/00 Basica Alf"/>
-
                             </h:selectOneMenu>
+
+
                             <h:selectOneMenu  value="#{mbCotizacion.diseno}" styleClass="form-control"
                                               rendered="#{mbCotizacion.tipoModeloVentana==2 and mbCotizacion.tipoVentana==4}">
+                                <f:ajax event="change" render="@form"></f:ajax>
                                 <f:selectItem itemValue="0" itemLabel="Diseño"/>
                                 <f:selectItem itemValue="1" itemLabel="0XX XXO BASICA"/>
                                 <f:selectItem itemValue="2" itemLabel="OXO /OOO BASICA"/>
@@ -274,38 +304,16 @@
                                               rendered="#{mbCotizacion.tipoModeloVentana==2 and mbCotizacion.tipoVentana==5}">
                                 <f:selectItem itemValue="0" itemLabel="Diseño"/>
                                 <f:selectItem itemValue="1" itemLabel="OXXO /OOO0 BASICA"/>
-
                             </h:selectOneMenu>
-                            <h:selectOneMenu  rendered="#{mbCotizacion.productoTipo==1and mbCotizacion.tipoModeloVentana==3}" value="#{mbCotizacion.tipoAluminioBati}" styleClass="form-control">
+                          <h:selectOneMenu  rendered="#{mbCotizacion.productoTipo==1 and mbCotizacion.tipoModeloVentana==3}" value="#{mbCotizacion.tipoAluminioBati}" styleClass="form-control">
                                 <f:ajax event="change" render="@form"></f:ajax>
                                 <f:selectItem itemValue="0" itemLabel="Seleccione un tipo de Aluminio"/>
                                 <f:selectItem itemValue="1" itemLabel="Aluminio 3825"/>
 
                             </h:selectOneMenu>
-                            <h:selectOneMenu  value="#{mbCotizacion.tipoVentana}" styleClass="form-control"
-                                              rendered="#{mbCotizacion.tipoModeloVentana==3}">
-                                <f:ajax event="change" render="@form"></f:ajax>
-                                <f:selectItem itemValue="0" itemLabel="Seleccione cantidad de cuerpos"/>
-                                <f:selectItem itemValue="1" itemLabel="2 cuerpo"/>
-                                <f:selectItem itemValue="2" itemLabel="4 cuerpos"/>
+                
 
-                            </h:selectOneMenu>
-                            <h:selectOneMenu  value="#{mbCotizacion.diseno}" styleClass="form-control"
-                                              rendered="#{mbCotizacion.tipoModeloVentana==3 and mbCotizacion.tipoVentana==1}">
-                                <f:selectItem itemValue="0" itemLabel="Diseño"/>
-                                <f:selectItem itemValue="1" itemLabel="X0 plusbasica alfa"/>
-                                <f:selectItem itemValue="2" itemLabel="XX Alf BASICA"/>
-                                <f:selectItem itemValue="3" itemLabel="X0 plus Reforzada"/>
 
-                            </h:selectOneMenu>
-                            <h:selectOneMenu  value="#{mbCotizacion.diseno}" styleClass="form-control"
-                                              rendered="#{mbCotizacion.tipoModeloVentana==3 and mbCotizacion.tipoVentana==2}">
-                                <f:selectItem itemValue="0" itemLabel="Diseño"/>
-                                <f:selectItem itemValue="1" itemLabel="OXXO 1672 DOBLE"/>
-
-                            </h:selectOneMenu>
-
-                  
                             <h:selectOneMenu  rendered="#{mbCotizacion.productoTipo==2}" value="#{mbCotizacion.tipoModeloPuerta}" styleClass="form-control">
                                 <f:ajax event="change" render="@form"></f:ajax>
                                 <f:selectItem itemValue="0" itemLabel="Seleccione Tipo Puerta"/>
@@ -331,7 +339,7 @@
                                 <f:selectItem itemValue="1" itemLabel="Aluminio Poket 2000 ALE"/>
 
                             </h:selectOneMenu>
-                               <h:selectOneMenu  rendered="#{mbCotizacion.productoTipo!=0}" value="#{mbCotizacion.tipoColor}" styleClass="form-control">
+                            <h:selectOneMenu  rendered="#{mbCotizacion.productoTipo!=0}" value="#{mbCotizacion.tipoColor}" styleClass="form-control">
                                 <f:selectItem itemValue="0" itemLabel="Seleccione Acabado"/>
                                 <f:selectItem itemValue="1" itemLabel="Natural"/>
                                 <f:selectItem itemValue="2" itemLabel="Anolo"/>
@@ -339,32 +347,17 @@
                             </h:selectOneMenu>
 
                             <h:selectOneMenu value="#{mbCotizacion.tipoPuerta}" rendered="#{mbCotizacion.productoTipo==2 and mbCotizacion.tipoModeloPuerta==2}" styleClass="form-control">
-                                 <f:selectItem itemValue="0" itemLabel="Seleccione un modelo"/>
+                                <f:selectItem itemValue="0" itemLabel="Seleccione un modelo"/>
                                 <f:selectItem itemValue="1" itemLabel="XI XD Con divisor"/>
                                 <f:selectItem itemValue="2" itemLabel="XI XD PANORAMICA"/>
                                 <f:selectItem itemValue="3" itemLabel="XX Panoramica"/>
-                          
+
                             </h:selectOneMenu>
-                            
+
                             <h:selectOneMenu id="vidrios" value="#{mbCotizacion.idVidrio}" style="margin-top: 5px;" styleClass="form-control">
                                 <f:selectItem itemValue="0" itemLabel="Seleccione un tipo de vidrio"/>
                                 <f:selectItems value="#{mbVidrios.all}" var="vidrio" itemLabel="#{vidrio.calibre}" itemValue="#{vidrio.idvidrios}"/>
                             </h:selectOneMenu>
-                          
-                            <h:selectOneMenu rendered="#{mbCotizacion.productoTipo==3}" value="#{mbCotizacion.tipoVitrina}" styleClass="form-control" style="margin-top: 5px;">
-                                <f:selectItem itemValue="0" itemLabel="Seleccione un tipo de Vitrina"/>
-                                <f:selectItem itemValue="1" itemLabel="Vitrina CuartoCirculo 1 1/2"/>
-                                <f:selectItem itemValue="2" itemLabel="Vitrina Perfil Esquinero 1"/>
-                                <f:selectItem itemValue="3" itemLabel="Vitrina Pefil Esquinero 1 Larga"/>
-                            </h:selectOneMenu> 
-
-                            <h:selectOneMenu  rendered="#{mbCotizacion.productoTipo==3}" value="#{mbCotizacion.tipoColorVitrina}" styleClass="form-control">
-                                <f:selectItem itemValue="0" itemLabel="Seleccione un color de Aluminio"/>
-                                <f:selectItem itemValue="1" itemLabel=" 1 Aluminio  natural"/>
-                                <f:selectItem itemValue="2" itemLabel=" 2 Aluminio  Anolo"/>     
-                                <f:selectItem itemValue="3" itemLabel=" 3 Aluminio  Colores"/>
-                            </h:selectOneMenu>
-
                             <h:selectOneMenu rendered="#{mbCotizacion.productoTipo==3}" value="#{mbCotizacion.tipoVitrina}" styleClass="form-control" style="margin-top: 5px;">
                                 <f:selectItem itemValue="0" itemLabel="Seleccione un tipo de Vitrina"/>
                                 <f:selectItem itemValue="1" itemLabel="Vitrina CuartoCirculo 1 1/2"/>
@@ -386,9 +379,20 @@
                                 <f:selectItem itemValue="2" itemLabel="4 entrepaños"/>
                             </h:selectOneMenu>
 
-                            <h:inputText id="alto"  disabled="#{mbCotizacion.productoTipo==0}" pa:placeholder="Digite el alto cm." value="#{mbCotizacion.alto}" styleClass="form-control" style="margin-top: 5px;"></h:inputText>
-
                             <h:inputText id="ancho" disabled="#{mbCotizacion.productoTipo==0}"  pa:placeholder="Digite el ancho cm." value="#{mbCotizacion.ancho}" styleClass="form-control" style="margin-top: 5px;"></h:inputText>
+                            <h:inputText id="alto"  disabled="#{mbCotizacion.productoTipo==0}" pa:placeholder="Digite el alto cm." value="#{mbCotizacion.alto}" styleClass="form-control" style="margin-top: 5px;"></h:inputText>
+                            <h:inputText id="altofijo"  rendered="#{mbCotizacion.tipoModeloVentana==2 and mbCotizacion.tipoVentana==2 and mbCotizacion.diseno==4 
+                                                                    || mbCotizacion.tipoModeloVentana==2 and mbCotizacion.tipoVentana==3 and mbCotizacion.diseno==2
+                                                                    || mbCotizacion.tipoModeloVentana==2 and mbCotizacion.tipoVentana==4 and mbCotizacion.diseno==2
+                                                                    || mbCotizacion.tipoModeloVentana==1 and mbCotizacion.tipoVentana==2 and mbCotizacion.diseno==4
+                                                                    || mbCotizacion.tipoModeloVentana==1 and mbCotizacion.tipoVentana==2 and mbCotizacion.diseno==6
+                                                                    || mbCotizacion.tipoModeloVentana==1 and mbCotizacion.tipoVentana==4 and mbCotizacion.diseno==4
+                                                                    || mbCotizacion.tipoModeloVentana==1 and mbCotizacion.tipoVentana==4 and mbCotizacion.diseno==5
+                                                                    || mbCotizacion.tipoModeloVentana==1 and mbCotizacion.tipoVentana==2 and mbCotizacion.diseno==8
+                                                                    || mbCotizacion.tipoModeloVentana==1 and mbCotizacion.tipoVentana==2 and mbCotizacion.diseno==9}" pa:placeholder="Digite alto fijo cm." value="#{mbCotizacion.altoFijo}" styleClass="form-control" style="margin-top: 5px;"></h:inputText>
+
+                            <h:inputText id="anchofijo"  rendered="#{mbCotizacion.tipoModeloVentana==1 and mbCotizacion.tipoVentana==2 and mbCotizacion.diseno==5
+                                                                     || mbCotizacion.tipoModeloVentana==1 and mbCotizacion.tipoVentana==3 and mbCotizacion.diseno==3}" pa:placeholder="Digite ancho fijo cm." value="#{mbCotizacion.anchoFijo}" styleClass="form-control" style="margin-top: 5px;"></h:inputText>
 
                             <h:inputText id="fondo" rendered="#{mbCotizacion.productoTipo==3}" 
                                          pa:placeholder="Digite el fondo cm." value="#{mbCotizacion.fondo}" styleClass="form-control" style="margin-top: 5px;"></h:inputText>

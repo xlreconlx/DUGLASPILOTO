@@ -557,6 +557,7 @@ public class VentanaCorre extends Ventanas {
                 setFelpa(getAncho() + getAlto());
 
                 setPrecioCabezal(getPrecioCabezal() * getCabezal());
+                         System.out.println("precio cabezal caso 12 vc-3825 XO plus Basica Alfa  suma:::" + getPrecioCabezal());
                 setPrecioSillar(getSillar() * getPrecioSillar());
                 this.precioJambaCuerpoFijo = this.jambaCuerpoFijo * this.precioJambaCuerpoFijo;
                 setPrecioJamba(getJamba() * getPrecioJamba());
@@ -594,6 +595,7 @@ public class VentanaCorre extends Ventanas {
                 setFelpa(getAncho() + getAlto());
 
                 setPrecioCabezal(getPrecioCabezal() * getCabezal());
+                   System.out.println("precio cabezal caso 13 vc-3825 XX Basica Alfa  suma:::" + getPrecioCabezal());
                 setPrecioSillar(getSillar() * getPrecioSillar());
                 this.precioJambaCuerpoFijo = this.jambaCuerpoFijo * this.precioJambaCuerpoFijo;
                 setPrecioHinferior(gethInferior() * getPrecioHinferior());
@@ -630,6 +632,7 @@ public class VentanaCorre extends Ventanas {
                 setFelpa(getAncho() + getAlto());
 
                 setPrecioCabezal(getPrecioCabezal() * getCabezal());
+                   System.out.println("precio cabezal caso 14 vc-3825 XO plus  suma:::" + getPrecioCabezal());
                 setPrecioSillar(getSillar() * getPrecioSillar());
                 this.precioJambaCuerpoFijo = this.jambaCuerpoFijo * this.precioJambaCuerpoFijo;
                 setPrecioJamba(getJamba() * getPrecioJamba());
@@ -653,7 +656,7 @@ public class VentanaCorre extends Ventanas {
                 break;
 
             case 15:
-                //con este codigo fabricamos una ventana de 4 cuerpos 0XX0 DOBLE
+                //con este codigo fabricamos una ventana de 4 cuerpos 0XX0 1672 DOBLE
                 setCabezal(getAncho());
                 setSillar(getAncho()); //Este apunta al sillar alfagia
                 setJamba(getAlto() * 2); //Jamba es la jamba normal
@@ -666,6 +669,7 @@ public class VentanaCorre extends Ventanas {
                 setFelpa(getAncho() + (getAlto() * 5));
 
                 setPrecioCabezal(getPrecioCabezal() * getCabezal());
+                   System.out.println("precio cabezal caso 12 vc-3825 0XX0 1672 DOBLE  suma:::" + getPrecioCabezal());
                 setPrecioSillar(getSillar() * getPrecioSillar());
                 setPrecioJamba(getJamba() * getPrecioJamba());
                 setPrecioHinferior(gethInferior() * getPrecioHinferior());
