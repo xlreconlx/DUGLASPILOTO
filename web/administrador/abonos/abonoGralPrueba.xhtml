@@ -182,13 +182,13 @@
                                 <f:ajax event="change" render="@form"></f:ajax>
                                 <f:selectItem itemValue="0" itemLabel="Seleccione un Sistema"/>
                                 <f:selectItem itemValue="1" itemLabel="Aluminio 3831 ALE"/>
-                                <f:selectItem itemValue="2" itemLabel="Aluminio 3831 VITRAL"/>
+                          
                             </h:selectOneMenu>
 
 
 
                             <h:selectOneMenu id="tipoVentana" value="#{mbAbonos.tipoVentana}" styleClass="form-control"
-                                             rendered="#{mbAbonos.tipoModeloVentana==1 and mbAbonos.tipoAluminioProy==1 || mbAbonos.tipoAluminioProy==2}">
+                                             rendered="#{mbAbonos.tipoModeloVentana==1 and mbAbonos.tipoAluminioProy==1 }">
                                 <f:ajax event="change" render="@form"></f:ajax>
                                 <f:selectItem itemValue="0" itemLabel="Seleccione cantidad de cuerpos"/>
                                 <f:selectItem itemValue="1" itemLabel="1 cuerpo"/>

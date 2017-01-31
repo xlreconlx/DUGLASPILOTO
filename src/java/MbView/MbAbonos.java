@@ -1147,739 +1147,1394 @@ public class MbAbonos {
             int cierre = 0;
             int opcionVentana = 0;
             Accesorios acce = new Accesorios();
-        switch (tipoModeloVentana) {
+          switch (tipoModeloVentana) {
+
                 case 1://Proyectante
+
                     switch (tipoVentana) {
+
                         case 1://1 cuerpos
+
                             switch (diseno) {
+
                                 case 1:
+
                                     acce = new Accesorios();
+
                                     nombreVentana = "1 cuerpo X";
+
                                     opcionVentana = 1;
+
                                     acce = daoAccesorios.getById(this.session, 9);//obtiene el accesorio de la bd
+
                                     BrazosBasculantes = acce.getPrecioCosto() * 2;
+
                                     acce.setCantidad(acce.getCantidad() - (2 * this.cantidadProducto));//Descuenta la cantidad
+
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
+                                    acce = daoAccesorios.getById(this.session, 21);
+
+                                    manijas = acce.getPrecioCosto() * 2;
+
+                                    acce.setCantidad(acce.getCantidad() - (2 * this.cantidadProducto));//Descuenta la cantidad
+
+                                    daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
+
+                                    System.out.println("precio manijas:::" + manijas);
+
                                     acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
+
                                     tronillos = acce.getPrecioCosto() * 17;
+
                                     acce.setCantidad(acce.getCantidad() - (17 * this.cantidadProducto));
+
                                     daoAccesorios.actualizar(this.session, acce);
-                                    this.precioAccesorios = BrazosBasculantes + tronillos;
+
+                                    this.precioAccesorios = BrazosBasculantes + tronillos + manijas;
+                                    System.out.println("precio accesorios vProyectante 1 CUERPO X:::" + this.precioAccesorios);
+
                                     break;
+
                                 case 2:
+
                                     acce = new Accesorios();
+
                                     nombreVentana = "1 cuerpo O";
+
                                     opcionVentana = 5;
+
                                     acce = daoAccesorios.getById(this.session, 104);
+
                                     tronillos = acce.getPrecioCosto() * 24;
+
                                     acce.setCantidad(acce.getCantidad() - (24 * this.cantidadProducto));
+
                                     daoAccesorios.actualizar(this.session, acce);
+
                                     this.precioAccesorios = tronillos;
+                                    System.out.println("precio accesorios vProyectante 1 CUERPO 0:::" + this.precioAccesorios);
+
                                     break;
+
                             }
+
                             break;
+
                         case 2:// 2 CUERPOS
+
                             switch (diseno) {
+
                                 case 1:
+
                                     acce = new Accesorios();
+
                                     nombreVentana = "2 cuerpos XX basica";
+
                                     opcionVentana = 2;
 
                                     acce = daoAccesorios.getById(this.session, 9);//obtiene el accesorio de la bd
+
                                     BrazosBasculantes = acce.getPrecioCosto() * 4;
+
                                     acce.setCantidad(acce.getCantidad() - (4 * this.cantidadProducto));//Descuenta la cantidad
+
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
+
                                     System.out.println("precio brazos:::" + BrazosBasculantes);
+
                                     acce = daoAccesorios.getById(this.session, 21);
+
                                     manijas = acce.getPrecioCosto() * 2;
+
                                     acce.setCantidad(acce.getCantidad() - (2 * this.cantidadProducto));//Descuenta la cantidad
+
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
+
                                     System.out.println("precio manijas:::" + manijas);
+
                                     acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
+
                                     tronillos = acce.getPrecioCosto() * 31;
+
                                     acce.setCantidad(acce.getCantidad() - (31 * this.cantidadProducto));
+
                                     System.out.println("precio tornillos:::" + tronillos);
+
                                     daoAccesorios.actualizar(this.session, acce);
+
                                     this.precioAccesorios = BrazosBasculantes + manijas + tronillos;
+
                                     System.out.println("precio accesorios:::" + this.precioAccesorios);
+                                    System.out.println("precio accesorios vProyectante 2 CUERPO XX:::" + this.precioAccesorios);
+
                                     break;
+
                                 case 2:
+
                                     acce = new Accesorios();
+
                                     nombreVentana = "2 cuerpos OO";
+
                                     opcionVentana = 6;
+
                                     acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
+
                                     tronillos = acce.getPrecioCosto() * 17;
+
                                     acce.setCantidad(acce.getCantidad() - (17 * this.cantidadProducto));
+
                                     daoAccesorios.actualizar(this.session, acce);
+
                                     this.precioAccesorios = tronillos;
+                                    System.out.println("precio accesorios vProyectante 2 CUERPO 00:::" + this.precioAccesorios);
+
                                     break;
+
                                 case 3:
+
                                     acce = new Accesorios();
+
                                     nombreVentana = "2 cuerpos O/O";
+
                                     opcionVentana = 7;
+
                                     acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
+
                                     tronillos = acce.getPrecioCosto() * 43;
+
                                     acce.setCantidad(acce.getCantidad() - (43 * this.cantidadProducto));
+
                                     daoAccesorios.actualizar(this.session, acce);
+
                                     this.precioAccesorios = tronillos;
+
                                     break;
+
                                 case 4:
+
                                     acce = new Accesorios();
+
                                     nombreVentana = "2 cuerpos X/O";
+
                                     opcionVentana = 8;
+
                                     acce = daoAccesorios.getById(this.session, 9);//obtiene el accesorio de la bd
+
                                     BrazosBasculantes = acce.getPrecioCosto() * 2;
+
                                     acce.setCantidad(acce.getCantidad() - (2 * this.cantidadProducto));//Descuenta la cantidad
+
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
 
                                     acce = daoAccesorios.getById(this.session, 20);
+
                                     manijas = acce.getPrecioCosto() * 1;
+
                                     acce.setCantidad(acce.getCantidad() - (1 * this.cantidadProducto));//Descuenta la cantidad
+
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
+
                                     acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
+
                                     tronillos = acce.getPrecioCosto() * 42;
+
                                     acce.setCantidad(acce.getCantidad() - (42 * this.cantidadProducto));
+
                                     daoAccesorios.actualizar(this.session, acce);
 
                                     this.precioAccesorios = BrazosBasculantes + manijas + tronillos;
+
                                     break;
+
                                 case 5:
+
                                     acce = new Accesorios();
+
                                     nombreVentana = "2 cuerpos X-O";
+
                                     opcionVentana = 10;
+
                                     acce = daoAccesorios.getById(this.session, 9);//obtiene el accesorio de la bd
+
                                     BrazosBasculantes = acce.getPrecioCosto() * 4;
+
                                     acce.setCantidad(acce.getCantidad() - (4 * this.cantidadProducto));//Descuenta la cantidad
+
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
+
                                     acce = daoAccesorios.getById(this.session, 20);
+
                                     manijas = acce.getPrecioCosto() * 1;
+
                                     acce.setCantidad(acce.getCantidad() - (1 * this.cantidadProducto));//Descuenta la cantidad
+
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
+
                                     acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
+
                                     tronillos = acce.getPrecioCosto() * 41;
+
                                     acce.setCantidad(acce.getCantidad() - (41 * this.cantidadProducto));
+
                                     daoAccesorios.actualizar(this.session, acce);
+
                                     this.precioAccesorios = BrazosBasculantes + manijas + tronillos;
+
                                     break;
+
                                 case 6:
+
                                     acce = new Accesorios();
+
                                     nombreVentana = "2 cuerpos X/O plus alfalgia";
+
                                     opcionVentana = 12;
+
                                     acce = daoAccesorios.getById(this.session, 9);//obtiene el accesorio de la bd
+
                                     BrazosBasculantes = acce.getPrecioCosto() * 2;
+
                                     acce.setCantidad(acce.getCantidad() - (2 * this.cantidadProducto));//Descuenta la cantidad
+
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
+
                                     acce = daoAccesorios.getById(this.session, 20);
+
                                     manijas = acce.getPrecioCosto() * 1;
+
                                     acce.setCantidad(acce.getCantidad() - (1 * this.cantidadProducto));//Descuenta la cantidad
+
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
+
                                     acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
+
                                     tronillos = acce.getPrecioCosto() * 42;
+
                                     acce.setCantidad(acce.getCantidad() - (42 * this.cantidadProducto));
+
                                     daoAccesorios.actualizar(this.session, acce);
+
                                     this.precioAccesorios = BrazosBasculantes + manijas + tronillos;
+
                                     break;
+
                                 case 7:
+
                                     acce = new Accesorios();
+
                                     nombreVentana = "2 cuerpos X/X alfalgia";
+
                                     opcionVentana = 14;
+
                                     acce = daoAccesorios.getById(this.session, 9);//obtiene el accesorio de la bd
+
                                     BrazosBasculantes = acce.getPrecioCosto() * 4;
+
                                     acce.setCantidad(acce.getCantidad() - (4 * this.cantidadProducto));//Descuenta la cantidad
+
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
+
                                     acce = daoAccesorios.getById(this.session, 20);
+
                                     manijas = acce.getPrecioCosto() * 2;
+
                                     acce.setCantidad(acce.getCantidad() - (2 * this.cantidadProducto));//Descuenta la cantidad
+
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
+
                                     acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
+
                                     tronillos = acce.getPrecioCosto() * 42;
+
                                     acce.setCantidad(acce.getCantidad() - (42 * this.cantidadProducto));
+
                                     daoAccesorios.actualizar(this.session, acce);
+
                                     this.precioAccesorios = BrazosBasculantes + manijas + tronillos;
+
                                     break;
+
                                 case 8:
+
                                     acce = new Accesorios();
+
                                     nombreVentana = "2 cuerpos X/0 Boreal alfaljia";
+
                                     opcionVentana = 19;
+
                                     acce = daoAccesorios.getById(this.session, 9);//obtiene el accesorio de la bd
+
                                     BrazosBasculantes = acce.getPrecioCosto() * 2;
+
                                     acce.setCantidad(acce.getCantidad() - (2 * this.cantidadProducto));//Descuenta la cantidad
+
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
+
                                     acce = daoAccesorios.getById(this.session, 20);
+
                                     manijas = acce.getPrecioCosto() * 1;
+
                                     acce.setCantidad(acce.getCantidad() - (1 * this.cantidadProducto));//Descuenta la cantidad
+
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
+
                                     acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
+
                                     tronillos = acce.getPrecioCosto() * 42;
+
                                     acce.setCantidad(acce.getCantidad() - (42 * this.cantidadProducto));
+
                                     daoAccesorios.actualizar(this.session, acce);
+
                                     this.precioAccesorios = BrazosBasculantes + manijas + tronillos;
+
                                     break;
+
                                 case 9:
+
                                     acce = new Accesorios();
+
                                     nombreVentana = "2 cuerpos 0/0 Boreal alfalgia";
+
                                     opcionVentana = 20;
+
                                     acce = daoAccesorios.getById(this.session, 9);//obtiene el accesorio de la bd
+
                                     BrazosBasculantes = acce.getPrecioCosto() * 2;
+
                                     acce.setCantidad(acce.getCantidad() - (2 * this.cantidadProducto));//Descuenta la cantidad
+
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
+
                                     acce = daoAccesorios.getById(this.session, 20);
+
                                     manijas = acce.getPrecioCosto() * 1;
+
                                     acce.setCantidad(acce.getCantidad() - (1 * this.cantidadProducto));//Descuenta la cantidad
+
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
+
                                     acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
+
                                     tronillos = acce.getPrecioCosto() * 43;
+
                                     acce.setCantidad(acce.getCantidad() - (43 * this.cantidadProducto));
+
                                     daoAccesorios.actualizar(this.session, acce);
+
                                     this.precioAccesorios = BrazosBasculantes + manijas + tronillos;
+
                                     break;
 
                             }
+
                             break;
+
                         case 3:// 3 CUERPOS
+
                             switch (diseno) {
+
                                 case 1:
+
                                     acce = new Accesorios();
+
                                     nombreVentana = "3 cuerpos XXX alfajia";
+
                                     opcionVentana = 3;
+
                                     acce = daoAccesorios.getById(this.session, 9);//obtiene el accesorio de la bd
+
                                     BrazosBasculantes = acce.getPrecioCosto() * 6;
+
                                     acce.setCantidad(acce.getCantidad() - (6 * this.cantidadProducto));//Descuenta la cantidad
+
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
+
                                     acce = daoAccesorios.getById(this.session, 20);
+
                                     manijas = acce.getPrecioCosto() * 3;
+
                                     acce.setCantidad(acce.getCantidad() - (3 * this.cantidadProducto));//Descuenta la cantidad
+
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
+
                                     acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
+
                                     tronillos = acce.getPrecioCosto() * 43;
+
                                     acce.setCantidad(acce.getCantidad() - (43 * this.cantidadProducto));
+
                                     daoAccesorios.actualizar(this.session, acce);
+
                                     this.precioAccesorios = BrazosBasculantes + manijas + tronillos;
+
                                     break;
+
                                 case 2:
+
                                     acce = new Accesorios();
+
                                     nombreVentana = "3 cuerpos 0-x-0 Alfaljia";
+
                                     opcionVentana = 9;
+
                                     acce = daoAccesorios.getById(this.session, 9);//obtiene el accesorio de la bd
+
                                     BrazosBasculantes = acce.getPrecioCosto() * 6;
+
                                     acce.setCantidad(acce.getCantidad() - (6 * this.cantidadProducto));//Descuenta la cantidad
+
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
+
                                     acce = daoAccesorios.getById(this.session, 20);
+
                                     manijas = acce.getPrecioCosto() * 2;
+
                                     acce.setCantidad(acce.getCantidad() - (2 * this.cantidadProducto));//Descuenta la cantidad
+
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
+
                                     acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
+
                                     tronillos = acce.getPrecioCosto() * 42;
+
                                     acce.setCantidad(acce.getCantidad() - (42 * this.cantidadProducto));
+
                                     daoAccesorios.actualizar(this.session, acce);
+
                                     this.precioAccesorios = BrazosBasculantes + manijas + tronillos;
+
                                     break;
+
                                 case 3:
+
                                     acce = new Accesorios();
+
                                     nombreVentana = "3 cuerpos alfajia x-0-x";
+
                                     opcionVentana = 11;
+
                                     acce = daoAccesorios.getById(this.session, 9);//obtiene el accesorio de la bd
+
                                     BrazosBasculantes = acce.getPrecioCosto() * 4;
+
                                     acce.setCantidad(acce.getCantidad() - (4 * this.cantidadProducto));//Descuenta la cantidad
+
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
+
                                     acce = daoAccesorios.getById(this.session, 20);
+
                                     manijas = acce.getPrecioCosto() * 2;
+
                                     acce.setCantidad(acce.getCantidad() - (2 * this.cantidadProducto));//Descuenta la cantidad
+
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
 
                                     acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
+
                                     tronillos = acce.getPrecioCosto() * 44;
+
                                     acce.setCantidad(acce.getCantidad() - (44 * this.cantidadProducto));
+
                                     daoAccesorios.actualizar(this.session, acce);
+
                                     this.precioAccesorios = BrazosBasculantes + manijas + tronillos;
+
                                     break;
+
                                 case 4:
+
                                     acce = new Accesorios();
+
                                     nombreVentana = "3 cuerpos 0-0-0 ALFALJIA";
+
                                     opcionVentana = 15;
+
                                     acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
+
                                     tronillos = acce.getPrecioCosto() * 24;
+
                                     acce.setCantidad(acce.getCantidad() - (24 * this.cantidadProducto));
+
                                     daoAccesorios.actualizar(this.session, acce);
+
                                     this.precioAccesorios = tronillos;
+
                                     break;
 
                             }
+
                         case 4:// 4 cuerpos
+
                             switch (diseno) {
+
                                 case 1:
+
                                     acce = new Accesorios();
+
                                     nombreVentana = "4 cuerpos alfajia XXXX";
+
                                     opcionVentana = 4;
+
                                     acce = daoAccesorios.getById(this.session, 9);//obtiene el accesorio de la bd
+
                                     BrazosBasculantes = acce.getPrecioCosto() * 8;
+
                                     acce.setCantidad(acce.getCantidad() - (8 * this.cantidadProducto));//Descuenta la cantidad
+
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
+
                                     acce = daoAccesorios.getById(this.session, 20);
+
                                     manijas = acce.getPrecioCosto() * 4;
+
                                     acce.setCantidad(acce.getCantidad() - (4 * this.cantidadProducto));//Descuenta la cantidad
+
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
+
                                     acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
+
                                     tronillos = acce.getPrecioCosto() * 43;
+
                                     acce.setCantidad(acce.getCantidad() - (43 * this.cantidadProducto));
+
                                     daoAccesorios.actualizar(this.session, acce);
+
                                     this.precioAccesorios = BrazosBasculantes + manijas + tronillos;
+
                                     break;
 
                                 case 2:
+
                                     acce = new Accesorios();
+
                                     nombreVentana = "4 cuerpos 0-0-0-0";
+
                                     opcionVentana = 13;
+
                                     acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
+
                                     tronillos = acce.getPrecioCosto() * 23;
+
                                     acce.setCantidad(acce.getCantidad() - (23 * this.cantidadProducto));
+
                                     daoAccesorios.actualizar(this.session, acce);
+
                                     this.precioAccesorios = tronillos;
+
                                     break;
+
                                 case 3:
+
                                     nombreVentana = "4 cuerpos 0/0/0/0/ ALFALJIA ";
+
                                     opcionVentana = 16;
+
                                     acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
+
                                     tronillos = acce.getPrecioCosto() * 48;
+
                                     acce.setCantidad(acce.getCantidad() - (48 * this.cantidadProducto));
+
                                     daoAccesorios.actualizar(this.session, acce);
+
                                     this.precioAccesorios = tronillos;
+
                                     break;
+
                                 case 4:
+
                                     acce = new Accesorios();
+
                                     nombreVentana = "4 cuerpos xx/00 ALFALJIA";
+
                                     opcionVentana = 17;
+
                                     acce = daoAccesorios.getById(this.session, 9);//obtiene el accesorio de la bd
+
                                     BrazosBasculantes = acce.getPrecioCosto() * 4;
+
                                     acce.setCantidad(acce.getCantidad() - (4 * this.cantidadProducto));//Descuenta la cantidad
+
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
+
                                     acce = daoAccesorios.getById(this.session, 20);
+
                                     manijas = acce.getPrecioCosto() * 2;
+
                                     acce.setCantidad(acce.getCantidad() - (2 * this.cantidadProducto));//Descuenta la cantidad
+
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
+
                                     acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
+
                                     tronillos = acce.getPrecioCosto() * 46;
+
                                     acce.setCantidad(acce.getCantidad() - (46 * this.cantidadProducto));
+
                                     daoAccesorios.actualizar(this.session, acce);
+
                                     this.precioAccesorios = BrazosBasculantes + manijas + tronillos;
+
                                     break;
+
                                 case 5:
+
                                     acce = new Accesorios();
+
                                     nombreVentana = "4 cuerpos X/X/0/0 ALFALJIA";
+
                                     opcionVentana = 18;
+
                                     acce = daoAccesorios.getById(this.session, 9);//obtiene el accesorio de la bd
+
                                     BrazosBasculantes = acce.getPrecioCosto() * 4;
+
                                     acce.setCantidad(acce.getCantidad() - (4 * this.cantidadProducto));//Descuenta la cantidad
+
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
+
                                     acce = daoAccesorios.getById(this.session, 20);
+
                                     manijas = acce.getPrecioCosto() * 2;
+
                                     acce.setCantidad(acce.getCantidad() - (2 * this.cantidadProducto));//Descuenta la cantidad
+
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
+
                                     acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
+
                                     tronillos = acce.getPrecioCosto() * 42;
+
                                     acce.setCantidad(acce.getCantidad() - (42 * this.cantidadProducto));
+
                                     daoAccesorios.actualizar(this.session, acce);
+
                                     this.precioAccesorios = BrazosBasculantes + manijas + tronillos;
+
                                     break;
+
                                 case 6:
+
                                     acce = new Accesorios();
+
                                     nombreVentana = "4 cuerpos 4 ALFALJIA";
+
                                     opcionVentana = 21;
+
                                     acce = daoAccesorios.getById(this.session, 9);//obtiene el accesorio de la bd
+
                                     BrazosBasculantes = acce.getPrecioCosto() * 2;
+
                                     acce.setCantidad(acce.getCantidad() - (2 * this.cantidadProducto));//Descuenta la cantidad
+
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
+
                                     acce = daoAccesorios.getById(this.session, 20);
+
                                     manijas = acce.getPrecioCosto() * 2;
+
                                     acce.setCantidad(acce.getCantidad() - (2 * this.cantidadProducto));//Descuenta la cantidad
+
                                     daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
+
                                     acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
+
                                     tronillos = acce.getPrecioCosto() * 44;
+
                                     acce.setCantidad(acce.getCantidad() - (44 * this.cantidadProducto));
+
                                     daoAccesorios.actualizar(this.session, acce);
+
                                     this.precioAccesorios = BrazosBasculantes + manijas + tronillos;
+
                                     break;
 
                             }
+
                     }
+
                     break;
+
                 case 2://Corrediza
-                    switch (tipoVentana) {
-                        case 1://2 cuerpos
-                            switch (diseno) {
-                                case 1:
-                                    acce = new Accesorios();
-                                    nombreVentana = "2 cuerpo X0";
-                                    opcionVentana = 22;
-                                    acce = daoAccesorios.getById(this.session, 89);//Se realiza el mismo procedimiento para todos los accesorios
-                                    rodachina = acce.getPrecioCosto() * 2;
-                                    acce.setCantidad(acce.getCantidad() - (2 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
-                                    System.out.println("precio rodachina:::" + rodachina);
 
-                                    acce = daoAccesorios.getById(this.session, 24);//Se realiza el mismo procedimiento para todos los accesorios
-                                    cierre = acce.getPrecioCosto() * 1;
-                                    acce.setCantidad(acce.getCantidad() - (1 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
-                                    System.out.println("precio cierre:::" + cierre);
+                    //Validacion segun aluminio corredera si es 1 y si es 2
+                    if (tipoAluminioCorred == 1) {
 
-                                    acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
-                                    tronillos = acce.getPrecioCosto() * 25;
-                                    acce.setCantidad(acce.getCantidad() - (25 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
-                                    System.out.println("precio tronillos:::" + tronillos);
-                                    this.precioAccesorios = rodachina + cierre + tronillos;
-                                    System.out.println("precio accesorios totla:::" + this.precioAccesorios);
-                                    break;
-                                case 2:
-                                    acce = new Accesorios();
-                                    nombreVentana = "2 cuerpo XX";
-                                    opcionVentana = 23;
-                                    acce = daoAccesorios.getById(this.session, 89);//Se realiza el mismo procedimiento para todos los accesorios
-                                    rodachina = acce.getPrecioCosto() * 4;
-                                    acce.setCantidad(acce.getCantidad() - (4 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
+                        switch (tipoVentana) {
 
-                                    acce = daoAccesorios.getById(this.session, 24);//Se realiza el mismo procedimiento para todos los accesorios
-                                    cierre = acce.getPrecioCosto() * 1;
-                                    acce.setCantidad(acce.getCantidad() - (1 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
+                            case 1://2 cuerpos
 
-                                    acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
-                                    tronillos = acce.getPrecioCosto() * 21;
-                                    acce.setCantidad(acce.getCantidad() - (21 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
-                                    this.precioAccesorios = rodachina + cierre + tronillos;
-                                    break;
+                                switch (diseno) {
 
-                                //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                        
-                                //VENTANAS CORREDIZAS VC3825 OJO                  
-                                case 3:
-                                    //ventana corrediza vc 3825
-                                    acce = new Accesorios();
-                                    nombreVentana = "2 cuerpos X0 plus basica alfa";
-                                    opcionVentana = 33;
-                                    acce = daoAccesorios.getById(this.session, 89);//Se realiza el mismo procedimiento para todos los accesorios
-                                    rodachina = acce.getPrecioCosto() * 2;
-                                    acce.setCantidad(acce.getCantidad() - (2 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
+                                    case 1:
 
-                                    acce = daoAccesorios.getById(this.session, 24);//Se realiza el mismo procedimiento para todos los accesorios
-                                    cierre = acce.getPrecioCosto() * 1;
-                                    acce.setCantidad(acce.getCantidad() - (1 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
+                                        acce = new Accesorios();
 
-                                    acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
-                                    tronillos = acce.getPrecioCosto() * 10;
-                                    acce.setCantidad(acce.getCantidad() - (10 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
+                                        nombreVentana = "2 cuerpo X0";
 
-                                    acce = daoAccesorios.getById(this.session, 103);//Se realiza el mismo procedimiento para todos los accesorios
-                                    tronillos1 = acce.getPrecioCosto() * 9;
-                                    acce.setCantidad(acce.getCantidad() - (9 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
-                                    this.precioAccesorios = rodachina + cierre + tronillos + tronillos1;
-                                    break;
-                                case 4:
-                                    acce = new Accesorios();
-                                    //ventana corrediza vc 3825
-                                    nombreVentana = "2 cuerpos XX Alf BASICA";
-                                    opcionVentana = 34;
-                                    acce = daoAccesorios.getById(this.session, 89);//Se realiza el mismo procedimiento para todos los accesorios
-                                    rodachina = acce.getPrecioCosto() * 4;
-                                    acce.setCantidad(acce.getCantidad() - (4 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
+                                        opcionVentana = 1;
 
-                                    acce = daoAccesorios.getById(this.session, 24);//Se realiza el mismo procedimiento para todos los accesorios
-                                    cierre = acce.getPrecioCosto() * 1;
-                                    acce.setCantidad(acce.getCantidad() - (1 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
+                                        acce = daoAccesorios.getById(this.session, 89);//Se realiza el mismo procedimiento para todos los accesorios
 
-                                    acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
-                                    tronillos = acce.getPrecioCosto() * 36;
-                                    acce.setCantidad(acce.getCantidad() - (36 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
+                                        rodachina = acce.getPrecioCosto() * 2;
 
-                                    acce = daoAccesorios.getById(this.session, 103);//Se realiza el mismo procedimiento para todos los accesorios
-                                    tronillos1 = acce.getPrecioCosto() * 9;
-                                    acce.setCantidad(acce.getCantidad() - (9 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
-                                    this.precioAccesorios = rodachina + cierre + tronillos + tronillos1;
-                                    break;
-                                case 5:
-                                    acce = new Accesorios();
-                                    //ventana corrediza vc 3825
-                                    nombreVentana = "2 cuerpos X0 plus Reforzada";
-                                    opcionVentana = 35;
-                                    acce = daoAccesorios.getById(this.session, 89);//Se realiza el mismo procedimiento para todos los accesorios
-                                    rodachina = acce.getPrecioCosto() * 4;
-                                    acce.setCantidad(acce.getCantidad() - (4 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
+                                        acce.setCantidad(acce.getCantidad() - (2 * this.cantidadProducto));
 
-                                    acce = daoAccesorios.getById(this.session, 24);//Se realiza el mismo procedimiento para todos los accesorios
-                                    cierre = acce.getPrecioCosto() * 1;
-                                    acce.setCantidad(acce.getCantidad() - (1 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
+                                        daoAccesorios.actualizar(this.session, acce);
 
-                                    acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
-                                    tronillos = acce.getPrecioCosto() * 36;
-                                    acce.setCantidad(acce.getCantidad() - (36 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
+                                        System.out.println("precio rodachina:::" + rodachina);
 
-                                    acce = daoAccesorios.getById(this.session, 103);//Se realiza el mismo procedimiento para todos los accesorios
-                                    tronillos1 = acce.getPrecioCosto() * 9;
-                                    acce.setCantidad(acce.getCantidad() - (9 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
-                                    this.precioAccesorios = rodachina + cierre + tronillos + tronillos1;
-                                    break;
+                                        acce = daoAccesorios.getById(this.session, 24);//Se realiza el mismo procedimiento para todos los accesorios
 
-                            }
-                            break;
-                        case 2:// 3 CUERPOS
-                            switch (diseno) {
-                                case 1:
-                                    acce = new Accesorios();
-                                    nombreVentana = "3 cuerpos X0X BASICA";
-                                    opcionVentana = 24;
-                                    acce = daoAccesorios.getById(this.session, 89);//Se realiza el mismo procedimiento para todos los accesorios
-                                    rodachina = acce.getPrecioCosto() * 4;
-                                    acce.setCantidad(acce.getCantidad() - (4 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
+                                        cierre = acce.getPrecioCosto() * 1;
 
-                                    acce = daoAccesorios.getById(this.session, 24);//Se realiza el mismo procedimiento para todos los accesorios
-                                    cierre = acce.getPrecioCosto() * 2;
-                                    acce.setCantidad(acce.getCantidad() - (2 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
+                                        acce.setCantidad(acce.getCantidad() - (1 * this.cantidadProducto));
 
-                                    acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
-                                    tronillos = acce.getPrecioCosto() * 27;
-                                    acce.setCantidad(acce.getCantidad() - (27 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
-                                    this.precioAccesorios = rodachina + cierre + tronillos;
-                                    break;
-                                case 2:
-                                    acce = new Accesorios();
-                                    nombreVentana = "3 cuerpos OXO BASICA";
-                                    opcionVentana = 25;
-                                    acce = daoAccesorios.getById(this.session, 89);//Se realiza el mismo procedimiento para todos los accesorios
-                                    rodachina = acce.getPrecioCosto() * 2;
-                                    acce.setCantidad(acce.getCantidad() - (2 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
+                                        daoAccesorios.actualizar(this.session, acce);
 
-                                    acce = daoAccesorios.getById(this.session, 23);//Se realiza el mismo procedimiento para todos los accesorios
-                                    cierre = acce.getPrecioCosto() * 1;
-                                    acce.setCantidad(acce.getCantidad() - (1 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
+                                        System.out.println("precio cierre:::" + cierre);
 
-                                    acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
-                                    tronillos = acce.getPrecioCosto() * 26;
-                                    acce.setCantidad(acce.getCantidad() - (26 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
-                                    this.precioAccesorios = rodachina + cierre + tronillos;
-                                    break;
-                                case 3:
-                                    acce = new Accesorios();
-                                    nombreVentana = "3 cuerpos OXX BASICA";
-                                    opcionVentana = 26;
-                                    acce = daoAccesorios.getById(this.session, 89);//Se realiza el mismo procedimiento para todos los accesorios
-                                    rodachina = acce.getPrecioCosto() * 4;
-                                    acce.setCantidad(acce.getCantidad() - (4 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
+                                        acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
 
-                                    acce = daoAccesorios.getById(this.session, 24);//Se realiza el mismo procedimiento para todos los accesorios
-                                    cierre = acce.getPrecioCosto() * 1;
-                                    acce.setCantidad(acce.getCantidad() - (1 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
+                                        tronillos = acce.getPrecioCosto() * 25;
 
-                                    acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
-                                    tronillos = acce.getPrecioCosto() * 27;
-                                    acce.setCantidad(acce.getCantidad() - (27 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
-                                    this.precioAccesorios = rodachina + cierre + tronillos;
-                                    break;
-                                case 4:
-                                    acce = new Accesorios();
+                                        acce.setCantidad(acce.getCantidad() - (25 * this.cantidadProducto));
 
-                                    nombreVentana = "3 cuerpos X0/O";
-                                    opcionVentana = 27;
-                                    acce = daoAccesorios.getById(this.session, 89);//Se realiza el mismo procedimiento para todos los accesorios
-                                    rodachina = acce.getPrecioCosto() * 2;
-                                    acce.setCantidad(acce.getCantidad() - (2 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
+                                        daoAccesorios.actualizar(this.session, acce);
 
-                                    acce = daoAccesorios.getById(this.session, 24);//Se realiza el mismo procedimiento para todos los accesorios
-                                    cierre = acce.getPrecioCosto() * 1;
-                                    acce.setCantidad(acce.getCantidad() - (1 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
+                                        System.out.println("precio tronillos:::" + tronillos);
 
-                                    acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
-                                    tronillos = acce.getPrecioCosto() * 22;
-                                    acce.setCantidad(acce.getCantidad() - (22 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
-                                    this.precioAccesorios = rodachina + cierre + tronillos;
-                                    break;
+                                        this.precioAccesorios = rodachina + cierre + tronillos;
 
-                            }
-                            break;
-                        case 3:// 4 CUERPOS
-                            switch (diseno) {
-                                case 1:
-                                    acce = new Accesorios();
-                                    nombreVentana = "4 cuerpos OXXO BASICA";
-                                    opcionVentana = 28;
-                                    acce = daoAccesorios.getById(this.session, 89);//Se realiza el mismo procedimiento para todos los accesorios
-                                    rodachina = acce.getPrecioCosto() * 4;
-                                    acce.setCantidad(acce.getCantidad() - (4 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
+                                        System.out.println("precio accesorios totla:::" + this.precioAccesorios);
 
-                                    acce = daoAccesorios.getById(this.session, 24);//Se realiza el mismo procedimiento para todos los accesorios
-                                    cierre = acce.getPrecioCosto() * 1;
-                                    acce.setCantidad(acce.getCantidad() - (1 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
+                                        break;
 
-                                    acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
-                                    tronillos = acce.getPrecioCosto() * 39;
-                                    acce.setCantidad(acce.getCantidad() - (39 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
-                                    this.precioAccesorios = rodachina + cierre + tronillos;
-                                    break;
-                                case 2:
-                                    acce = new Accesorios();
-                                    nombreVentana = "4 cuerpos X0/00 Basica Alf";
-                                    opcionVentana = 29;
-                                    acce = daoAccesorios.getById(this.session, 89);//Se realiza el mismo procedimiento para todos los accesorios
-                                    rodachina = acce.getPrecioCosto() * 2;
-                                    acce.setCantidad(acce.getCantidad() - (2 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
+                                    case 2:
 
-                                    acce = daoAccesorios.getById(this.session, 24);//Se realiza el mismo procedimiento para todos los accesorios
-                                    cierre = acce.getPrecioCosto() * 1;
-                                    acce.setCantidad(acce.getCantidad() - (1 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
+                                        acce = new Accesorios();
 
-                                    acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
-                                    tronillos = acce.getPrecioCosto() * 39;
-                                    acce.setCantidad(acce.getCantidad() - (39 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
-                                    this.precioAccesorios = rodachina + cierre + tronillos;
-                                    break;
+                                        nombreVentana = "2 cuerpo XX";
 
-                                //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-                                //VENTANA COREDIZA VC 3825
-                                case 3:
-                                    acce = new Accesorios();
-                                    nombreVentana = "4 cuerpos 0XX0 1672 DOBLE";
-                                    opcionVentana = 36;
-                                    acce = daoAccesorios.getById(this.session, 89);//Se realiza el mismo procedimiento para todos los accesorios
-                                    rodachina = acce.getPrecioCosto() * 4;
-                                    acce.setCantidad(acce.getCantidad() - (4 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
+                                        opcionVentana = 2;
 
-                                    acce = daoAccesorios.getById(this.session, 24);//Se realiza el mismo procedimiento para todos los accesorios
-                                    cierre = acce.getPrecioCosto() * 1;
-                                    acce.setCantidad(acce.getCantidad() - (1 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
+                                        acce = daoAccesorios.getById(this.session, 89);//Se realiza el mismo procedimiento para todos los accesorios
 
-                                    acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
-                                    tronillos = acce.getPrecioCosto() * 20;
-                                    acce.setCantidad(acce.getCantidad() - (20 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
+                                        rodachina = acce.getPrecioCosto() * 4;
 
-                                    acce = daoAccesorios.getById(this.session, 103);//Se realiza el mismo procedimiento para todos los accesorios
-                                    tronillos1 = acce.getPrecioCosto() * 16;
-                                    acce.setCantidad(acce.getCantidad() - (16 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
-                                    this.precioAccesorios = rodachina + cierre + tronillos + tronillos1;
-                                    break;
+                                        acce.setCantidad(acce.getCantidad() - (4 * this.cantidadProducto));
 
-                            }
-                        case 4:// 6 cuerpos
-                            switch (diseno) {
-                                case 1:
-                                    acce = new Accesorios();
-                                    nombreVentana = "4 cuerpos 0XX XXO BASICA";
-                                    opcionVentana = 30;
-                                    acce = daoAccesorios.getById(this.session, 89);//Se realiza el mismo procedimiento para todos los accesorios
-                                    rodachina = acce.getPrecioCosto() * 8;
-                                    acce.setCantidad(acce.getCantidad() - (8 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
+                                        daoAccesorios.actualizar(this.session, acce);
 
-                                    acce = daoAccesorios.getById(this.session, 24);//Se realiza el mismo procedimiento para todos los accesorios
-                                    cierre = acce.getPrecioCosto() * 1;
-                                    acce.setCantidad(acce.getCantidad() - (1 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
+                                        acce = daoAccesorios.getById(this.session, 24);//Se realiza el mismo procedimiento para todos los accesorios
 
-                                    acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
-                                    tronillos = acce.getPrecioCosto() * 36;
-                                    acce.setCantidad(acce.getCantidad() - (36 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
-                                    this.precioAccesorios = rodachina + cierre + tronillos;
-                                    break;
-                                case 2:
-                                    acce = new Accesorios();
-                                    nombreVentana = "4 cuerpos OXO /OOO BASICA";
-                                    opcionVentana = 31;
-                                    acce = daoAccesorios.getById(this.session, 89);//Se realiza el mismo procedimiento para todos los accesorios
-                                    rodachina = acce.getPrecioCosto() * 2;
-                                    acce.setCantidad(acce.getCantidad() - (2 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
+                                        cierre = acce.getPrecioCosto() * 1;
 
-                                    acce = daoAccesorios.getById(this.session, 24);//Se realiza el mismo procedimiento para todos los accesorios
-                                    cierre = acce.getPrecioCosto() * 1;
-                                    acce.setCantidad(acce.getCantidad() - (1 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
+                                        acce.setCantidad(acce.getCantidad() - (1 * this.cantidadProducto));
 
-                                    acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
-                                    tronillos = acce.getPrecioCosto() * 32;
-                                    acce.setCantidad(acce.getCantidad() - (32 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
-                                    this.precioAccesorios = rodachina + cierre + tronillos;
-                                    break;
+                                        daoAccesorios.actualizar(this.session, acce);
 
-                            }
-                        case 5:// 8 cuerpos
-                            switch (diseno) {
-                                case 1:
-                                    acce = new Accesorios();
-                                    nombreVentana = "4 cuerpos OXXO /OOO0 BASICA";
-                                    opcionVentana = 32;
-                                    acce = daoAccesorios.getById(this.session, 89);//Se realiza el mismo procedimiento para todos los accesorios
-                                    rodachina = acce.getPrecioCosto() * 4;
-                                    acce.setCantidad(acce.getCantidad() - (4 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
+                                        acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
 
-                                    acce = daoAccesorios.getById(this.session, 24);//Se realiza el mismo procedimiento para todos los accesorios
-                                    cierre = acce.getPrecioCosto() * 1;
-                                    acce.setCantidad(acce.getCantidad() - (1 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
+                                        tronillos = acce.getPrecioCosto() * 21;
 
-                                    acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
-                                    tronillos = acce.getPrecioCosto() * 36;
-                                    acce.setCantidad(acce.getCantidad() - (36 * this.cantidadProducto));
-                                    daoAccesorios.actualizar(this.session, acce);
-                                    this.precioAccesorios = rodachina + cierre + tronillos;
-                                    break;
+                                        acce.setCantidad(acce.getCantidad() - (21 * this.cantidadProducto));
 
-                            }
+                                        daoAccesorios.actualizar(this.session, acce);
+
+                                        this.precioAccesorios = rodachina + cierre + tronillos;
+
+                                        break;
+
+                                }
+
+                                break;
+
+                            case 2:// 3 CUERPOS
+
+                                switch (diseno) {
+
+                                    case 1:
+
+                                        acce = new Accesorios();
+
+                                        nombreVentana = "3 cuerpos X0X BASICA";
+
+                                        opcionVentana = 4;
+
+                                        acce = daoAccesorios.getById(this.session, 89);//Se realiza el mismo procedimiento para todos los accesorios
+
+                                        rodachina = acce.getPrecioCosto() * 4;
+
+                                        acce.setCantidad(acce.getCantidad() - (4 * this.cantidadProducto));
+
+                                        daoAccesorios.actualizar(this.session, acce);
+
+                                        acce = daoAccesorios.getById(this.session, 24);//Se realiza el mismo procedimiento para todos los accesorios
+
+                                        cierre = acce.getPrecioCosto() * 2;
+
+                                        acce.setCantidad(acce.getCantidad() - (2 * this.cantidadProducto));
+
+                                        daoAccesorios.actualizar(this.session, acce);
+
+                                        acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
+
+                                        tronillos = acce.getPrecioCosto() * 27;
+
+                                        acce.setCantidad(acce.getCantidad() - (27 * this.cantidadProducto));
+
+                                        daoAccesorios.actualizar(this.session, acce);
+
+                                        this.precioAccesorios = rodachina + cierre + tronillos;
+
+                                        break;
+
+                                    case 2:
+
+                                        acce = new Accesorios();
+
+                                        nombreVentana = "3 cuerpos OXO BASICA";
+
+                                        opcionVentana = 5;
+
+                                        acce = daoAccesorios.getById(this.session, 89);//Se realiza el mismo procedimiento para todos los accesorios
+
+                                        rodachina = acce.getPrecioCosto() * 2;
+
+                                        acce.setCantidad(acce.getCantidad() - (2 * this.cantidadProducto));
+
+                                        daoAccesorios.actualizar(this.session, acce);
+
+                                        acce = daoAccesorios.getById(this.session, 23);//Se realiza el mismo procedimiento para todos los accesorios
+
+                                        cierre = acce.getPrecioCosto() * 1;
+
+                                        acce.setCantidad(acce.getCantidad() - (1 * this.cantidadProducto));
+
+                                        daoAccesorios.actualizar(this.session, acce);
+
+                                        acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
+
+                                        tronillos = acce.getPrecioCosto() * 26;
+
+                                        acce.setCantidad(acce.getCantidad() - (26 * this.cantidadProducto));
+
+                                        daoAccesorios.actualizar(this.session, acce);
+
+                                        this.precioAccesorios = rodachina + cierre + tronillos;
+
+                                        break;
+
+                                    case 3:
+
+                                        acce = new Accesorios();
+
+                                        nombreVentana = "3 cuerpos OXX BASICA";
+
+                                        opcionVentana = 6;
+
+                                        acce = daoAccesorios.getById(this.session, 89);//Se realiza el mismo procedimiento para todos los accesorios
+
+                                        rodachina = acce.getPrecioCosto() * 4;
+
+                                        acce.setCantidad(acce.getCantidad() - (4 * this.cantidadProducto));
+
+                                        daoAccesorios.actualizar(this.session, acce);
+
+                                        acce = daoAccesorios.getById(this.session, 24);//Se realiza el mismo procedimiento para todos los accesorios
+
+                                        cierre = acce.getPrecioCosto() * 1;
+
+                                        acce.setCantidad(acce.getCantidad() - (1 * this.cantidadProducto));
+
+                                        daoAccesorios.actualizar(this.session, acce);
+
+                                        acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
+
+                                        tronillos = acce.getPrecioCosto() * 27;
+
+                                        acce.setCantidad(acce.getCantidad() - (27 * this.cantidadProducto));
+
+                                        daoAccesorios.actualizar(this.session, acce);
+
+                                        this.precioAccesorios = rodachina + cierre + tronillos;
+
+                                        break;
+
+                                    case 4:
+
+                                        acce = new Accesorios();
+
+                                        nombreVentana = "3 cuerpos X0/O";
+
+                                        opcionVentana = 8;
+
+                                        acce = daoAccesorios.getById(this.session, 89);//Se realiza el mismo procedimiento para todos los accesorios
+
+                                        rodachina = acce.getPrecioCosto() * 2;
+
+                                        acce.setCantidad(acce.getCantidad() - (2 * this.cantidadProducto));
+
+                                        daoAccesorios.actualizar(this.session, acce);
+
+                                        acce = daoAccesorios.getById(this.session, 24);//Se realiza el mismo procedimiento para todos los accesorios
+
+                                        cierre = acce.getPrecioCosto() * 1;
+
+                                        acce.setCantidad(acce.getCantidad() - (1 * this.cantidadProducto));
+
+                                        daoAccesorios.actualizar(this.session, acce);
+
+                                        acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
+
+                                        tronillos = acce.getPrecioCosto() * 22;
+
+                                        acce.setCantidad(acce.getCantidad() - (22 * this.cantidadProducto));
+
+                                        daoAccesorios.actualizar(this.session, acce);
+
+                                        this.precioAccesorios = rodachina + cierre + tronillos;
+
+                                        break;
+
+                                }
+
+                                break;
+
+                            case 3:// 4 CUERPOS
+
+                                switch (diseno) {
+
+                                    case 1:
+
+                                        acce = new Accesorios();
+
+                                        nombreVentana = "4 cuerpos OXXO BASICA";
+
+                                        opcionVentana = 3;
+
+                                        acce = daoAccesorios.getById(this.session, 89);//Se realiza el mismo procedimiento para todos los accesorios
+
+                                        rodachina = acce.getPrecioCosto() * 4;
+
+                                        acce.setCantidad(acce.getCantidad() - (4 * this.cantidadProducto));
+
+                                        daoAccesorios.actualizar(this.session, acce);
+
+                                        acce = daoAccesorios.getById(this.session, 24);//Se realiza el mismo procedimiento para todos los accesorios
+
+                                        cierre = acce.getPrecioCosto() * 1;
+
+                                        acce.setCantidad(acce.getCantidad() - (1 * this.cantidadProducto));
+
+                                        daoAccesorios.actualizar(this.session, acce);
+
+                                        acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
+
+                                        tronillos = acce.getPrecioCosto() * 39;
+
+                                        acce.setCantidad(acce.getCantidad() - (39 * this.cantidadProducto));
+
+                                        daoAccesorios.actualizar(this.session, acce);
+
+                                        this.precioAccesorios = rodachina + cierre + tronillos;
+
+                                        break;
+
+                                    case 2:
+
+                                        acce = new Accesorios();
+
+                                        nombreVentana = "4 cuerpos X0/00 Basica Alf";
+
+                                        opcionVentana = 9;
+
+                                        acce = daoAccesorios.getById(this.session, 89);//Se realiza el mismo procedimiento para todos los accesorios
+
+                                        rodachina = acce.getPrecioCosto() * 2;
+
+                                        acce.setCantidad(acce.getCantidad() - (2 * this.cantidadProducto));
+
+                                        daoAccesorios.actualizar(this.session, acce);
+
+                                        acce = daoAccesorios.getById(this.session, 24);//Se realiza el mismo procedimiento para todos los accesorios
+
+                                        cierre = acce.getPrecioCosto() * 1;
+
+                                        acce.setCantidad(acce.getCantidad() - (1 * this.cantidadProducto));
+
+                                        daoAccesorios.actualizar(this.session, acce);
+
+                                        acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
+
+                                        tronillos = acce.getPrecioCosto() * 39;
+
+                                        acce.setCantidad(acce.getCantidad() - (39 * this.cantidadProducto));
+
+                                        daoAccesorios.actualizar(this.session, acce);
+
+                                        this.precioAccesorios = rodachina + cierre + tronillos;
+
+                                        break;
+
+                                }
+
+                            case 4:// 6 cuerpos
+
+                                switch (diseno) {
+
+                                    case 1:
+
+                                        acce = new Accesorios();
+
+                                        nombreVentana = "6 cuerpos 0XX XXO BASICA";
+
+                                        opcionVentana = 7;
+
+                                        acce = daoAccesorios.getById(this.session, 89);//Se realiza el mismo procedimiento para todos los accesorios
+
+                                        rodachina = acce.getPrecioCosto() * 8;
+
+                                        acce.setCantidad(acce.getCantidad() - (8 * this.cantidadProducto));
+
+                                        daoAccesorios.actualizar(this.session, acce);
+
+                                        acce = daoAccesorios.getById(this.session, 24);//Se realiza el mismo procedimiento para todos los accesorios
+
+                                        cierre = acce.getPrecioCosto() * 1;
+
+                                        acce.setCantidad(acce.getCantidad() - (1 * this.cantidadProducto));
+
+                                        daoAccesorios.actualizar(this.session, acce);
+
+                                        acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
+
+                                        tronillos = acce.getPrecioCosto() * 36;
+
+                                        acce.setCantidad(acce.getCantidad() - (36 * this.cantidadProducto));
+
+                                        daoAccesorios.actualizar(this.session, acce);
+
+                                        this.precioAccesorios = rodachina + cierre + tronillos;
+
+                                        break;
+
+                                    case 2:
+
+                                        acce = new Accesorios();
+
+                                        nombreVentana = "6 cuerpos OXO /OOO BASICA";
+
+                                        opcionVentana = 10;
+
+                                        acce = daoAccesorios.getById(this.session, 89);//Se realiza el mismo procedimiento para todos los accesorios
+
+                                        rodachina = acce.getPrecioCosto() * 2;
+
+                                        acce.setCantidad(acce.getCantidad() - (2 * this.cantidadProducto));
+
+                                        daoAccesorios.actualizar(this.session, acce);
+
+                                        acce = daoAccesorios.getById(this.session, 24);//Se realiza el mismo procedimiento para todos los accesorios
+
+                                        cierre = acce.getPrecioCosto() * 1;
+
+                                        acce.setCantidad(acce.getCantidad() - (1 * this.cantidadProducto));
+
+                                        daoAccesorios.actualizar(this.session, acce);
+
+                                        acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
+
+                                        tronillos = acce.getPrecioCosto() * 32;
+
+                                        acce.setCantidad(acce.getCantidad() - (32 * this.cantidadProducto));
+
+                                        daoAccesorios.actualizar(this.session, acce);
+
+                                        this.precioAccesorios = rodachina + cierre + tronillos;
+
+                                        break;
+
+                                }
+
+                            case 5:// 8 cuerpos
+
+                                switch (diseno) {
+
+                                    case 1:
+
+                                        acce = new Accesorios();
+
+                                        nombreVentana = "8 cuerpos OXXO /OOO0 BASICA";
+
+                                        opcionVentana = 11;
+
+                                        acce = daoAccesorios.getById(this.session, 89);//Se realiza el mismo procedimiento para todos los accesorios
+
+                                        rodachina = acce.getPrecioCosto() * 4;
+
+                                        acce.setCantidad(acce.getCantidad() - (4 * this.cantidadProducto));
+
+                                        daoAccesorios.actualizar(this.session, acce);
+
+                                        acce = daoAccesorios.getById(this.session, 24);//Se realiza el mismo procedimiento para todos los accesorios
+
+                                        cierre = acce.getPrecioCosto() * 1;
+
+                                        acce.setCantidad(acce.getCantidad() - (1 * this.cantidadProducto));
+
+                                        daoAccesorios.actualizar(this.session, acce);
+
+                                        acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
+
+                                        tronillos = acce.getPrecioCosto() * 36;
+
+                                        acce.setCantidad(acce.getCantidad() - (36 * this.cantidadProducto));
+
+                                        daoAccesorios.actualizar(this.session, acce);
+
+                                        this.precioAccesorios = rodachina + cierre + tronillos;
+
+                                        break;
+
+                                }
+
+                        }
+
+                    } else if (tipoAluminioCorred == 2) {
+
+                        switch (tipoVentana) {
+
+                            case 1://2 cuerpos VC3825
+
+                                switch (diseno) {
+
+                                    case 1:
+
+                                        //ventana corrediza vc 3825
+                                        acce = new Accesorios();
+
+                                        nombreVentana = "2 cuerpos X0 plus basica alfa";
+
+                                        opcionVentana = 12;
+
+                                        acce = daoAccesorios.getById(this.session, 89);//Se realiza el mismo procedimiento para todos los accesorios
+
+                                        rodachina = acce.getPrecioCosto() * 2;
+
+                                        acce.setCantidad(acce.getCantidad() - (2 * this.cantidadProducto));
+
+                                        daoAccesorios.actualizar(this.session, acce);
+
+                                        acce = daoAccesorios.getById(this.session, 24);//Se realiza el mismo procedimiento para todos los accesorios
+
+                                        cierre = acce.getPrecioCosto() * 1;
+
+                                        acce.setCantidad(acce.getCantidad() - (1 * this.cantidadProducto));
+
+                                        daoAccesorios.actualizar(this.session, acce);
+
+                                        acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
+
+                                        tronillos = acce.getPrecioCosto() * 10;
+
+                                        acce.setCantidad(acce.getCantidad() - (10 * this.cantidadProducto));
+
+                                        daoAccesorios.actualizar(this.session, acce);
+
+                                        acce = daoAccesorios.getById(this.session, 103);//Se realiza el mismo procedimiento para todos los accesorios
+
+                                        tronillos1 = acce.getPrecioCosto() * 9;
+
+                                        acce.setCantidad(acce.getCantidad() - (9 * this.cantidadProducto));
+
+                                        daoAccesorios.actualizar(this.session, acce);
+
+                                        this.precioAccesorios = rodachina + cierre + tronillos + tronillos1;
+                                              System.out.println("precio accesorios CORRDIZA  3825 2 CUERPO  X0 PLUS BASICA ALFA :::" + this.precioAccesorios);
+
+                                        break;
+
+                                    case 2:
+
+                                        acce = new Accesorios();
+
+                                        //ventana corrediza vc 3825
+                                        nombreVentana = "2 cuerpos XX Alf BASICA";
+
+                                        opcionVentana = 13;
+
+                                        acce = daoAccesorios.getById(this.session, 89);//Se realiza el mismo procedimiento para todos los accesorios
+
+                                        rodachina = acce.getPrecioCosto() * 4;
+
+                                        acce.setCantidad(acce.getCantidad() - (4 * this.cantidadProducto));
+
+                                        daoAccesorios.actualizar(this.session, acce);
+
+                                        acce = daoAccesorios.getById(this.session, 24);//Se realiza el mismo procedimiento para todos los accesorios
+
+                                        cierre = acce.getPrecioCosto() * 1;
+
+                                        acce.setCantidad(acce.getCantidad() - (1 * this.cantidadProducto));
+
+                                        daoAccesorios.actualizar(this.session, acce);
+
+                                        acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
+
+                                        tronillos = acce.getPrecioCosto() * 36;
+
+                                        acce.setCantidad(acce.getCantidad() - (36 * this.cantidadProducto));
+
+                                        daoAccesorios.actualizar(this.session, acce);
+
+                                        acce = daoAccesorios.getById(this.session, 103);//Se realiza el mismo procedimiento para todos los accesorios
+
+                                        tronillos1 = acce.getPrecioCosto() * 9;
+
+                                        acce.setCantidad(acce.getCantidad() - (9 * this.cantidadProducto));
+
+                                        daoAccesorios.actualizar(this.session, acce);
+
+                                        this.precioAccesorios = rodachina + cierre + tronillos + tronillos1;
+                                           System.out.println("precio accesorios CORRDIZA 3825 2 CUERPO  XX ALF BASICA :::" + this.precioAccesorios);
+
+                                        break;
+
+                                    case 3:
+
+                                        acce = new Accesorios();
+
+                                        //ventana corrediza vc 3825
+                                        nombreVentana = "2 cuerpos X0 plus Reforzada";
+
+                                        opcionVentana = 14;
+
+                                        acce = daoAccesorios.getById(this.session, 89);//Se realiza el mismo procedimiento para todos los accesorios
+
+                                        rodachina = acce.getPrecioCosto() * 4;
+
+                                        acce.setCantidad(acce.getCantidad() - (4 * this.cantidadProducto));
+
+                                        daoAccesorios.actualizar(this.session, acce);
+
+                                        acce = daoAccesorios.getById(this.session, 24);//Se realiza el mismo procedimiento para todos los accesorios
+
+                                        cierre = acce.getPrecioCosto() * 1;
+
+                                        acce.setCantidad(acce.getCantidad() - (1 * this.cantidadProducto));
+
+                                        daoAccesorios.actualizar(this.session, acce);
+
+                                        acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
+
+                                        tronillos = acce.getPrecioCosto() * 36;
+
+                                        acce.setCantidad(acce.getCantidad() - (36 * this.cantidadProducto));
+
+                                        daoAccesorios.actualizar(this.session, acce);
+
+                                        acce = daoAccesorios.getById(this.session, 103);//Se realiza el mismo procedimiento para todos los accesorios
+
+                                        tronillos1 = acce.getPrecioCosto() * 9;
+
+                                        acce.setCantidad(acce.getCantidad() - (9 * this.cantidadProducto));
+
+                                        daoAccesorios.actualizar(this.session, acce);
+
+                                        this.precioAccesorios = rodachina + cierre + tronillos + tronillos1;
+
+                                        break;
+
+                                }
+
+                                break;
+
+                            case 2://4 cuerpos VC3825
+
+                                switch (diseno) {
+
+                                    case 1:
+
+                                        acce = new Accesorios();
+
+                                        nombreVentana = "4 cuerpos 0XX0 1672 DOBLE";
+
+                                        opcionVentana = 15;
+
+                                        acce = daoAccesorios.getById(this.session, 89);//Se realiza el mismo procedimiento para todos los accesorios
+
+                                        rodachina = acce.getPrecioCosto() * 4;
+
+                                        acce.setCantidad(acce.getCantidad() - (4 * this.cantidadProducto));
+
+                                        daoAccesorios.actualizar(this.session, acce);
+
+                                        acce = daoAccesorios.getById(this.session, 24);//Se realiza el mismo procedimiento para todos los accesorios
+
+                                        cierre = acce.getPrecioCosto() * 1;
+
+                                        acce.setCantidad(acce.getCantidad() - (1 * this.cantidadProducto));
+
+                                        daoAccesorios.actualizar(this.session, acce);
+
+                                        acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
+
+                                        tronillos = acce.getPrecioCosto() * 20;
+
+                                        acce.setCantidad(acce.getCantidad() - (20 * this.cantidadProducto));
+
+                                        daoAccesorios.actualizar(this.session, acce);
+
+                                        acce = daoAccesorios.getById(this.session, 103);//Se realiza el mismo procedimiento para todos los accesorios
+
+                                        tronillos1 = acce.getPrecioCosto() * 16;
+
+                                        acce.setCantidad(acce.getCantidad() - (16 * this.cantidadProducto));
+
+                                        daoAccesorios.actualizar(this.session, acce);
+
+                                        this.precioAccesorios = rodachina + cierre + tronillos + tronillos1;
+                                          System.out.println("precio accesorios CORRDIZA 4 CUERPO  0XX0 1672 DOBLE :::" + this.precioAccesorios);
+
+                                        break;
+
+                                }
+
+                                break;
+
+                        }
+
                     }
 
+////////////////////////////////
                     break;
+
                 case 3://Batiente
+
                     switch (tipoVentana) {
+
                         case 1:
+
                             switch (diseno) {
 
                             }
+
                         case 2:
+
                             switch (diseno) {
 
                             }
+
                             break;
 
                     }
-                    break;
-            }
 
+                    break;
+
+            }
             switch (tipoModeloVentana) {
                 case 1:
                     modeloVentana = "Proyectante";
