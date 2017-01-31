@@ -1786,6 +1786,7 @@ public class Factura {
                                     daoAccesorios.actualizar(this.session, acce);
 
                                     this.precioAccesorios = tronillos;
+                                    System.out.println("precio accesorios 2 cuerpos O/O :::" + this.precioAccesorios);
 
                                     break;
 
@@ -1822,6 +1823,7 @@ public class Factura {
                                     daoAccesorios.actualizar(this.session, acce);
 
                                     this.precioAccesorios = BrazosBasculantes + manijas + tronillos;
+                                    System.out.println("precio accesorios 2 cuerpos X/O :::" + this.precioAccesorios);
 
                                     break;
 
@@ -1858,6 +1860,7 @@ public class Factura {
                                     daoAccesorios.actualizar(this.session, acce);
 
                                     this.precioAccesorios = BrazosBasculantes + manijas + tronillos;
+                                    System.out.println("precio accesorios 2 cuerpos X-O :::" + this.precioAccesorios);
 
                                     break;
 
@@ -1894,6 +1897,7 @@ public class Factura {
                                     daoAccesorios.actualizar(this.session, acce);
 
                                     this.precioAccesorios = BrazosBasculantes + manijas + tronillos;
+                                    System.out.println("precio accesorios 2 cuerpos X/O PLUS :::" + this.precioAccesorios);
 
                                     break;
 
@@ -1930,6 +1934,7 @@ public class Factura {
                                     daoAccesorios.actualizar(this.session, acce);
 
                                     this.precioAccesorios = BrazosBasculantes + manijas + tronillos;
+                                    System.out.println("precio accesorios 2 cuerpos X/X :::" + this.precioAccesorios);
 
                                     break;
 
@@ -1966,6 +1971,7 @@ public class Factura {
                                     daoAccesorios.actualizar(this.session, acce);
 
                                     this.precioAccesorios = BrazosBasculantes + manijas + tronillos;
+                                    System.out.println("precio accesorios 2 cuerpos X/O BOREAL :::" + this.precioAccesorios);
 
                                     break;
 
@@ -2002,6 +2008,7 @@ public class Factura {
                                     daoAccesorios.actualizar(this.session, acce);
 
                                     this.precioAccesorios = BrazosBasculantes + manijas + tronillos;
+                                    System.out.println("precio accesorios 2 cuerpos O/O BOREAL :::" + this.precioAccesorios);
 
                                     break;
 
@@ -2046,6 +2053,7 @@ public class Factura {
                                     daoAccesorios.actualizar(this.session, acce);
 
                                     this.precioAccesorios = BrazosBasculantes + manijas + tronillos;
+                                    System.out.println("precio accesorios 3 cuerpos XXX :::" + this.precioAccesorios);
 
                                     break;
 
@@ -2082,6 +2090,7 @@ public class Factura {
                                     daoAccesorios.actualizar(this.session, acce);
 
                                     this.precioAccesorios = BrazosBasculantes + manijas + tronillos;
+                                    System.out.println("precio accesorios 3 cuerpos O-X-0 :::" + this.precioAccesorios);
 
                                     break;
 
@@ -2118,6 +2127,7 @@ public class Factura {
                                     daoAccesorios.actualizar(this.session, acce);
 
                                     this.precioAccesorios = BrazosBasculantes + manijas + tronillos;
+                                    System.out.println("precio accesorios 2 cuerpos X-O-X :::" + this.precioAccesorios);
 
                                     break;
 
@@ -2138,6 +2148,7 @@ public class Factura {
                                     daoAccesorios.actualizar(this.session, acce);
 
                                     this.precioAccesorios = tronillos;
+                                    System.out.println("precio accesorios 2 cuerpos O-O-0 ALFALJIA :::" + this.precioAccesorios);
 
                                     break;
 
@@ -2180,6 +2191,7 @@ public class Factura {
                                     daoAccesorios.actualizar(this.session, acce);
 
                                     this.precioAccesorios = BrazosBasculantes + manijas + tronillos;
+                                    System.out.println("precio accesorios 4 cuerpos XXXX :::" + this.precioAccesorios);
 
                                     break;
 
@@ -2200,6 +2212,7 @@ public class Factura {
                                     daoAccesorios.actualizar(this.session, acce);
 
                                     this.precioAccesorios = tronillos;
+                                    System.out.println("precio accesorios 4 cuerpos O-O-O-O:::" + this.precioAccesorios);
 
                                     break;
 
@@ -2218,6 +2231,7 @@ public class Factura {
                                     daoAccesorios.actualizar(this.session, acce);
 
                                     this.precioAccesorios = tronillos;
+                                    System.out.println("precio accesorios 4 cuerpos O/O/0/0 ALFALJIA :::" + this.precioAccesorios);
 
                                     break;
 
@@ -2254,7 +2268,7 @@ public class Factura {
                                     daoAccesorios.actualizar(this.session, acce);
 
                                     this.precioAccesorios = BrazosBasculantes + manijas + tronillos;
-
+                                    System.out.println("precio accesorios 4 cuerpos XX/OO ALFALJIA :::" + this.precioAccesorios);
                                     break;
 
                                 case 5:
@@ -2290,6 +2304,7 @@ public class Factura {
                                     daoAccesorios.actualizar(this.session, acce);
 
                                     this.precioAccesorios = BrazosBasculantes + manijas + tronillos;
+                                        System.out.println("precio accesorios 2 cuerpos X/X/O/O ALFALJIA:::" + this.precioAccesorios);
 
                                     break;
 
@@ -2326,6 +2341,7 @@ public class Factura {
                                     daoAccesorios.actualizar(this.session, acce);
 
                                     this.precioAccesorios = BrazosBasculantes + manijas + tronillos;
+                                        System.out.println("precio accesorios 4 cuerpos ALFALJIA :::" + this.precioAccesorios);
 
                                     break;
 
@@ -2387,6 +2403,7 @@ public class Factura {
                                         this.precioAccesorios = rodachina + cierre + tronillos;
 
                                         System.out.println("precio accesorios totla:::" + this.precioAccesorios);
+                                            System.out.println("precio accesorios 2 cuerpos XO :::" + this.precioAccesorios);
 
                                         break;
 
@@ -2423,6 +2440,7 @@ public class Factura {
                                         daoAccesorios.actualizar(this.session, acce);
 
                                         this.precioAccesorios = rodachina + cierre + tronillos;
+                                            System.out.println("precio accesorios 2 cuerpos XX :::" + this.precioAccesorios);
 
                                         break;
 
@@ -2467,6 +2485,7 @@ public class Factura {
                                         daoAccesorios.actualizar(this.session, acce);
 
                                         this.precioAccesorios = rodachina + cierre + tronillos;
+                                            System.out.println("precio accesorios 3 cuerpos X0X :::" + this.precioAccesorios);
 
                                         break;
 
@@ -2503,6 +2522,7 @@ public class Factura {
                                         daoAccesorios.actualizar(this.session, acce);
 
                                         this.precioAccesorios = rodachina + cierre + tronillos;
+                                            System.out.println("precio accesorios 3 cuerpos OXO :::" + this.precioAccesorios);
 
                                         break;
 
@@ -2539,6 +2559,7 @@ public class Factura {
                                         daoAccesorios.actualizar(this.session, acce);
 
                                         this.precioAccesorios = rodachina + cierre + tronillos;
+                                            System.out.println("precio accesorios 3 cuerpos OXX :::" + this.precioAccesorios);
 
                                         break;
 
@@ -2575,6 +2596,7 @@ public class Factura {
                                         daoAccesorios.actualizar(this.session, acce);
 
                                         this.precioAccesorios = rodachina + cierre + tronillos;
+                                            System.out.println("precio accesorios 3 cuerpos XO/O :::" + this.precioAccesorios);
 
                                         break;
 
@@ -2619,6 +2641,7 @@ public class Factura {
                                         daoAccesorios.actualizar(this.session, acce);
 
                                         this.precioAccesorios = rodachina + cierre + tronillos;
+                                            System.out.println("precio accesorios 2 cuerpos OXXO :::" + this.precioAccesorios);
 
                                         break;
 
@@ -2655,6 +2678,7 @@ public class Factura {
                                         daoAccesorios.actualizar(this.session, acce);
 
                                         this.precioAccesorios = rodachina + cierre + tronillos;
+                                            System.out.println("precio accesorios 4 cuerpos XO/OO :::" + this.precioAccesorios);
 
                                         break;
 
@@ -2697,6 +2721,7 @@ public class Factura {
                                         daoAccesorios.actualizar(this.session, acce);
 
                                         this.precioAccesorios = rodachina + cierre + tronillos;
+                                            System.out.println("precio accesorios 6 cuerpos OXX XXO :::" + this.precioAccesorios);
 
                                         break;
 
@@ -2733,6 +2758,7 @@ public class Factura {
                                         daoAccesorios.actualizar(this.session, acce);
 
                                         this.precioAccesorios = rodachina + cierre + tronillos;
+                                            System.out.println("precio accesorios 6 cuerpos OXO/O00 :::" + this.precioAccesorios);
 
                                         break;
 
@@ -2775,6 +2801,7 @@ public class Factura {
                                         daoAccesorios.actualizar(this.session, acce);
 
                                         this.precioAccesorios = rodachina + cierre + tronillos;
+                                            System.out.println("precio accesorios 2 cuerpos OXX0/OOOO :::" + this.precioAccesorios);
 
                                         break;
 
@@ -2832,7 +2859,7 @@ public class Factura {
                                         daoAccesorios.actualizar(this.session, acce);
 
                                         this.precioAccesorios = rodachina + cierre + tronillos + tronillos1;
-                                              System.out.println("precio accesorios CORRDIZA  3825 2 CUERPO  X0 PLUS BASICA ALFA :::" + this.precioAccesorios);
+                                        System.out.println("precio accesorios CORRDIZA  3825 2 CUERPO  X0 PLUS BASICA ALFA :::" + this.precioAccesorios);
 
                                         break;
 
@@ -2878,7 +2905,8 @@ public class Factura {
                                         daoAccesorios.actualizar(this.session, acce);
 
                                         this.precioAccesorios = rodachina + cierre + tronillos + tronillos1;
-                                           System.out.println("precio accesorios CORRDIZA 3825 2 CUERPO  XX ALF BASICA :::" + this.precioAccesorios);
+                                        System.out.println("precio accesorios CORRDIZA 3825 2 CUERPO  XX ALF BASICA :::" + this.precioAccesorios);
+                                          System.out.println("OPCIONVENTANA CORRDIZA 3825 2 CUERPO  XX ALF BASICA :::" + opcionVentana);
 
                                         break;
 
@@ -2924,6 +2952,7 @@ public class Factura {
                                         daoAccesorios.actualizar(this.session, acce);
 
                                         this.precioAccesorios = rodachina + cierre + tronillos + tronillos1;
+                                               System.out.println("precio accesorios CORRDIZA 3825 2 CUERPO  XO PLUS REFORZADA :::" + this.precioAccesorios);
 
                                         break;
 
@@ -2976,7 +3005,7 @@ public class Factura {
                                         daoAccesorios.actualizar(this.session, acce);
 
                                         this.precioAccesorios = rodachina + cierre + tronillos + tronillos1;
-                                          System.out.println("precio accesorios CORRDIZA 4 CUERPO  0XX0 1672 DOBLE :::" + this.precioAccesorios);
+                                        System.out.println("precio accesorios CORRDIZA 3825 4 CUERPO  0XX0 1672 DOBLE :::" + this.precioAccesorios);
 
                                         break;
 

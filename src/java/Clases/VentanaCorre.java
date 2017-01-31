@@ -160,7 +160,7 @@ public class VentanaCorre extends Ventanas {
                 setSumaTotal(getPrecioCabezal() + getPrecioSillar() + getPrecioJamba() + getPrecioHsuperior()
                         + getPrecioHinferior() + getPrecioTraslape()
                         + getPrecioEnganche() + getPrecioEmpaque() + getPreciofelpa());
-
+         System.out.println("suma total perfiles :...." + getSumaTotal());
                 setSubTotal(getSumaTotal());
                 setPrecioTrabajo(getPrecioTrabajo() * 100);
                 setSumaTotal(getSumaTotal() + getPrecioTrabajo());
@@ -197,7 +197,7 @@ public class VentanaCorre extends Ventanas {
                 setSumaTotal(getPrecioCabezal() + getPrecioSillar() + getPrecioJamba() + getPrecioHsuperior()
                         + getPrecioHinferior() + this.precioHIferiorFijo + getPrecioTraslape()
                            + this.precioEngancheReforzado + getPrecioAdaptador() + getPrecioEmpaque() + getPreciofelpa());
-
+         System.out.println("suma total perfiles caso 3 OXXO 1700 :...." + getSumaTotal());
                 setSubTotal(getSumaTotal());
                 setPrecioTrabajo(getPrecioTrabajo() * 100);
                 setSumaTotal(getSumaTotal() + getPrecioTrabajo());
@@ -232,7 +232,7 @@ public class VentanaCorre extends Ventanas {
                 setSumaTotal(getPrecioCabezal() + getPrecioSillar() + getPrecioJamba() + getPrecioHsuperior()
                         + getPrecioHinferior() + this.precioHIferiorFijo + getPrecioTraslape()
                         + this.precioEngancheReforzado + getPrecioEmpaque() + getPreciofelpa());
-
+  System.out.println("suma total perfiles caso 4 X0X 1700 :...." + getSumaTotal());
                 setSubTotal(getSumaTotal());
                 setPrecioTrabajo(getPrecioTrabajo() * 100);
                 setSumaTotal(getSumaTotal() + getPrecioTrabajo());
@@ -269,7 +269,7 @@ public class VentanaCorre extends Ventanas {
                 setSumaTotal(getPrecioCabezal() + getPrecioSillar() + getPrecioJamba() + getPrecioHsuperior()
                         + getPrecioHinferior() + this.precioHIferiorFijo + getPrecioTraslape()
                         + getPrecioEnganche() + getPrecioAdaptador() + getPrecioEmpaque() + getPreciofelpa());
-
+  System.out.println("suma total perfiles caso 5 OXO 1700 :...." + getSumaTotal());
                 setSubTotal(getSumaTotal());
                 setPrecioTrabajo(getPrecioTrabajo() * 100);
                 setSumaTotal(getSumaTotal() + getPrecioTrabajo());
@@ -306,7 +306,7 @@ public class VentanaCorre extends Ventanas {
                 setSumaTotal(getPrecioCabezal() + getPrecioSillar() + this.precioAdactadorSuperior + this.precioAdactadorInferior
                         + this.preciojambPistas + getPrecioHsuperior() + getPrecioHinferior() + getPrecioTraslape()
                         + getPrecioEnganche() + getPrecioEmpaque() + getPreciofelpa());
-
+  System.out.println("suma total perfiles caso 6 OXX 1700 :...." + getSumaTotal());
                 setSubTotal(getSumaTotal());
                 setPrecioTrabajo(getPrecioTrabajo() * 100);
                 setSumaTotal(getSumaTotal() + getPrecioTrabajo());
@@ -347,7 +347,7 @@ public class VentanaCorre extends Ventanas {
                 setSumaTotal(getPrecioCabezal() + getPrecioSillar() + this.precioAdactadorSuperior + this.precioAdactadorInferior
                         + this.preciojambPistas + getPrecioHsuperior() + getPrecioHinferior() + getPrecioTraslape()
                         + getPrecioEnganche() + getPrecioAdaptador() + getPrecioEmpaque() + getPreciofelpa());
-
+  System.out.println("suma total perfiles caso 7 OXX XXO 1700 :...." + getSumaTotal());
                 setSubTotal(getSumaTotal());
                 setPrecioTrabajo(getPrecioTrabajo() * 100);
                 setSumaTotal(getSumaTotal() + getPrecioTrabajo());
@@ -393,7 +393,7 @@ public class VentanaCorre extends Ventanas {
                         + getPrecioHsuperior() + getPrecioHinferior() + getPrecioTraslape()
                         + getPrecioEnganche() + this.precioDivisorPanoramico + this.jambaCuerpoFijo + this.precioSillarAlfaljia
                         + this.PrecioEmpaquePvc + getPrecioEmpaque() + getPreciofelpa());
-
+  System.out.println("suma total perfiles caso 8 XO/O 1700 :...." + getSumaTotal());
                 setSubTotal(getSumaTotal());
                 setPrecioTrabajo(getPrecioTrabajo() * 100);
                 setSumaTotal(getSumaTotal() + getPrecioTrabajo());
@@ -438,7 +438,7 @@ public class VentanaCorre extends Ventanas {
                         + getPrecioHinferior() + getPrecioTraslape() + getPrecioEnganche() + this.precioDivisorPanoramico
                         + this.precioSillarAlfaljia + this.precioJambaCuerpoFijo
                         + this.precioDivisorVerticalPanoramico + this.PrecioEmpaquePvc + getPrecioEmpaque() + getPreciofelpa());
-
+  System.out.println("suma total perfiles caso 9 XO/00 1700 :...." + getSumaTotal());
                 setSubTotal(getSumaTotal());
                 setPrecioTrabajo(getPrecioTrabajo() * 100);
                 setSumaTotal(getSumaTotal() + getPrecioTrabajo());
@@ -487,7 +487,7 @@ public class VentanaCorre extends Ventanas {
                         + getPrecioEnganche() + this.precioDivisorPanoramico + this.precioSillarAlfaljia
                         + this.precioJambaCuerpoFijo + this.precioDivisorVerticalPanoramico + this.PrecioEmpaquePvc
                         + getPrecioAdaptador() + getPrecioEmpaque() + getPreciofelpa());
-
+  System.out.println("suma total perfiles caso 10 0X0/000 1700 :...." + getSumaTotal());
                 setSubTotal(getSumaTotal());
                 setPrecioTrabajo(getPrecioTrabajo() * 100);
                 setSumaTotal(getSumaTotal() + getPrecioTrabajo());
@@ -535,7 +535,7 @@ public class VentanaCorre extends Ventanas {
                         + getPrecioEnganche() + this.precioDivisorPanoramico + this.precioSillarAlfaljia
                         + this.precioJambaCuerpoFijo + this.precioDivisorVerticalPanoramico + this.PrecioEmpaquePvc
                         + getPrecioAdaptador() + getPrecioEmpaque() + getPreciofelpa());
-
+  System.out.println("suma total perfiles caso 11 0XX0/0000 1700 :...." + getSumaTotal());
                 setSubTotal(getSumaTotal());
                 setPrecioTrabajo(getPrecioTrabajo() * 100);
                 setSumaTotal(getSumaTotal() + getPrecioTrabajo());
@@ -575,10 +575,8 @@ public class VentanaCorre extends Ventanas {
                         + this.precioJambaCuerpoFijo + getPrecioHinferior() + getPrecioHsuperior()
                         + getPrecioTraslape() + getEnganche() + this.precioEngancheReforzado
                         + getPrecioEmpaque() + getPreciofelpa());
-
+  System.out.println("suma total perfiles caso caso 12 vc-3825 XO plus Basica Alfa :...." + getSumaTotal());
                 setSubTotal(getSumaTotal());
-
-                setSumaTotal(getSumaTotal() + (getSumaTotal() * getPrecioDescuento() / 100));
                 setPrecioTrabajo(getPrecioTrabajo() * 100);
                 setSumaTotal(getSumaTotal() + getPrecioTrabajo());
                 setSumaTotal(recortar(String.valueOf(getSumaTotal())));
@@ -609,11 +607,9 @@ public class VentanaCorre extends Ventanas {
 
                 setSumaTotal(getPrecioCabezal() + getPrecioSillar() + this.precioJambaCuerpoFijo + getPrecioHinferior()
                 + gethSuperior() + getPrecioEnganche() + getPrecioTraslape()      + +getPrecioEmpaque() + getPreciofelpa());
-                  
+                    System.out.println("suma total perfiles caso 3 vc-3825 XX Basica Alfa :...." + getSumaTotal());
 
                 setSubTotal(getSumaTotal());
-
-                setSumaTotal(getSumaTotal() + (getSumaTotal() * getPrecioDescuento() / 100));
                 setPrecioTrabajo(getPrecioTrabajo() * 100);
                 setSumaTotal(getSumaTotal() + getPrecioTrabajo());
                 setSumaTotal(recortar(String.valueOf(getSumaTotal())));
@@ -648,10 +644,8 @@ public class VentanaCorre extends Ventanas {
                 setSumaTotal(getPrecioCabezal() + getPrecioSillar() +    this.precioJambaCuerpoFijo  + getPrecioJamba()
                         + getPrecioHinferior()  + gethSuperior() + getPrecioTraslape()
                         + this.precioEngancheReforzado + getPrecioEmpaque() + getPreciofelpa());
-
+  System.out.println("suma total perfiles caso 13 vc-3825 XX Basica Alfa :...." + getSumaTotal());
                 setSubTotal(getSumaTotal());
-
-                setSumaTotal(getSumaTotal() + (getSumaTotal() * getPrecioDescuento() / 100));
                 setPrecioTrabajo(getPrecioTrabajo() * 100);
                 setSumaTotal(getSumaTotal() + getPrecioTrabajo());
                 setSumaTotal(recortar(String.valueOf(getSumaTotal())));
@@ -685,10 +679,8 @@ public class VentanaCorre extends Ventanas {
                 setSumaTotal(getPrecioCabezal() + getPrecioSillar() + getPrecioJamba()
                         + getPrecioHinferior() + + gethSuperior() + getPrecioTraslape()
                         + getPrecioAdaptador() + this.precioEngancheReforzado + getPrecioEmpaque() + getPreciofelpa());
-
+  System.out.println("suma total perfiles 15 vc-3825 0XX0 1672 DOBLE :...." + getSumaTotal());
                 setSubTotal(getSumaTotal());
-
-                setSumaTotal(getSumaTotal() + (getSumaTotal() * getPrecioDescuento() / 100));
                 setPrecioTrabajo(getPrecioTrabajo() * 100);
                 setSumaTotal(getSumaTotal() + getPrecioTrabajo());
                 setSumaTotal(recortar(String.valueOf(getSumaTotal())));
