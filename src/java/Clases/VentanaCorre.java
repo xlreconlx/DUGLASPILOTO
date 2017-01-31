@@ -671,7 +671,7 @@ public class VentanaCorre extends Ventanas {
                 setFelpa(getAncho() + (getAlto() * 5));
 
                 setPrecioCabezal(getPrecioCabezal() * getCabezal());
-                   System.out.println("precio cabezal caso 12 vc-3825 0XX0 1672 DOBLE  suma:::" + getPrecioCabezal());
+                System.out.println("precio cabezal caso 15 vc-3825 0XX0 1672 DOBLE  suma:::" + getPrecioCabezal());
                 setPrecioSillar(getSillar() * getPrecioSillar());
                 setPrecioJamba(getJamba() * getPrecioJamba());
                 setPrecioHinferior(gethInferior() * getPrecioHinferior());
