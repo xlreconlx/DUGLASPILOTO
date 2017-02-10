@@ -88,7 +88,7 @@ public class DespiecePuerta {
                         despie.setMensajeEmpaqueAlto(despie.getCantidadEmpaqueAlto() + " Recorte Empaque Alto de:  " + (Double.valueOf(alto)));
                         despie.setMensajeVidrio(despie.getCantidadVidrio() + " Recorte Vidrio Alto de: " + (Double.valueOf(alto) - 5) + "  Recorte VidrioAncho de: " + (Double.valueOf(ancho) - 5.5));
                         despie.setNombreProducto(nombre + "  " + alto + "*" + ancho);
-                        despie.setTipoProducto(1);
+                        despie.setTipoProducto(38);
                         break;
                     case 3:
                         despie.setCantProducto(cantidadProducto);
@@ -111,7 +111,7 @@ public class DespiecePuerta {
                         despie.setMensajeEmpaqueAlto(despie.getCantidadEmpaqueAlto() + " Recorte Empaque Alto de:  " + (Double.valueOf(alto)));
                         despie.setMensajeVidrio(despie.getCantidadVidrio() + " Recorte Vidrio Alto de: " + (Double.valueOf(alto) - 5) + "  Recorte VidrioAncho de: " + (Double.valueOf(ancho) - 5.5));
                         despie.setNombreProducto(nombre + "  " + alto + "*" + ancho);
-                        despie.setTipoProducto(1);
+                        despie.setTipoProducto(39);
                         break;
                 }
                 break;

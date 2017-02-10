@@ -1004,7 +1004,7 @@ public class MbAbonos {
             }
 
             DespiecePuerta despiecePuerta = new DespiecePuerta();
-            lstDespiece.add(despiecePuerta.generaDespiece(tipoModeloPuerta, tipoPuerta, tipoAluminio, cantidadProducto, alto, ancho,  modeloPuerta + " " + nombrePuerta + " " + nombreAluminio));
+            lstDespiece.add(despiecePuerta.generaDespiece(tipoModeloPuerta, opcionVentana, tipoAluminio, cantidadProducto, alto, ancho,  modeloPuerta + " " + nombrePuerta + " " + nombreAluminio));
 
 
             this.transaccion.commit();

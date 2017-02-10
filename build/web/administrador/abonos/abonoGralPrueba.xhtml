@@ -382,8 +382,8 @@
                                 <f:selectItem itemValue="2" itemLabel="4 entrepaños"/>
                             </h:selectOneMenu>
 
-                            <h:inputText id="ancho" disabled="#{mbAbonos.productoTipo==0}"  pa:placeholder="Digite el ancho cm." value="#{mbAbonos.ancho}" styleClass="form-control" style="margin-top: 5px;"></h:inputText>
-                            <h:inputText id="alto"  disabled="#{mbAbonos.productoTipo==0}" pa:placeholder="Digite el alto cm." value="#{mbAbonos.alto}" styleClass="form-control" style="margin-top: 5px;"></h:inputText>
+                            <h:inputText id="ancho" disabled="#{mbAbonos.tipoProductos==0}"  pa:placeholder="Digite el ancho cm." value="#{mbAbonos.ancho}" styleClass="form-control" style="margin-top: 5px;"></h:inputText>
+                            <h:inputText id="alto"  disabled="#{mbAbonos.tipoProductos==0}" pa:placeholder="Digite el alto cm." value="#{mbAbonos.alto}" styleClass="form-control" style="margin-top: 5px;"></h:inputText>
                             <h:inputText id="altofijo"  rendered="#{mbAbonos.tipoModeloVentana==2 and mbAbonos.tipoVentana==2 and mbAbonos.diseno==4 
                                                                     || mbAbonos.tipoModeloVentana==2 and mbAbonos.tipoVentana==3 and mbAbonos.diseno==2
                                                                     || mbAbonos.tipoModeloVentana==2 and mbAbonos.tipoVentana==4 and mbAbonos.diseno==2
