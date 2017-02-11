@@ -1,5 +1,6 @@
 package MbView;
 
+import Clases.Persianas;
 import Clases.Puerta;
 import Clases.PuertaBatiente;
 import Clases.PuertaCorrediza;
@@ -10,6 +11,7 @@ import Clases.VentanaCorre;
 import Clases.VentanaProyec;
 import Clases.Ventanas;
 import Clases.Vitrina;
+import Clases.VitrinaC;
 import Daos.DaoAccesorios;
 import Daos.DaoCliente;
 import Daos.DaoDetalle;
@@ -91,6 +93,7 @@ public class Factura {
     private int tipoPuerta;
     private int precioAccesorios;
     private int tipoVitrina;
+    private int tipoPersiana;
     private int idFactura;
     private Cliente cliente;
     private Long montoDinero;
@@ -138,6 +141,7 @@ public class Factura {
         this.tipoVentana = 0;
         this.tipoVidrio = 0;
         this.tipoVitrina = 0;
+        this.tipoPuerta = 0;
         this.fondo = "";
         this.tipoEntrepanos = 0;
         this.productoTipo = 0;
@@ -159,457 +163,392 @@ public class Factura {
     public void agregarProducto() {
 
         switch (this.productoTipo) {
-
             case 1:
-
                 calcularVentana();
-
                 calcular();
-
                 break;
-
             case 2:
-
                 calcularPuertas();
-
                 calcular();
-
                 break;
-
             case 3:
-
                 calcularVitrina();
-
                 calcular();
-
                 break;
-
             case 4:
-
                 calcularVentana();
-
                 calcular();
-
                 break;
-
+            case 5:
+                calcularPersiana();
+                calcular();
+                break;
             case 0:
-
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Error:", "Escoja un tipo de producto"));
-
                 break;
-
         }
-
     }
 
     public void calcularVitrina() {
-
         this.session = null;
-
         this.transaction = null;
-
-        Vitrina vitrina = new Vitrina();
-
+        VitrinaC vitrina = new VitrinaC();
         try {
+            if (this.alto.equals("")) {
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Error:", "Por favor digite el alto."));
+            }
+            if (this.ancho.equals("")) {
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Error:", "Por favor digite el ancho."));
+                return;
+            }
+            if (this.alto.length() > 3 || this.ancho.length() > 3) {
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Error:", "Las medidas no pueden superar 3 cifras."));
+                return;
+            }
 
+            if (String.valueOf(this.manObra).equals("")) {
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Error:", "Digite el precio de la mano de obra."));
+                return;
+            }
+            if (String.valueOf(this.ganancia).equals("")) {
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Error:", "Digite el porcentaje de ganancia."));
+                return;
+            }
+            try {
+                int o = Integer.valueOf(this.alto);
+                int p = Integer.valueOf(this.ancho);
+                int m = this.manObra;
+                int t = this.ganancia;
+            } catch (NumberFormatException nfe) {
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Error:", "Digito texto en un campo numerico."));
+            }
             this.session = HibernateUtil.getSessionFactory().openSession();
-
             this.transaction = this.session.beginTransaction();
-
             DaoProductos daoProductos = new DaoProductos();
-
             DaoMaterial daoMaterial = new DaoMaterial();
 
             this.lista.addAll(daoMaterial.getAll(this.session));
-
-            if (this.tipoColorVitrina == 0) {
-
+            if (this.tipoColor == 0) {
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Error:", "Seleccione un tipo de aluminio"));
-
                 return;
-
             }
 
             int idProdVitrina = 0;
-
             switch (tipoVitrina) {
-
                 case 1:
-
-                    idProdVitrina = 7;
-
+                    idProdVitrina = 1;
                     break;
-
                 case 2:
-
-                    idProdVitrina = 11;
-
+                    idProdVitrina = 2;
                     break;
-
                 case 3:
-
-                    idProdVitrina = 12;
-
+                    idProdVitrina = 3;
                     break;
 
             }
 
             String nombreAluminio = "";
-
-            switch (tipoColorVitrina) {
-
+            switch (tipoColor) {
                 case 1:
-
                     nombreAluminio = " Color natural";
-
                     break;
-
                 case 2:
-
                     nombreAluminio = " Color Anolo";
-
                     break;
-
                 case 3:
-
                     nombreAluminio = " Colores ";
-
                     break;
-
             }
-
-            if (this.tipoVitrina == 1) {
-
-//                vitrina de angulo de 1 1/2 con acoples
-                vitrina = new Vitrina(this.ancho, this.alto, this.fondo, this.manObra, this.ganancia,
-                        this.lista.get(36).getPreciocost(), this.lista.get(37).getPreciocost(),
-                        this.lista.get(38).getPreciocost(), this.lista.get(41).getPreciocost(),
-                        this.lista.get(39).getPreciocost(), this.lista.get(40).getPreciocost(),
-                        this.lista.get(42).getPreciocost(), this.lista.get(43).getPreciocost(), this.tipoVitrina);
-
+            int precioInstala = 0;
+            if (this.tipoColor == 1) {
+                vitrina = new VitrinaC(this.ancho, this.alto, this.manObra, this.ganancia,
+                        this.lista.get(5).getPreciocost(), this.lista.get(100).getPreciocost(),
+                        this.lista.get(87).getPreciocost(), this.lista.get(133).getPreciocost(),
+                        this.lista.get(134).getPreciocost(), this.lista.get(22).getPreciocost(),
+                        this.lista.get(59).getPreciocost(), this.lista.get(88).getPreciocost(),
+                        this.lista.get(61).getPreciocost(), this.lista.get(63).getPreciocost(),
+                        this.lista.get(85).getPreciocost(), this.lista.get(84).getPreciocost(),
+                        this.lista.get(74).getPreciocost(), this.lista.get(359).getPreciocost(),
+                        this.lista.get(358).getPreciocost(), this.tipoVitrina);
                 // 
             } else {
 
-                if (this.tipoVitrina == 2) {
-
-//                        vitrina de angulo de 1  y rodamientos sencillos
-                    vitrina = new Vitrina(this.ancho, this.alto, this.fondo, this.manObra, this.ganancia,
-                            this.lista.get(36).getPrecioAnonizado(), this.lista.get(37).getPrecioAnonizado(),
-                            this.lista.get(38).getPrecioAnonizado(), this.lista.get(41).getPrecioAnonizado(),
-                            this.lista.get(39).getPrecioAnonizado(), this.lista.get(40).getPrecioAnonizado(),
-                            this.lista.get(42).getPrecioAnonizado(), this.lista.get(43).getPrecioAnonizado(), this.tipoVitrina);
-
+                if (this.tipoColor == 2) {
+                    vitrina = new VitrinaC(this.ancho, this.alto, this.manObra, this.ganancia,
+                            this.lista.get(5).getPrecioAnonizado(), this.lista.get(100).getPrecioAnonizado(),
+                            this.lista.get(87).getPrecioAnonizado(), this.lista.get(133).getPrecioAnonizado(),
+                            this.lista.get(134).getPrecioAnonizado(), this.lista.get(22).getPrecioAnonizado(),
+                            this.lista.get(59).getPrecioAnonizado(), this.lista.get(88).getPrecioAnonizado(),
+                            this.lista.get(61).getPrecioAnonizado(), this.lista.get(63).getPrecioAnonizado(),
+                            this.lista.get(85).getPrecioAnonizado(), this.lista.get(84).getPrecioAnonizado(),
+                            this.lista.get(74).getPrecioAnonizado(), this.lista.get(359).getPrecioAnonizado(),
+                            this.lista.get(358).getPrecioAnonizado(), this.tipoVitrina);
                 } else {
 
-                    if (this.tipoVitrina == 3) {
-
-//               vitrina de angulo de 1 , rodamientos sencillos y largo de mas de 135cm
-                        vitrina = new Vitrina(this.ancho, this.alto, this.fondo, this.manObra, this.ganancia,
-                                this.lista.get(36).getPrecioPintura(), this.lista.get(37).getPrecioPintura(),
-                                this.lista.get(38).getPrecioPintura(), this.lista.get(41).getPrecioPintura(),
-                                this.lista.get(39).getPrecioPintura(), this.lista.get(40).getPrecioPintura(),
-                                this.lista.get(42).getPrecioPintura(), this.lista.get(43).getPrecioPintura(), this.tipoVitrina);
-
+                    if (this.tipoColor == 3) {
+                        vitrina = new VitrinaC(this.ancho, this.alto, this.manObra, this.ganancia,
+                                this.lista.get(5).getPrecioPintura(), this.lista.get(100).getPrecioPintura(),
+                                this.lista.get(87).getPrecioPintura(), this.lista.get(133).getPrecioPintura(),
+                                this.lista.get(134).getPrecioPintura(), this.lista.get(22).getPrecioPintura(),
+                                this.lista.get(59).getPrecioPintura(), this.lista.get(88).getPrecioPintura(),
+                                this.lista.get(61).getPrecioPintura(), this.lista.get(63).getPrecioPintura(),
+                                this.lista.get(85).getPrecioPintura(), this.lista.get(84).getPrecioPintura(),
+                                this.lista.get(74).getPrecioPintura(), this.lista.get(359).getPrecioPintura(),
+                                this.lista.get(358).getPrecioPintura(), this.tipoVitrina);
                     }
-
                 }
-
             }
 
             if (this.idVidrio != 0) {
-
-                int vidrioEntrepano = 0;
-
                 DaoVidrio daoVidrio = new DaoVidrio();
-
                 this.precioVidrio = daoVidrio.getById(this.session, this.idVidrio).getPreciocost();
-
-                vidrioEntrepano = daoVidrio.getById(this.session, 6).getPreciocost();
-
-                long precFondos = this.precioVidrio * (vitrina.getAlto() * vitrina.getFondo());
-
-                precFondos = precFondos * 2;
-
-                long precFondoAncho = this.precioVidrio * (vitrina.getAncho() * vitrina.getFondo());
-
-                precFondoAncho = precFondoAncho * 2;
-
-                this.precioVidrio = this.precioVidrio * (vitrina.getAlto() * vitrina.getAncho());
-
-                this.precioVidrio = this.precioVidrio * 2;
-
-                this.precioVidrio = this.precioVidrio + precFondos + precFondoAncho;
-
-                if (this.tipoEntrepanos == 1) {
-
-                    vidrioEntrepano = vidrioEntrepano * (vitrina.getAncho() * vitrina.getFondo() * 3);
-
-                } else {
-
-                    if (this.tipoEntrepanos == 2) {
-
-                        vidrioEntrepano = vidrioEntrepano * (vitrina.getAncho() * vitrina.getFondo() * 4);
-
-                    }
-
-                }
-
-                // this.precioVidrio=this.precioVidrio+(this.precioVidrio*50/100);
-                this.precioVidrio = this.precioVidrio + vidrioEntrepano;
-
-                this.precioVidrio = this.precioVidrio + (this.precioVidrio / 2);
-
+                this.precioVidrio = this.precioVidrio * (Integer.valueOf(alto) * Integer.valueOf(ancho));
                 int espacios = String.valueOf(this.precioVidrio).length();
-
                 this.precioVidrio = Integer.valueOf(String.valueOf(this.precioVidrio).substring(0, espacios - 4));
-
-            } else {
-
-                if (this.idVidrio == 0) {
-
-                    this.precioVidrio = 0;
-
-                }
-
+                System.out.println("precio del vidrio de las vitrinas......" + this.precioVidrio);
             }
 
-            if (this.tipoVitrina == 1) {
+            if (this.idVidrio == 0) {
+                this.precioVidrio = 0;
+            }
 
+            if (this.tipoVitrina == 1 || this.tipoVitrina == 2 || this.tipoVitrina == 3 || this.tipoVitrina == 5) {
                 DaoAccesorios daoAcessorios = new DaoAccesorios();
-
-                int pianas = 0;
-
-                int rodamientoPiso = 0;
-
-                int rodamientoDucha = 0;
-
-                int acoples = 0;
-
-                pianas = daoAcessorios.getById(this.session, 18).getPrecioCosto() * 8;
-
-                rodamientoPiso = daoAcessorios.getById(this.session, 4).getPrecioCosto() * 4;
-
-                rodamientoDucha = daoAcessorios.getById(this.session, 6).getPrecioCosto() * 4;
-
-                acoples = daoAcessorios.getById(this.session, 15).getPrecioCosto() * 8;
-
-                this.precioAccesorios = pianas + rodamientoPiso + rodamientoDucha + acoples;
-
-            } else {
-
-                if (this.tipoVitrina == 2) {
-
-                    DaoAccesorios daoAcessorios = new DaoAccesorios();
-
-                    int pianas = 0;
-
-                    int rodamientoEconomco = 0;
-
-                    int anclajeA15 = 0;
-
-                    pianas = daoAcessorios.getById(this.session, 18).getPrecioCosto() * 8;
-
-                    rodamientoEconomco = daoAcessorios.getById(this.session, 5).getPrecioCosto() * 4;
-
-                    anclajeA15 = daoAcessorios.getById(this.session, 22).getPrecioCosto() * 8;
-
-                    this.precioAccesorios = pianas + rodamientoEconomco + anclajeA15;
-
-                } else {
-
-                    if (this.tipoVitrina == 3) {
-
-                        DaoAccesorios daoAcessorios = new DaoAccesorios();
-
-                        int pianas = 0;
-
-                        int rodamientoEconomco = 0;
-
-                        int anclajeA15 = 0;
-
-                        pianas = daoAcessorios.getById(this.session, 18).getPrecioCosto() * 16;
-
-                        rodamientoEconomco = daoAcessorios.getById(this.session, 5).getPrecioCosto() * 4;
-
-                        anclajeA15 = daoAcessorios.getById(this.session, 22).getPrecioCosto() * 8;
-
-                        this.precioAccesorios = pianas + rodamientoEconomco + anclajeA15;
-
-                    }
-
-                }
-
+                int anclaje = 0;
+                anclaje = daoAcessorios.getById(this.session, 56).getPrecioCosto() * 4;
+                this.precioAccesorios = anclaje;
             }
 
-            if (this.tipoVitrina < 4 && this.tipoVitrina > 0) {
+            if (this.tipoVitrina < 6 && this.tipoVitrina > 0) {
+                precioInstala = this.precioInstalacion;
+                precioInstala = (precioInstala * (vitrina.getAlto() * vitrina.getAncho())) / 10000;
+                System.out.println("precio instalacion :  ..." + precioInstala);
+                Long precioExtra = this.precioAccesorios + vitrina.getSumaTotal();
+                precioExtra = (precioExtra * vitrina.getPrecioDescuento() / 100) + precioExtra;
+                System.out.println("precio extra :  ..." + precioExtra);
 
                 this.listaVentana.add(new Ventanadetalle(null, daoProductos.getById(this.session, idProdVitrina),
                         daoProductos.getById(this.session, idProdVitrina).getNombre() + " " + nombreAluminio + "  " + this.alto + "*" + this.ancho + " fondo: " + this.fondo,
                         1, vitrina.getSumaTotal() + this.precioVidrio + this.precioAccesorios, 1 * vitrina.getSumaTotal()
                         + this.precioVidrio + this.precioAccesorios, this.manObra, this.ganancia, this.alto, this.ancho, this.fondo));
-
             }
 
             this.transaction.commit();
-
             this.idVidrio = 0;
-
             this.ganancia = 0;
-
             this.alto = "";
-
             this.ancho = "";
-
             this.manObra = 0;
-
             this.tipoVentana = 0;
-
             this.tipoVidrio = 0;
-
             this.tipoVitrina = 0;
-
             this.fondo = "";
-
             this.productoTipo = 0;
-
         } catch (Exception ex) {
-
             if (this.transaction != null) {
-
                 this.transaction.rollback();
-
             }
-
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error fatal:", "Por favor contacte con su administrador " + ex.getMessage()));
-
             System.out.println("Ocurrio un error::::" + ex.toString());
-
         } finally {
-
             if (this.session != null) {
-
                 this.session.close();
-
             }
-
         }
-
     }
 
-    public void calcularPuertas() {
-
+    public void calcularPersiana() {
         this.session = null;
-
         this.transaction = null;
-
-        Puertas puert = new Puertas();
-
+        Persianas persianas = new Persianas();
         try {
-
             if (this.alto.equals("")) {
-
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Error:", "Por favor digite el alto."));
-
-                return;
-
             }
-
             if (this.ancho.equals("")) {
-
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Error:", "Por favor digite el ancho."));
-
                 return;
-
             }
-
             if (this.alto.length() > 3 || this.ancho.length() > 3) {
-
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Error:", "Las medidas no pueden superar 3 cifras."));
-
                 return;
-
             }
 
             if (String.valueOf(this.manObra).equals("")) {
-
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Error:", "Digite el precio de la mano de obra."));
-
                 return;
-
             }
-
             if (String.valueOf(this.ganancia).equals("")) {
-
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Error:", "Digite el porcentaje de ganancia."));
-
                 return;
-
             }
-
             try {
-
                 int o = Integer.valueOf(this.alto);
-
                 int p = Integer.valueOf(this.ancho);
-
                 int m = this.manObra;
-
                 int t = this.ganancia;
-
             } catch (NumberFormatException nfe) {
-
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Error:", "Digito texto en un campo numerico."));
-
             }
-
+            this.session = HibernateUtil.getSessionFactory().openSession();
+            this.transaction = this.session.beginTransaction();
+            DaoProductos daoProductos = new DaoProductos();
             DaoMaterial daoMaterial = new DaoMaterial();
 
-            DaoProductos daoProductos = new DaoProductos();
-
-            this.session = HibernateUtil.getSessionFactory().openSession();
-
-            this.transaction = this.session.beginTransaction();
-
             this.lista.addAll(daoMaterial.getAll(this.session));
+            if (this.tipoColor == 0) {
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Error:", "Seleccione un tipo de aluminio"));
+                return;
+            }
 
-            int idPuerta = 0;
-
-            switch (tipoPuerta) {
-
+            int idPersiana = 0;
+            switch (tipoPersiana) {
                 case 1:
-
-                    idPuerta = 1;
-
+                    idPersiana = 1;
                     break;
-
                 case 2:
-
-                    idPuerta = 2;
-
+                    idPersiana = 2;
                     break;
-
                 case 3:
-
-                    idPuerta = 3;
-
+                    idPersiana = 3;
                     break;
-
             }
 
             String nombreAluminio = "";
-
-            String nombrePuerta = "";
-
-            String modeloPuerta = "";
-
-            switch (tipoAlumPuertaCor) {
-
+            switch (tipoColor) {
                 case 1:
-
-                    nombreAluminio = " Aluminio Sider 00";
-
+                    nombreAluminio = " Color natural";
                     break;
+                case 2:
+                    nombreAluminio = " Color Anolo";
+                    break;
+                case 3:
+                    nombreAluminio = " Colores ";
+                    break;
+            }
+            int precioInstala = 0;
+            if (this.tipoColor == 1) {
+                persianas = new Persianas(this.ancho, this.alto, this.manObra, this.ganancia,
+                        this.lista.get(211).getPreciocost(), this.lista.get(57).getPreciocost(),
+                        this.lista.get(163).getPreciocost(), this.lista.get(55).getPreciocost(),
+                        this.lista.get(359).getPreciocost(), this.lista.get(358).getPreciocost(), this.tipoPersiana);
+                // 
+            } else {
+                if (this.tipoColor == 2) {
+                    persianas = new Persianas(this.ancho, this.alto, this.manObra, this.ganancia,
+                            this.lista.get(211).getPrecioAnonizado(), this.lista.get(57).getPrecioAnonizado(),
+                            this.lista.get(163).getPrecioAnonizado(), this.lista.get(55).getPrecioAnonizado(),
+                            this.lista.get(359).getPrecioAnonizado(), this.lista.get(358).getPrecioAnonizado(), this.tipoPersiana);
+                } else {
+                    if (this.tipoColor == 3) {
+                        persianas = new Persianas(this.ancho, this.alto, this.manObra, this.ganancia,
+                                this.lista.get(211).getPrecioPintura(), this.lista.get(57).getPrecioPintura(),
+                                this.lista.get(163).getPrecioPintura(), this.lista.get(55).getPrecioPintura(),
+                                this.lista.get(359).getPrecioPintura(), this.lista.get(358).getPrecioPintura(), this.tipoPersiana);
+                    }
+                }
+            }
 
+            if (this.tipoPersiana < 6 && this.tipoPersiana > 0) {
+                precioInstala = this.precioInstalacion;
+                precioInstala = (precioInstala * (persianas.getAlto() * persianas.getAncho())) / 10000;
+                System.out.println("precio instalacion :  ..." + precioInstala);
+                Long precioExtra = persianas.getSumaTotal();
+                precioExtra = (precioExtra * persianas.getPrecioDescuento() / 100) + precioExtra;
+                System.out.println("precio extra :  ..." + precioExtra);
+
+                this.listaVentana.add(new Ventanadetalle(null, daoProductos.getById(this.session, idPersiana),
+                        daoProductos.getById(this.session, idPersiana).getNombre() + " " + nombreAluminio + "  " + this.alto + "*" + this.ancho + " fondo: " + this.fondo,
+                        1, persianas.getSumaTotal() + precioExtra, 1 * persianas.getSumaTotal() + precioExtra,
+                        this.manObra, this.ganancia, this.alto, this.ancho, this.fondo));
+            }
+
+            this.transaction.commit();
+            this.idVidrio = 0;
+            this.ganancia = 0;
+            this.alto = "";
+            this.ancho = "";
+            this.manObra = 0;
+            this.tipoVentana = 0;
+            this.tipoVidrio = 0;
+            this.tipoPersiana = 0;
+            this.fondo = "";
+            this.productoTipo = 0;
+        } catch (Exception ex) {
+            if (this.transaction != null) {
+                this.transaction.rollback();
+            }
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error fatal:", "Por favor contacte con su administrador " + ex.getMessage()));
+            System.out.println("Ocurrio un error::::" + ex.toString());
+        } finally {
+            if (this.session != null) {
+                this.session.close();
+            }
+        }
+    }
+
+    public void calcularPuertas() {
+        this.session = null;
+        this.transaction = null;
+        Puertas puert = new Puertas();
+        try {
+            if (this.alto.equals("")) {
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Error:", "Por favor digite el alto."));
+                return;
+            }
+            if (this.ancho.equals("")) {
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Error:", "Por favor digite el ancho."));
+                return;
+            }
+            if (this.alto.length() > 3 || this.ancho.length() > 3) {
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Error:", "Las medidas no pueden superar 3 cifras."));
+                return;
+            }
+            if (String.valueOf(this.manObra).equals("")) {
+
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Error:", "Digite el precio de la mano de obra."));
+                return;
+            }
+            if (String.valueOf(this.ganancia).equals("")) {
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Error:", "Digite el porcentaje de ganancia."));
+                return;
+            }
+            try {
+                int o = Integer.valueOf(this.alto);
+                int p = Integer.valueOf(this.ancho);
+                int m = this.manObra;
+                int t = this.ganancia;
+            } catch (NumberFormatException nfe) {
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Error:", "Digito texto en un campo numerico."));
+            }
+
+            DaoMaterial daoMaterial = new DaoMaterial();
+            DaoProductos daoProductos = new DaoProductos();
+
+            this.session = HibernateUtil.getSessionFactory().openSession();
+            this.transaction = this.session.beginTransaction();
+            this.lista.addAll(daoMaterial.getAll(this.session));
+
+            int idPuerta = 0;
+            switch (tipoPuerta) {
+                case 1:
+                    idPuerta = 1;
+                    break;
+                case 2:
+                    idPuerta = 2;
+                    break;
+                case 3:
+                    idPuerta = 3;
+                    break;
+            }
+
+            String nombreAluminio = "";
+            String nombrePuerta = "";
+            String modeloPuerta = "";
+            switch (tipoAlumPuertaCor) {
+                case 1:
+                    nombreAluminio = " Aluminio Sider 00";
+                    break;
 //                case 2:
 //                    nombreAluminio = " Aluminio 3831 VITRAL";
 //                    break;
@@ -619,13 +558,9 @@ public class Factura {
             }
 
             switch (tipoAlumPuertaBat) {
-
                 case 1:
-
                     nombreAluminio = " Aluminio Sider 2400";
-
                     break;
-
 //                case 2:
 //                    nombreAluminio = " Aluminio AS 1800";
 //                    break;
@@ -635,13 +570,9 @@ public class Factura {
             }
 
             switch (tipoAlumPuertaPok) {
-
                 case 1:
-
                     nombreAluminio = " Aluminio Sider 001";
-
                     break;
-
 //                case 2:
 //                    nombreAluminio = " Aluminio 5020";
 //                    break;
@@ -651,782 +582,434 @@ public class Factura {
             }
 
             switch (tipoColor) {
-
                 case 1:
-
                     nombreAluminio += " Natural";
-
                     break;
-
                 case 2:
-
                     nombreAluminio += " Anolo";
-
                     break;
-
                 case 3:
-
                     nombreAluminio += " Colores";
-
                     break;
-
             }
 
             DaoAccesorios daoAccesorios = new DaoAccesorios();
-
             int bisagrasFlash = 0;
-
             int escuadras = 0;
-
             int Cerradura = 0;
-
             int tornilloEnsa = 0;
-
             int tronilloInst = 0;
-
             int opcionVentana = 0;
 
             Accesorios acce = new Accesorios();
-
             switch (tipoModeloPuerta) {
-
                 case 1://CORREDIZA
-
                     switch (tipoPuerta) {
-
                         case 1://
-
                             break;
-
                         case 2:
-
                             break;
-
                         case 3:
-
                             break;
-
                     }
-
                     break;
 
                 case 2://ABATIBLE
-
                     switch (tipoPuerta) {
-
                         case 1://
-
                             acce = new Accesorios();
-
                             nombrePuerta = "XI XD Con divisor";
-
                             opcionVentana = 37;
-
                             acce = daoAccesorios.getById(this.session, 14);//obtiene el accesorio de la bd
-
                             bisagrasFlash = acce.getPrecioCosto() * 3;
-
                             acce.setCantidad(acce.getCantidad() - (3 * this.cantidadProducto));//Descuenta la cantidad
-
                             daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
 
                             acce = daoAccesorios.getById(this.session, 54);//obtiene el accesorio de la bd
-
                             escuadras = acce.getPrecioCosto() * 2;
-
                             acce.setCantidad(acce.getCantidad() - (2 * this.cantidadProducto));//Descuenta la cantidad
-
                             daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
 
                             acce = daoAccesorios.getById(this.session, 30);//obtiene el accesorio de la bd
-
                             Cerradura = acce.getPrecioCosto() * 1;
-
                             acce.setCantidad(acce.getCantidad() - (1 * this.cantidadProducto));//Descuenta la cantidad
-
                             daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
 
                             acce = daoAccesorios.getById(this.session, 104);//Se realiza el mismo procedimiento para todos los accesorios
-
                             tornilloEnsa = acce.getPrecioCosto() * 10;
-
                             acce.setCantidad(acce.getCantidad() - (10 * this.cantidadProducto));
-
                             daoAccesorios.actualizar(this.session, acce);
 
                             acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
-
                             tronilloInst = acce.getPrecioCosto() * 9;
-
                             acce.setCantidad(acce.getCantidad() - (9 * this.cantidadProducto));
-
                             daoAccesorios.actualizar(this.session, acce);
 
                             this.precioAccesorios = bisagrasFlash + escuadras + Cerradura + tornilloEnsa + tronilloInst;
-
                             break;
-
                         case 2:
-
                             nombrePuerta = "XI XD PANORAMICA";
-
                             opcionVentana = 38;
-
                             acce = daoAccesorios.getById(this.session, 14);//obtiene el accesorio de la bd
-
                             bisagrasFlash = acce.getPrecioCosto() * 3;
-
                             acce.setCantidad(acce.getCantidad() - (3 * this.cantidadProducto));//Descuenta la cantidad
-
                             daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
-
                             acce = daoAccesorios.getById(this.session, 54);//obtiene el accesorio de la bd
-
                             escuadras = acce.getPrecioCosto() * 2;
-
                             acce.setCantidad(acce.getCantidad() - (2 * this.cantidadProducto));//Descuenta la cantidad
-
                             daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
-
                             acce = daoAccesorios.getById(this.session, 29);//obtiene el accesorio de la bd
-
                             Cerradura = acce.getPrecioCosto() * 1;
-
                             acce.setCantidad(acce.getCantidad() - (1 * this.cantidadProducto));//Descuenta la cantidad
-
                             daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
-
                             acce = daoAccesorios.getById(this.session, 104);//Se realiza el mismo procedimiento para todos los accesorios
-
                             tornilloEnsa = acce.getPrecioCosto() * 10;
-
                             acce.setCantidad(acce.getCantidad() - (10 * this.cantidadProducto));
-
                             daoAccesorios.actualizar(this.session, acce);
-
                             acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
-
                             tronilloInst = acce.getPrecioCosto() * 9;
-
                             acce.setCantidad(acce.getCantidad() - (9 * this.cantidadProducto));
-
                             daoAccesorios.actualizar(this.session, acce);
 
                             this.precioAccesorios = bisagrasFlash + escuadras + Cerradura + tornilloEnsa + tronilloInst;
-
                             break;
 
                         case 3:
-
                             nombrePuerta = "XX Panoramica";
-
                             opcionVentana = 39;
 
                             acce = daoAccesorios.getById(this.session, 14);//obtiene el accesorio de la bd
-
                             bisagrasFlash = acce.getPrecioCosto() * 6;
-
                             acce.setCantidad(acce.getCantidad() - (6 * this.cantidadProducto));//Descuenta la cantidad
-
                             daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
-
                             acce = daoAccesorios.getById(this.session, 54);//obtiene el accesorio de la bd
-
                             escuadras = acce.getPrecioCosto() * 2;
-
                             acce.setCantidad(acce.getCantidad() - (2 * this.cantidadProducto));//Descuenta la cantidad
-
                             daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
-
                             acce = daoAccesorios.getById(this.session, 29);//obtiene el accesorio de la bd
-
                             Cerradura = acce.getPrecioCosto() * 1;
-
                             acce.setCantidad(acce.getCantidad() - (1 * this.cantidadProducto));//Descuenta la cantidad
-
                             daoAccesorios.actualizar(this.session, acce);//Actualiza la cantidad
-
                             acce = daoAccesorios.getById(this.session, 104);//Se realiza el mismo procedimiento para todos los accesorios
-
                             tornilloEnsa = acce.getPrecioCosto() * 20;
-
                             acce.setCantidad(acce.getCantidad() - (20 * this.cantidadProducto));
-
                             daoAccesorios.actualizar(this.session, acce);
-
                             acce = daoAccesorios.getById(this.session, 105);//Se realiza el mismo procedimiento para todos los accesorios
-
                             tronilloInst = acce.getPrecioCosto() * 18;
-
                             acce.setCantidad(acce.getCantidad() - (18 * this.cantidadProducto));
-
                             daoAccesorios.actualizar(this.session, acce);
 
                             this.precioAccesorios = bisagrasFlash + escuadras + Cerradura + tornilloEnsa + tronilloInst;
-
                             break;
-
                     }
-
                     break;
 
                 case 3://POKET
-
                     switch (tipoPuerta) {
-
                         case 1://
-
                             break;
-
                         case 2:
-
                             break;
-
                         case 3:
-
                             break;
-
                     }
-
                     break;
-
             }
 
             switch (tipoModeloPuerta) {
-
                 case 1:
-
                     modeloPuerta = "CORREDIZA";
-
                     break;
-
                 case 2:
-
                     modeloPuerta = "ABATIBLE";
-
                     break;
-
                 case 3:
-
                     modeloPuerta = "POKET";
-
                     break;
-
             }
 
             if (this.idVidrio != 0) {
-
                 DaoVidrio daoVidrio = new DaoVidrio();
-
                 this.precioVidrio = daoVidrio.getById(this.session, this.idVidrio).getPreciocost();
-
                 this.precioVidrio = this.precioVidrio * (Integer.valueOf(alto) * Integer.valueOf(ancho));
-
                 int espacios = String.valueOf(this.precioVidrio).length();
-
                 this.precioVidrio = Integer.valueOf(String.valueOf(this.precioVidrio).substring(0, espacios - 4));
-
             }
 
             if (this.idVidrio == 0) {
-
                 this.precioVidrio = 0;
-
             }
 
             PuertaCorrediza corrediza = new PuertaCorrediza();
-
             DaoManoObra daoObra = new DaoManoObra();
-
             int precioInstala = 0;
-
             switch (tipoModeloPuerta) {
-
                 case 1: //Opcion 1 es para puertas corredizas
-
                     switch (tipoAlumPuertaCor) {
-
                         case 1: // para puertas corredizas
-
                             switch (tipoColor) {
-
                                 case 1:// para ventanas corredizas
-
                                     corrediza = new PuertaCorrediza();
-
                                     corrediza.setAlto(alto);
-
                                     corrediza.setAncho(ancho);
-
                                     corrediza.setPrecioTrabajo(this.manObra);
-
                                     corrediza.setPrecioDescuento(this.ganancia);
-
                                     corrediza.setTipoProducto(tipoPuerta);
-
                                     corrediza.setPrecioPerimetral(this.lista.get(131).getPreciocost());
-
                                     corrediza.setPrecioVerticalVisagra(this.lista.get(137).getPreciocost());
-
                                     corrediza.setPrecioSuperiorNave(this.lista.get(132).getPreciocost());
-
                                     corrediza.setPrecioInferiorNave(this.lista.get(133).getPreciocost());
-
                                     corrediza.setPrecioPirlan(this.lista.get(354).getPreciocost());
-
                                     corrediza.setPrecioAdaptador(this.lista.get(354).getPreciocost());
-
                                     corrediza.setPrecioEmpaqueEmv(this.lista.get(354).getPreciocost());
-
                                     corrediza.setPrecioEmpaqueEcv(this.lista.get(354).getPreciocost());
-
                                     corrediza.setPrecioFelpa(this.lista.get(354).getPreciocost());
-
                                     corrediza.calcularPuertaCorrediza(this.lista.get(diseno).getPreciocost());
-
                                     break;
 
                                 case 2:// para ventanas corredizatante  de aluminio 3831 Anolo linea ECOMICA ALE
-
                                     corrediza = new PuertaCorrediza();
-
                                     corrediza.setAlto(alto);
-
                                     corrediza.setAncho(ancho);
-
                                     corrediza.setPrecioTrabajo(this.manObra);
-
                                     corrediza.setPrecioDescuento(this.ganancia);
-
                                     corrediza.setTipoProducto(tipoPuerta);
-
                                     corrediza.setPrecioPerimetral(this.lista.get(131).getPrecioAnonizado());
-
                                     corrediza.setPrecioVerticalVisagra(this.lista.get(137).getPrecioAnonizado());
-
                                     corrediza.setPrecioSuperiorNave(this.lista.get(132).getPrecioAnonizado());
-
                                     corrediza.setPrecioInferiorNave(this.lista.get(133).getPrecioAnonizado());
-
                                     corrediza.setPrecioPirlan(this.lista.get(354).getPrecioAnonizado());
-
                                     corrediza.setPrecioAdaptador(this.lista.get(354).getPrecioAnonizado());
-
                                     corrediza.setPrecioEmpaqueEmv(this.lista.get(354).getPrecioAnonizado());
-
                                     corrediza.setPrecioEmpaqueEcv(this.lista.get(354).getPrecioAnonizado());
-
                                     corrediza.setPrecioFelpa(this.lista.get(354).getPrecioAnonizado());
-
                                     corrediza.calcularPuertaCorrediza(this.lista.get(diseno).getPrecioAnonizado());
-
                                     break;
 
                                 case 3:// para ventanas corredizatante  de aluminio 3831 Pintura linea ECOMICA ALE
-
                                     corrediza = new PuertaCorrediza();
-
                                     corrediza.setAlto(alto);
-
                                     corrediza.setAncho(ancho);
-
                                     corrediza.setPrecioTrabajo(this.manObra);
-
                                     corrediza.setPrecioDescuento(this.ganancia);
-
                                     corrediza.setTipoProducto(tipoPuerta);
-
                                     corrediza.setPrecioPerimetral(this.lista.get(131).getPrecioPintura());
-
                                     corrediza.setPrecioVerticalVisagra(this.lista.get(137).getPrecioPintura());
-
                                     corrediza.setPrecioSuperiorNave(this.lista.get(132).getPrecioPintura());
-
                                     corrediza.setPrecioInferiorNave(this.lista.get(133).getPrecioPintura());
-
                                     corrediza.setPrecioPirlan(this.lista.get(354).getPrecioPintura());
-
                                     corrediza.setPrecioAdaptador(this.lista.get(354).getPrecioPintura());
-
                                     corrediza.setPrecioEmpaqueEmv(this.lista.get(354).getPrecioPintura());
-
                                     corrediza.setPrecioEmpaqueEcv(this.lista.get(354).getPrecioPintura());
-
                                     corrediza.setPrecioFelpa(this.lista.get(354).getPrecioPintura());
-
                                     corrediza.calcularPuertaCorrediza(this.lista.get(diseno).getPrecioPintura());
-
                                     break;
-
                             }
-
                             break;
-
                     }
 
                     precioInstala = this.precioInstalacion;
-
                     precioInstala = (precioInstala * (corrediza.getAlto() * corrediza.getAncho())) / 10000;
-
                     System.out.println("precio instalacion :  ..." + precioInstala);
-
                     Long precioExtra = this.precioVidrio + this.precioAccesorios + corrediza.getSumaTotal();
-
                     precioExtra = (precioExtra * corrediza.getPrecioDescuento() / 100) + precioExtra;
-
                     System.out.println("precio extra :  ..." + precioExtra);
-
 //                    Long precioIva = precioExtra + precioInstala*16/100;
 //                    precioIva+=precioExtra + precioInstala;
                     this.listaVentana.add(new Ventanadetalle(null, daoProductos.getById(this.session, idPuerta),
                             modeloPuerta + " " + nombrePuerta + " " + nombreAluminio + " " + this.alto + "*" + this.ancho,
                             this.cantidadProducto, precioExtra + precioInstala, this.cantidadProducto * (precioExtra + precioInstala),
                             this.manObra, this.ganancia, this.alto, this.ancho, ""));
-
                     break;
 
                 case 2: //////Caso 2 puertas
-
                     PuertaBatiente batiente = new PuertaBatiente();
-
                     switch (tipoAlumPuertaBat) {
-
                         case 1:
-
                             switch (tipoColor) {
-
                                 case 1:
-
                                     batiente = new PuertaBatiente();
-
                                     batiente.setAlto(alto);
-
                                     batiente.setAncho(ancho);
-
                                     batiente.setPrecioTrabajo(this.manObra);
-
                                     batiente.setPrecioDescuento(this.ganancia);
-
                                     batiente.setTipoProducto(tipoPuerta);
-
                                     batiente.setPrecioPerimetral(this.lista.get(297).getPreciocost());
-
                                     batiente.setPrecioVerticalVisagra(this.lista.get(298).getPreciocost());
-
                                     batiente.setPrecioSuperiorNave(this.lista.get(299).getPreciocost());
-
                                     batiente.setPrecioInferiorNave(this.lista.get(300).getPreciocost());
-
                                     batiente.setPrecioPirlan(this.lista.get(303).getPreciocost());
-
                                     batiente.setPrecioAdaptador(this.lista.get(305).getPreciocost());
-
                                     batiente.setPrecioEmpaqueEmv(this.lista.get(359).getPreciocost());
-
                                     batiente.setPrecioEmpaqueEcv(this.lista.get(358).getPreciocost());
-
                                     batiente.setPrecioFelpa(this.lista.get(304).getPreciocost());
-
                                     batiente.calcularPuertaBatiente(this.lista.get(367).getPreciocost());
-
                                     break;
 
                                 case 2:
-
                                     // este es para una puerta con aluminio  Anolo
                                     batiente = new PuertaBatiente();
-
                                     batiente.setAlto(alto);
-
                                     batiente.setAncho(ancho);
-
                                     batiente.setPrecioTrabajo(this.manObra);
-
                                     batiente.setPrecioDescuento(this.ganancia);
-
                                     batiente.setTipoProducto(tipoPuerta);
-
                                     batiente.setPrecioPerimetral(this.lista.get(297).getPrecioAnonizado());
-
                                     batiente.setPrecioVerticalVisagra(this.lista.get(298).getPrecioAnonizado());
-
                                     batiente.setPrecioSuperiorNave(this.lista.get(299).getPrecioAnonizado());
-
                                     batiente.setPrecioInferiorNave(this.lista.get(300).getPrecioAnonizado());
-
                                     batiente.setPrecioPirlan(this.lista.get(303).getPrecioAnonizado());
-
                                     batiente.setPrecioAdaptador(this.lista.get(305).getPrecioAnonizado());
-
                                     batiente.setPrecioEmpaqueEmv(this.lista.get(359).getPrecioAnonizado());
-
                                     batiente.setPrecioEmpaqueEcv(this.lista.get(358).getPrecioAnonizado());
-
                                     batiente.setPrecioFelpa(this.lista.get(304).getPrecioAnonizado());
-
                                     batiente.calcularPuertaBatiente(this.lista.get(367).getPrecioAnonizado());
-
                                     break;
 
                                 case 3:
-
                                     // este es para una ventana con aluminio AS 1700 Pintura
                                     batiente = new PuertaBatiente();
-
                                     batiente.setAlto(alto);
-
                                     batiente.setAncho(ancho);
-
                                     batiente.setPrecioTrabajo(this.manObra);
-
                                     batiente.setPrecioDescuento(this.ganancia);
-
                                     batiente.setTipoProducto(tipoPuerta);
-
                                     batiente.setPrecioPerimetral(this.lista.get(297).getPrecioPintura());
-
                                     batiente.setPrecioVerticalVisagra(this.lista.get(298).getPrecioPintura());
-
                                     batiente.setPrecioSuperiorNave(this.lista.get(299).getPrecioPintura());
-
                                     batiente.setPrecioInferiorNave(this.lista.get(300).getPrecioPintura());
-
                                     batiente.setPrecioPirlan(this.lista.get(303).getPrecioPintura());
-
                                     batiente.setPrecioAdaptador(this.lista.get(305).getPrecioPintura());
-
                                     batiente.setPrecioEmpaqueEmv(this.lista.get(359).getPrecioPintura());
-
                                     batiente.setPrecioEmpaqueEcv(this.lista.get(358).getPrecioPintura());
-
                                     batiente.setPrecioFelpa(this.lista.get(304).getPrecioPintura());
-
                                     batiente.calcularPuertaBatiente(this.lista.get(367).getPrecioPintura());
-
                                     break;
-
                             }
-
                             break;
-
                     }
 
                     precioInstala = this.precioInstalacion;
-
                     System.out.println("alto:::" + batiente.getAlto());
-
                     System.out.println("ancho:::" + batiente.getAncho());
-
                     precioInstala = (precioInstala * (batiente.getAlto() * batiente.getAncho())) / 10000;
-
                     System.out.println("precio instalacion :  ..." + precioInstala);
-
                     Long precioBati = this.precioVidrio + this.precioAccesorios + batiente.getSumaTotal();
-
                     precioBati = (precioBati * batiente.getPrecioDescuento() / 100) + precioBati;
-
                     System.out.println("precio bati :  ..." + precioBati);
-
 //                    Long precioIva = precioExtra + precioInstala*16/100;
 //                    precioIva+=precioExtra + precioInstala;
                     this.listaVentana.add(new Ventanadetalle(null, daoProductos.getById(this.session, idPuerta),
                             modeloPuerta + " " + nombrePuerta + " " + nombreAluminio + " " + this.alto + "*" + this.ancho,
                             this.cantidadProducto, precioBati + precioInstala, this.cantidadProducto * (precioBati + precioInstala),
                             this.manObra, this.ganancia, this.alto, this.ancho, ""));
-
                     break;
 
                 case 3:    // este es para una ventana con aluminio AS 1800 Natural
-
                     PuertaPoket poket = new PuertaPoket();
-
                     switch (this.tipoAlumPuertaPok) {
-
                         case 1: // este constructoer es para ventanas Correderas de aluminio  y con sus distintos colores
-
                             switch (tipoColor) {
-
                                 case 1:// este es para una ventana con aluminio AS 1700 natutal
-
                                     poket = new PuertaPoket();
-
                                     poket.setAlto(alto);
-
                                     poket.setAncho(ancho);
-
                                     poket.setPrecioTrabajo(this.manObra);
-
                                     poket.setPrecioDescuento(this.ganancia);
-
                                     poket.setTipoProducto(opcionVentana);
-
                                     poket.setPrecioPerimetral(this.lista.get(131).getPreciocost());
-
                                     poket.setPrecioVerticalVisagra(this.lista.get(137).getPreciocost());
-
                                     poket.setPrecioSuperiorNave(this.lista.get(132).getPreciocost());
-
                                     poket.setPrecioInferiorNave(this.lista.get(133).getPreciocost());
-
                                     poket.setPrecioPirlan(this.lista.get(354).getPreciocost());
-
                                     poket.setPrecioAdaptador(this.lista.get(354).getPreciocost());
-
                                     poket.setPrecioEmpaqueEmv(this.lista.get(354).getPreciocost());
-
                                     poket.setPrecioEmpaqueEcv(this.lista.get(354).getPreciocost());
-
                                     poket.setPrecioFelpa(this.lista.get(354).getPreciocost());
-
                                     poket.calcularPuertaPoket(this.lista.get(diseno).getPreciocost());
-
                                     break;
 
                                 case 2:
-
                                     // este es para una ventana con aluminio AS 1800 Anolo
                                     poket = new PuertaPoket();
-
                                     poket.setAlto(alto);
-
                                     poket.setAncho(ancho);
-
                                     poket.setPrecioTrabajo(this.manObra);
-
                                     poket.setPrecioDescuento(this.ganancia);
-
                                     poket.setTipoProducto(opcionVentana);
-
                                     poket.setPrecioPerimetral(this.lista.get(131).getPrecioAnonizado());
-
                                     poket.setPrecioVerticalVisagra(this.lista.get(137).getPrecioAnonizado());
-
                                     poket.setPrecioSuperiorNave(this.lista.get(132).getPrecioAnonizado());
-
                                     poket.setPrecioInferiorNave(this.lista.get(133).getPrecioAnonizado());
-
                                     poket.setPrecioPirlan(this.lista.get(354).getPrecioAnonizado());
-
                                     poket.setPrecioAdaptador(this.lista.get(354).getPrecioAnonizado());
-
                                     poket.setPrecioEmpaqueEmv(this.lista.get(354).getPrecioAnonizado());
-
                                     poket.setPrecioEmpaqueEcv(this.lista.get(354).getPrecioAnonizado());
-
                                     poket.setPrecioFelpa(this.lista.get(354).getPrecioAnonizado());
-
                                     poket.calcularPuertaPoket(this.lista.get(diseno).getPrecioAnonizado());
-
                                     break;
-
                                 case 3:
 
                                     // este es para una ventana con aluminio AS 1800 pintura
                                     poket = new PuertaPoket();
-
                                     poket.setAlto(alto);
-
                                     poket.setAncho(ancho);
-
                                     poket.setPrecioTrabajo(this.manObra);
-
                                     poket.setPrecioDescuento(this.ganancia);
-
                                     poket.setTipoProducto(opcionVentana);
-
                                     poket.setPrecioPerimetral(this.lista.get(131).getPrecioPintura());
-
                                     poket.setPrecioVerticalVisagra(this.lista.get(137).getPrecioPintura());
-
                                     poket.setPrecioSuperiorNave(this.lista.get(132).getPrecioPintura());
-
                                     poket.setPrecioInferiorNave(this.lista.get(133).getPrecioPintura());
-
                                     poket.setPrecioPirlan(this.lista.get(354).getPrecioPintura());
-
                                     poket.setPrecioAdaptador(this.lista.get(354).getPrecioPintura());
-
                                     poket.setPrecioEmpaqueEmv(this.lista.get(354).getPrecioPintura());
-
                                     poket.setPrecioEmpaqueEcv(this.lista.get(354).getPrecioPintura());
-
                                     poket.setPrecioFelpa(this.lista.get(354).getPrecioPintura());
-
                                     poket.calcularPuertaPoket(this.lista.get(diseno).getPrecioPintura());
-
                                     break;
-
                             }
-
                             break;
-
                     }
 
                     precioInstala = this.precioInstalacion;
-
                     precioInstala = (precioInstala * (poket.getAlto() * poket.getAncho())) / 10000;
-
                     System.out.println("precio instalacion :  ..." + precioInstala);
-
                     Long precioExtrac = this.precioVidrio + this.precioAccesorios + poket.getSumaTotal();
-
                     precioExtrac = (precioExtrac * poket.getPrecioDescuento() / 100) + precioExtrac;
-
                     System.out.println("precio extra :  ..." + precioExtrac);
 
                     this.listaVentana.add(new Ventanadetalle(null, daoProductos.getById(this.session, idPuerta),
                             modeloPuerta + " " + nombrePuerta + " " + nombreAluminio + " " + this.alto + "*" + this.ancho,
                             this.cantidadProducto, precioExtrac + precioInstala, this.cantidadProducto * (precioExtrac + precioInstala),
                             this.manObra, this.ganancia, this.alto, this.ancho, ""));
-
                     break;
-
             }
 
             if (this.idVidrio == 0) {
-
                 this.precioVidrio = 0;
-
             }
 
             this.transaction.commit();
-
             this.idVidrio = 0;
-
             this.ganancia = 0;
-
             this.alto = "";
-
             this.ancho = "";
-
             this.manObra = 0;
-
             this.tipoVentana = 0;
-
             this.tipoVidrio = 0;
-
             this.productoTipo = 0;
-
             this.cantidadProducto = 0;
-
             this.precioInstalacion = 0;
-
             this.tipoAluminioBati = 0;
-
             this.tipoAluminioCorred = 0;
-
             this.tipoAluminioProy = 0;
-
             this.tipoModeloVentana = 0;
-
         } catch (Exception e) {
-
         }
-
     }
 
     public void calcularVentana() {
-
         this.session = null;
 
         this.transaction = null;
@@ -2304,7 +1887,7 @@ public class Factura {
                                     daoAccesorios.actualizar(this.session, acce);
 
                                     this.precioAccesorios = BrazosBasculantes + manijas + tronillos;
-                                        System.out.println("precio accesorios 2 cuerpos X/X/O/O ALFALJIA:::" + this.precioAccesorios);
+                                    System.out.println("precio accesorios 2 cuerpos X/X/O/O ALFALJIA:::" + this.precioAccesorios);
 
                                     break;
 
@@ -2341,7 +1924,7 @@ public class Factura {
                                     daoAccesorios.actualizar(this.session, acce);
 
                                     this.precioAccesorios = BrazosBasculantes + manijas + tronillos;
-                                        System.out.println("precio accesorios 4 cuerpos ALFALJIA :::" + this.precioAccesorios);
+                                    System.out.println("precio accesorios 4 cuerpos ALFALJIA :::" + this.precioAccesorios);
 
                                     break;
 
@@ -2403,7 +1986,7 @@ public class Factura {
                                         this.precioAccesorios = rodachina + cierre + tronillos;
 
                                         System.out.println("precio accesorios totla:::" + this.precioAccesorios);
-                                            System.out.println("precio accesorios 2 cuerpos XO :::" + this.precioAccesorios);
+                                        System.out.println("precio accesorios 2 cuerpos XO :::" + this.precioAccesorios);
 
                                         break;
 
@@ -2440,7 +2023,7 @@ public class Factura {
                                         daoAccesorios.actualizar(this.session, acce);
 
                                         this.precioAccesorios = rodachina + cierre + tronillos;
-                                            System.out.println("precio accesorios 2 cuerpos XX :::" + this.precioAccesorios);
+                                        System.out.println("precio accesorios 2 cuerpos XX :::" + this.precioAccesorios);
 
                                         break;
 
@@ -2485,7 +2068,7 @@ public class Factura {
                                         daoAccesorios.actualizar(this.session, acce);
 
                                         this.precioAccesorios = rodachina + cierre + tronillos;
-                                            System.out.println("precio accesorios 3 cuerpos X0X :::" + this.precioAccesorios);
+                                        System.out.println("precio accesorios 3 cuerpos X0X :::" + this.precioAccesorios);
 
                                         break;
 
@@ -2522,7 +2105,7 @@ public class Factura {
                                         daoAccesorios.actualizar(this.session, acce);
 
                                         this.precioAccesorios = rodachina + cierre + tronillos;
-                                            System.out.println("precio accesorios 3 cuerpos OXO :::" + this.precioAccesorios);
+                                        System.out.println("precio accesorios 3 cuerpos OXO :::" + this.precioAccesorios);
 
                                         break;
 
@@ -2559,7 +2142,7 @@ public class Factura {
                                         daoAccesorios.actualizar(this.session, acce);
 
                                         this.precioAccesorios = rodachina + cierre + tronillos;
-                                            System.out.println("precio accesorios 3 cuerpos OXX :::" + this.precioAccesorios);
+                                        System.out.println("precio accesorios 3 cuerpos OXX :::" + this.precioAccesorios);
 
                                         break;
 
@@ -2596,7 +2179,7 @@ public class Factura {
                                         daoAccesorios.actualizar(this.session, acce);
 
                                         this.precioAccesorios = rodachina + cierre + tronillos;
-                                            System.out.println("precio accesorios 3 cuerpos XO/O :::" + this.precioAccesorios);
+                                        System.out.println("precio accesorios 3 cuerpos XO/O :::" + this.precioAccesorios);
 
                                         break;
 
@@ -2641,7 +2224,7 @@ public class Factura {
                                         daoAccesorios.actualizar(this.session, acce);
 
                                         this.precioAccesorios = rodachina + cierre + tronillos;
-                                            System.out.println("precio accesorios 2 cuerpos OXXO :::" + this.precioAccesorios);
+                                        System.out.println("precio accesorios 2 cuerpos OXXO :::" + this.precioAccesorios);
 
                                         break;
 
@@ -2678,7 +2261,7 @@ public class Factura {
                                         daoAccesorios.actualizar(this.session, acce);
 
                                         this.precioAccesorios = rodachina + cierre + tronillos;
-                                            System.out.println("precio accesorios 4 cuerpos XO/OO :::" + this.precioAccesorios);
+                                        System.out.println("precio accesorios 4 cuerpos XO/OO :::" + this.precioAccesorios);
 
                                         break;
 
@@ -2721,7 +2304,7 @@ public class Factura {
                                         daoAccesorios.actualizar(this.session, acce);
 
                                         this.precioAccesorios = rodachina + cierre + tronillos;
-                                            System.out.println("precio accesorios 6 cuerpos OXX XXO :::" + this.precioAccesorios);
+                                        System.out.println("precio accesorios 6 cuerpos OXX XXO :::" + this.precioAccesorios);
 
                                         break;
 
@@ -2758,7 +2341,7 @@ public class Factura {
                                         daoAccesorios.actualizar(this.session, acce);
 
                                         this.precioAccesorios = rodachina + cierre + tronillos;
-                                            System.out.println("precio accesorios 6 cuerpos OXO/O00 :::" + this.precioAccesorios);
+                                        System.out.println("precio accesorios 6 cuerpos OXO/O00 :::" + this.precioAccesorios);
 
                                         break;
 
@@ -2801,7 +2384,7 @@ public class Factura {
                                         daoAccesorios.actualizar(this.session, acce);
 
                                         this.precioAccesorios = rodachina + cierre + tronillos;
-                                            System.out.println("precio accesorios 2 cuerpos OXX0/OOOO :::" + this.precioAccesorios);
+                                        System.out.println("precio accesorios 2 cuerpos OXX0/OOOO :::" + this.precioAccesorios);
 
                                         break;
 
@@ -2906,7 +2489,7 @@ public class Factura {
 
                                         this.precioAccesorios = rodachina + cierre + tronillos + tronillos1;
                                         System.out.println("precio accesorios CORRDIZA 3825 2 CUERPO  XX ALF BASICA :::" + this.precioAccesorios);
-                                          System.out.println("OPCIONVENTANA CORRDIZA 3825 2 CUERPO  XX ALF BASICA :::" + opcionVentana);
+                                        System.out.println("OPCIONVENTANA CORRDIZA 3825 2 CUERPO  XX ALF BASICA :::" + opcionVentana);
 
                                         break;
 
@@ -2952,7 +2535,7 @@ public class Factura {
                                         daoAccesorios.actualizar(this.session, acce);
 
                                         this.precioAccesorios = rodachina + cierre + tronillos + tronillos1;
-                                               System.out.println("precio accesorios CORRDIZA 3825 2 CUERPO  XO PLUS REFORZADA :::" + this.precioAccesorios);
+                                        System.out.println("precio accesorios CORRDIZA 3825 2 CUERPO  XO PLUS REFORZADA :::" + this.precioAccesorios);
 
                                         break;
 
@@ -5228,6 +4811,14 @@ public class Factura {
 
         this.anchoFijo = anchoFijo;
 
+    }
+
+    public int getTipoPersiana() {
+        return tipoPersiana;
+    }
+
+    public void setTipoPersiana(int tipoPersiana) {
+        this.tipoPersiana = tipoPersiana;
     }
 
 }

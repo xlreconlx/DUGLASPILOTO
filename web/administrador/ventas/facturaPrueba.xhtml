@@ -174,7 +174,7 @@
                                 <f:ajax event="change" render="@form"></f:ajax>
                                 <f:selectItem itemValue="0" itemLabel="Seleccione un Sistema"/>
                                 <f:selectItem itemValue="1" itemLabel="Aluminio 3831 ALE"/>
-                  
+
                             </h:selectOneMenu>
 
 
@@ -249,7 +249,7 @@
                                 <f:selectItem itemValue="3" itemLabel="4 cuerpos"/>
                                 <f:selectItem itemValue="4" itemLabel="6 cuerpos"/>
                             </h:selectOneMenu>
-                            
+
                             <h:selectOneMenu  value="#{factura.tipoVentana}" styleClass="form-control"
                                               rendered="#{factura.tipoModeloVentana==2 and factura.tipoAluminioCorred==2}">
                                 <f:ajax event="change" render="@form"></f:ajax>
@@ -265,7 +265,7 @@
                                 <f:selectItem itemValue="2" itemLabel="XX BASICA"/>
                             </h:selectOneMenu>
 
-                     
+
                             <h:selectOneMenu  value="#{factura.diseno}" styleClass="form-control"
                                               rendered="#{factura.tipoAluminioCorred==1 and factura.tipoVentana==2}">
                                 <f:ajax event="change" render="@form"></f:ajax>
@@ -296,7 +296,7 @@
                                 <f:selectItem itemValue="0" itemLabel="Diseño"/>
                                 <f:selectItem itemValue="1" itemLabel="OXXO /OOO0 BASICA"/>
                             </h:selectOneMenu>
-                                   <h:selectOneMenu value="#{factura.diseno}" styleClass="form-control"
+                            <h:selectOneMenu value="#{factura.diseno}" styleClass="form-control"
                                              rendered="#{factura.tipoAluminioCorred==2 and factura.tipoVentana==1 }">
                                 <f:selectItem itemValue="0" itemLabel="Diseño"/>
                                 <f:selectItem itemValue="1" itemLabel="X0 plusbasica alfa"/>
@@ -309,8 +309,8 @@
                                 <f:selectItem itemValue="1" itemLabel="OXXO 1672 DOBLE"/>
 
                             </h:selectOneMenu>
-                    
-                           <h:selectOneMenu  rendered="#{factura.productoTipo==2}" value="#{factura.tipoModeloPuerta}" styleClass="form-control">
+
+                            <h:selectOneMenu  rendered="#{factura.productoTipo==2}" value="#{factura.tipoModeloPuerta}" styleClass="form-control">
                                 <f:ajax event="change" render="@form"></f:ajax>
                                 <f:selectItem itemValue="0" itemLabel="Seleccione Tipo Puerta"/>
                                 <f:selectItem itemValue="1" itemLabel="Corrediza"/>
@@ -354,26 +354,22 @@
                                 <f:selectItem itemValue="0" itemLabel="Seleccione un tipo de vidrio"/>
                                 <f:selectItems value="#{mbVidrios.all}" var="vidrio" itemLabel="#{vidrio.calibre}" itemValue="#{vidrio.idvidrios}"/>
                             </h:selectOneMenu>
-                            <h:selectOneMenu rendered="#{factura.productoTipo==3}" value="#{factura.tipoVitrina}" styleClass="form-control" style="margin-top: 5px;">
-                                <f:selectItem itemValue="0" itemLabel="Seleccione un tipo de Vitrina"/>
-                                <f:selectItem itemValue="1" itemLabel="Vitrina CuartoCirculo 1 1/2"/>
-                                <f:selectItem itemValue="2" itemLabel="Vitrina Perfil Esquinero 1"/>
-                                <f:selectItem itemValue="3" itemLabel="Vitrina Pefil Esquinero 1 Larga"/>
-                            </h:selectOneMenu> 
 
-                            <h:selectOneMenu  rendered="#{factura.productoTipo==3}" value="#{factura.tipoColorVitrina}" styleClass="form-control">
+                            <h:selectOneMenu  rendered="#{factura.productoTipo==3}" value="#{factura.tipoVitrina}" styleClass="form-control">
                                 <f:selectItem itemValue="0" itemLabel="Seleccione un color de Aluminio"/>
-                                <f:selectItem itemValue="1" itemLabel=" 1 Aluminio  natural"/>
-                                <f:selectItem itemValue="2" itemLabel=" 2 Aluminio  Anolo"/>     
-                                <f:selectItem itemValue="3" itemLabel=" 3 Aluminio  Colores"/>
+                                <f:selectItem itemValue="1" itemLabel=" VITRINA BISELADA O STAMDART"/>
+                                <f:selectItem itemValue="2" itemLabel=" VITRINA BISELADA O DE ACOPLE"/>     
+                                <f:selectItem itemValue="3" itemLabel=" VITRINA BISELADA O-10MM STAMDART"/>
+                                <f:selectItem itemValue="4" itemLabel=" VITRINA BISELADA O-M-500-3 STAMDART"/>     
+                                <f:selectItem itemValue="5" itemLabel=" VITRINA BISELADA O-M-3876 -ALE STAMDART"/>
+                            </h:selectOneMenu>
+                            <h:selectOneMenu  rendered="#{factura.productoTipo==5}" value="#{factura.tipoPersiana}" styleClass="form-control">
+                                <f:selectItem itemValue="0" itemLabel="Seleccione un color de Aluminio"/>
+                                <f:selectItem itemValue="1" itemLabel="DISEÑO 316  O"/>
+                                <f:selectItem itemValue="2" itemLabel=" PERSINA 3189   O"/>     
+                                <f:selectItem itemValue="3" itemLabel=" PERSINA 362 O"/>
                             </h:selectOneMenu>
 
-
-                            <h:selectOneMenu rendered="#{factura.productoTipo==3}" value="#{factura.tipoEntrepanos}" styleClass="form-control" style="margin-top: 5px;">
-                                <f:selectItem itemValue="0" itemLabel="Seleccione Cantidad Entrepaños"/>
-                                <f:selectItem itemValue="1" itemLabel="3 entrepaños"/>
-                                <f:selectItem itemValue="2" itemLabel="4 entrepaños"/>
-                            </h:selectOneMenu>
 
                             <h:inputText id="ancho" disabled="#{factura.productoTipo==0}"  pa:placeholder="Digite el ancho cm." value="#{factura.ancho}" styleClass="form-control" style="margin-top: 5px;"></h:inputText>
                             <h:inputText id="alto"  disabled="#{factura.productoTipo==0}" pa:placeholder="Digite el alto cm." value="#{factura.alto}" styleClass="form-control" style="margin-top: 5px;"></h:inputText>
@@ -389,9 +385,6 @@
 
                             <h:inputText id="anchofijo"  rendered="#{factura.tipoModeloVentana==1 and factura.tipoVentana==2 and factura.diseno==5
                                                                      || factura.tipoModeloVentana==1 and factura.tipoVentana==3 and factura.diseno==3}" pa:placeholder="Digite ancho fijo cm." value="#{factura.anchoFijo}" styleClass="form-control" style="margin-top: 5px;"></h:inputText>
-
-                            <h:inputText id="fondo" rendered="#{factura.productoTipo==3}" 
-                                         pa:placeholder="Digite el fondo cm." value="#{factura.fondo}" styleClass="form-control" style="margin-top: 5px;"></h:inputText>
 
                             <h:inputText id="ganancia" disabled="#{factura.productoTipo==0}"  pa:placeholder="Digite ganancia %." value="#{factura.ganancia}" styleClass="form-control" style="margin-top: 5px;"></h:inputText>
 
