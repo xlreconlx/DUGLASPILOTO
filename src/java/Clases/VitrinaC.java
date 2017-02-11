@@ -149,14 +149,13 @@ public class VitrinaC {
                 this.precioEmpaque = this.empaque * preEmpaque;
                 this.precioTornillo = this.tornilloInst * precioTornillo;
 
-                this.sumaTotal = this.precioCanal37 + this.precioAdaptador
+               this.sumaTotal = this.precioCanal37 + this.precioAdaptador
                         + this.precioPisavidrio + this.precioTornillo + this.precioEmpaque;
                 
                 this.subTotal = this.sumaTotal;
                 preTrabajo = (preTrabajo * 100);
                 this.sumaTotal = this.sumaTotal + preTrabajo;
                 this.sumaTotal = recortar(String.valueOf(sumaTotal));
-
                 break;
             case 2: // VITRINA BISELADA O DE ACOPLE
                 this.tapaDucto = this.alto;

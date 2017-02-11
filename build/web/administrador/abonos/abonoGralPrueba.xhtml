@@ -160,7 +160,7 @@
                 <p:dialog id="dlgProductos" widgetVar="dilogoProductos"   modal="true" showEffect="explode" resizable="false" hideEffect="explode">
                     <h:form id="frmMenu"  style="color: #000000">
                         <p:growl id="growl" showDetail="true" sticky="true" />  
-                       <p:panelGrid columns="2">
+                        <p:panelGrid columns="2">
                             <h:selectOneMenu  value="#{mbAbonos.tipoProductos}" styleClass="form-control">
                                 <f:selectItem itemValue="0" itemLabel="Seleccione un Producto"/>
                                 <f:ajax event="change" render="@form"/>
@@ -182,7 +182,7 @@
                                 <f:ajax event="change" render="@form"></f:ajax>
                                 <f:selectItem itemValue="0" itemLabel="Seleccione un Sistema"/>
                                 <f:selectItem itemValue="1" itemLabel="Aluminio 3831 ALE"/>
-                          
+
                             </h:selectOneMenu>
 
 
@@ -272,7 +272,7 @@
                                 <f:selectItem itemValue="2" itemLabel="XX BASICA"/>
                             </h:selectOneMenu>
 
-                        
+
                             <h:selectOneMenu  value="#{mbAbonos.diseno}" styleClass="form-control"
                                               rendered="#{mbAbonos.tipoAluminioCorred==1 and mbAbonos.tipoVentana==2}">
                                 <f:ajax event="change" render="@form"></f:ajax>
@@ -303,7 +303,7 @@
                                 <f:selectItem itemValue="0" itemLabel="Diseño"/>
                                 <f:selectItem itemValue="1" itemLabel="OXXO /OOO0 BASICA"/>
                             </h:selectOneMenu>
-                               <h:selectOneMenu value="#{mbAbonos.diseno}" styleClass="form-control"
+                            <h:selectOneMenu value="#{mbAbonos.diseno}" styleClass="form-control"
                                              rendered="#{mbAbonos.tipoAluminioCorred==2 and mbAbonos.tipoVentana==1 }">
                                 <f:selectItem itemValue="0" itemLabel="Diseño"/>
                                 <f:selectItem itemValue="1" itemLabel="X0 plusbasica alfa"/>
@@ -316,7 +316,7 @@
                                 <f:selectItem itemValue="1" itemLabel="OXXO 1672 DOBLE"/>
 
                             </h:selectOneMenu>
-                       
+
                             <h:selectOneMenu  rendered="#{mbAbonos.tipoProductos==2}" value="#{mbAbonos.tipoModeloPuerta}" styleClass="form-control">
                                 <f:ajax event="change" render="@form"></f:ajax>
                                 <f:selectItem itemValue="0" itemLabel="Seleccione Tipo Puerta"/>
@@ -361,25 +361,13 @@
                                 <f:selectItem itemValue="0" itemLabel="Seleccione un tipo de vidrio"/>
                                 <f:selectItems value="#{mbVidrios.all}" var="vidrio" itemLabel="#{vidrio.calibre}" itemValue="#{vidrio.idvidrios}"/>
                             </h:selectOneMenu>
-                            <h:selectOneMenu rendered="#{mbAbonos.tipoProductos==3}" value="#{mbAbonos.tipoVitrina}" styleClass="form-control" style="margin-top: 5px;">
-                                <f:selectItem itemValue="0" itemLabel="Seleccione un tipo de Vitrina"/>
-                                <f:selectItem itemValue="1" itemLabel="Vitrina CuartoCirculo 1 1/2"/>
-                                <f:selectItem itemValue="2" itemLabel="Vitrina Perfil Esquinero 1"/>
-                                <f:selectItem itemValue="3" itemLabel="Vitrina Pefil Esquinero 1 Larga"/>
-                            </h:selectOneMenu> 
-
-                            <h:selectOneMenu  rendered="#{mbAbonos.tipoProductos==3}" value="#{mbAbonos.tipoColorVitrina}" styleClass="form-control">
-                                <f:selectItem itemValue="0" itemLabel="Seleccione un color de Aluminio"/>
-                                <f:selectItem itemValue="1" itemLabel=" 1 Aluminio  natural"/>
-                                <f:selectItem itemValue="2" itemLabel=" 2 Aluminio  Anolo"/>     
-                                <f:selectItem itemValue="3" itemLabel=" 3 Aluminio  Colores"/>
-                            </h:selectOneMenu>
-
-
-                            <h:selectOneMenu rendered="#{mbAbonos.tipoProductos==3}" value="#{mbAbonos.tipoEntrepanos}" styleClass="form-control" style="margin-top: 5px;">
-                                <f:selectItem itemValue="0" itemLabel="Seleccione Cantidad Entrepaños"/>
-                                <f:selectItem itemValue="1" itemLabel="3 entrepaños"/>
-                                <f:selectItem itemValue="2" itemLabel="4 entrepaños"/>
+                            <h:selectOneMenu  rendered="#{mbAbonos.tipoProductos==3}" value="#{mbAbonos.tipoVitrina}" styleClass="form-control">
+                                <f:selectItem itemValue="0" itemLabel="Seleccione Tipo de Vitrina"/>
+                                <f:selectItem itemValue="1" itemLabel=" VITRINA BISELADA O STAMDART"/>
+                                <f:selectItem itemValue="2" itemLabel=" VITRINA BISELADA O DE ACOPLE"/>     
+                                <f:selectItem itemValue="3" itemLabel=" VITRINA BISELADA O-10MM STAMDART"/>
+                                <f:selectItem itemValue="4" itemLabel=" VITRINA BISELADA O-M-500-3 STAMDART"/>     
+                                <f:selectItem itemValue="5" itemLabel=" VITRINA BISELADA O-M-3876 -ALE STAMDART"/>
                             </h:selectOneMenu>
 
                             <h:inputText id="ancho" disabled="#{mbAbonos.tipoProductos==0}"  pa:placeholder="Digite el ancho cm." value="#{mbAbonos.ancho}" styleClass="form-control" style="margin-top: 5px;"></h:inputText>
@@ -396,9 +384,6 @@
 
                             <h:inputText id="anchofijo"  rendered="#{mbAbonos.tipoModeloVentana==1 and mbAbonos.tipoVentana==2 and mbAbonos.diseno==5
                                                                      || mbAbonos.tipoModeloVentana==1 and mbAbonos.tipoVentana==3 and mbAbonos.diseno==3}" pa:placeholder="Digite ancho fijo cm." value="#{mbAbonos.anchoFijo}" styleClass="form-control" style="margin-top: 5px;"></h:inputText>
-
-                           <h:inputText id="fondo" rendered="#{mbAbonos.tipoProductos==3}" 
-                                         pa:placeholder="Digite el fondo cm." value="#{mbAbonos.fondo}" styleClass="form-control" style="margin-top: 5px;"></h:inputText>
 
                             <h:inputText id="ganancia" disabled="#{mbAbonos.tipoProductos==0}"  pa:placeholder="Digite ganancia %." value="#{mbAbonos.ganancia}" styleClass="form-control" style="margin-top: 5px;"></h:inputText>
 

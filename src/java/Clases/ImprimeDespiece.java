@@ -673,11 +673,11 @@ public class ImprimeDespiece implements Serializable {
                     html += "<p>Aluminio :" + item.getMensajeChapa() + "</p>";
                     html += "<p>Aluminio :" + item.getMensajeTornilloEnsam() + "</p>";
                     html += "<p>Aluminio :" + item.getMensajeTornilloInst() + "</p>";
-                    html += "<p>Aluminio :" + item.getMensajeVidrio()+ "</p>";
+                    html += "<p>Aluminio :" + item.getMensajeVidrio() + "</p>";
                     html += "______________________________________________________";
                     break;
                 case 38:
-                     html += "<p>Tipo Producto Puerta</p><br></br>";
+                    html += "<p>Tipo Producto Puerta</p><br></br>";
                     html += "<p>Nombre: " + item.getNombreProducto() + "</p>";
                     html += "<p>Aluminio :" + item.getMensajeMarcoAncho() + "</p>";
                     html += "<p>Aluminio :" + item.getMensajeMarcoAlto() + "</p>";
@@ -699,7 +699,7 @@ public class ImprimeDespiece implements Serializable {
                     html += "______________________________________________________";
                     break;
                 case 39:
-                       html += "<p>Tipo Producto Puerta</p><br></br>";
+                    html += "<p>Tipo Producto Puerta</p><br></br>";
                     html += "<p>Nombre: " + item.getNombreProducto() + "</p>";
                     html += "<p>Aluminio :" + item.getMensajeMarcoAncho() + "</p>";
                     html += "<p>Aluminio :" + item.getMensajeMarcoAlto() + "</p>";
@@ -720,60 +720,25 @@ public class ImprimeDespiece implements Serializable {
                     html += "<p>Aluminio :" + item.getMensajeVidrio() + "</p>";
                     html += "______________________________________________________";
                     break;
-          
-              
-                // hasta aqui llegan las puertas..................................................................
 
+                // hasta aqui llegan las puertas..................................................................
                 //comienzan las vitrinas--------------------------------------------------------------------------
                 case 40:
                     html += "<p>Tipo Producto Vitrina</p><br></br>";
                     html += "<p>Nombre: " + item.getNombreProducto() + "</p>";
-                    html += "<p>Aluminio :" + item.getMensajeCuartoCirculoAlto() + "</p>";
-                    html += "<p>Aluminio :" + item.getMensajeCuartoCirculoAncho() + "</p>";
-                    html += "<p>Aluminio :" + item.getMensajeCuartoCirculoFondo() + "</p>";
-                    html += "<p>Aluminio :" + item.getMensajeAnguloMediaAlto() + "</p>";
-                    html += "<p>Aluminio :" + item.getMensajeAnguloMediaAncho() + "</p>";
-                    html += "<p>Aluminio :" + item.getMensajeAnguloMediaFondo() + "</p>";
-                    html += "<p>Aluminio :" + item.getMensajeNaveDivisionAncho() + "</p>";
-                    html += "<p>Aluminio :" + item.getMensajeVidrioAltoAncho() + "</p>";
-                    html += "<p>Vidrio:" + item.getMensajeVidrioAltoFondo() + "</p>";
-                    html += "<p>Vidrio :" + item.getMensajeVidrioAnchoFondo() + "</p>";
+
                     html += "______________________________________________________";
                     break;
                 case 41:
                     html += "<p>Tipo Producto Vitrina</p><br></br>";
                     html += "<p>Nombre: " + item.getNombreProducto() + "</p>";
-                    html += "<p>Aluminio :" + item.getMensajePerfilEsquineroUna() + "</p>";
-                    html += "<p>Aluminio :" + item.getMensajePerfilEsquineroUnaFondo() + "</p>";
-                    html += "<p>Aluminio :" + item.getMensajeAnguloMediaAlto() + "</p>";
-                    html += "<p>Aluminio :" + item.getMensajeAnguloMediaAncho() + "</p>";
-                    html += "<p>Aluminio :" + item.getMensajeAnguloMediaFondo() + "</p>";
-                    html += "<p>Aluminio :" + item.getMensajePisavidrioAlto() + "</p>";
-                    html += "<p>Aluminio :" + item.getMensajePisavidrioAncho() + "</p>";
-                    html += "<p>Aluminio :" + item.getMensajePisavidrioFondo() + "</p>";
-                    html += "<p>Aluminio:" + item.getMensajeNaveAncho() + "</p>";
-                    html += "<p>Vidrio :" + item.getMensajeVidrioAltoAncho() + "</p>";
-                    html += "<p>Vidrio :" + item.getMensajeVidrioAltoFondo() + "</p>";
-                    html += "<p>Vidrio :" + item.getMensajeVidrioAnchoFondo() + "</p>";
-                    html += "<p>Vidrio :" + item.getMensajeVidrioAnchoFondo() + "</p>";
+
                     html += "______________________________________________________";
                     break;
                 case 42:
                     html += "<p>Tipo Producto Vitrina</p><br></br>";
                     html += "<p>Nombre: " + item.getNombreProducto() + "</p>";
-                    html += "<p>Aluminio :" + item.getMensajePerfilEsquineroUna() + "</p>";
-                    html += "<p>Aluminio :" + item.getMensajePerfilEsquineroUnaFondo() + "</p>";
-                    html += "<p>Aluminio :" + item.getMensajeAnguloMediaAlto() + "</p>";
-                    html += "<p>Aluminio :" + item.getMensajeAnguloMediaAncho() + "</p>";
-                    html += "<p>Aluminio :" + item.getMensajeAnguloMediaFondo() + "</p>";
-                    html += "<p>Aluminio :" + item.getMensajePisavidrioAlto() + "</p>";
-                    html += "<p>Aluminio :" + item.getMensajePisavidrioAncho() + "</p>";
-                    html += "<p>Aluminio :" + item.getMensajePisavidrioFondo() + "</p>";
-                    html += "<p>Aluminio:" + item.getMensajeNaveAncho() + "</p>";
-                    html += "<p>Vidrio :" + item.getMensajeVidrioAltoAncho() + "</p>";
-                    html += "<p>Vidrio :" + item.getMensajeVidrioAltoFondo() + "</p>";
-                    html += "<p>Vidrio :" + item.getMensajeVidrioAnchoFondo() + "</p>";
-                    html += "<p>Vidrio :" + item.getMensajeVidrioAnchoFondo() + "</p>";
+
                     html += "______________________________________________________";
                     break;
 

@@ -193,6 +193,7 @@ public class Factura {
         this.session = null;
         this.transaction = null;
         VitrinaC vitrina = new VitrinaC();
+        this.precioAccesorios = 0;
         try {
             if (this.alto.equals("")) {
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Error:", "Por favor digite el alto."));
@@ -232,17 +233,28 @@ public class Factura {
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Error:", "Seleccione un tipo de aluminio"));
                 return;
             }
+            
+            if(this.tipoVitrina==0){
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Error:", "Seleccione un tipo de vitrina"));
+                return;
+            }
 
             int idProdVitrina = 0;
             switch (tipoVitrina) {
                 case 1:
-                    idProdVitrina = 1;
+                    idProdVitrina = 13;
                     break;
                 case 2:
-                    idProdVitrina = 2;
+                    idProdVitrina = 14;
                     break;
                 case 3:
-                    idProdVitrina = 3;
+                    idProdVitrina = 15;
+                    break;
+                case 4:
+                    idProdVitrina = 16;
+                    break;
+                case 5:
+                    idProdVitrina = 17;
                     break;
 
             }
@@ -260,20 +272,19 @@ public class Factura {
                     break;
             }
             int precioInstala = 0;
-            if (this.tipoColor == 1) {
-                vitrina = new VitrinaC(this.ancho, this.alto, this.manObra, this.ganancia,
-                        this.lista.get(5).getPreciocost(), this.lista.get(100).getPreciocost(),
-                        this.lista.get(87).getPreciocost(), this.lista.get(133).getPreciocost(),
-                        this.lista.get(134).getPreciocost(), this.lista.get(22).getPreciocost(),
-                        this.lista.get(59).getPreciocost(), this.lista.get(88).getPreciocost(),
-                        this.lista.get(61).getPreciocost(), this.lista.get(63).getPreciocost(),
-                        this.lista.get(85).getPreciocost(), this.lista.get(84).getPreciocost(),
-                        this.lista.get(74).getPreciocost(), this.lista.get(359).getPreciocost(),
-                        this.lista.get(358).getPreciocost(), this.tipoVitrina);
-                // 
-            } else {
-
-                if (this.tipoColor == 2) {
+            switch (this.tipoVitrina) {
+                case 1:
+                    vitrina = new VitrinaC(this.ancho, this.alto, this.manObra, this.ganancia,
+                            this.lista.get(5).getPreciocost(), this.lista.get(100).getPreciocost(),
+                            this.lista.get(87).getPreciocost(), this.lista.get(133).getPreciocost(),
+                            this.lista.get(134).getPreciocost(), this.lista.get(22).getPreciocost(),
+                            this.lista.get(59).getPreciocost(), this.lista.get(88).getPreciocost(),
+                            this.lista.get(61).getPreciocost(), this.lista.get(63).getPreciocost(),
+                            this.lista.get(85).getPreciocost(), this.lista.get(84).getPreciocost(),
+                            this.lista.get(74).getPreciocost(), this.lista.get(359).getPreciocost(),
+                            this.lista.get(358).getPreciocost(), this.tipoVitrina);
+                    break;
+                case 2:
                     vitrina = new VitrinaC(this.ancho, this.alto, this.manObra, this.ganancia,
                             this.lista.get(5).getPrecioAnonizado(), this.lista.get(100).getPrecioAnonizado(),
                             this.lista.get(87).getPrecioAnonizado(), this.lista.get(133).getPrecioAnonizado(),
@@ -283,20 +294,18 @@ public class Factura {
                             this.lista.get(85).getPrecioAnonizado(), this.lista.get(84).getPrecioAnonizado(),
                             this.lista.get(74).getPrecioAnonizado(), this.lista.get(359).getPrecioAnonizado(),
                             this.lista.get(358).getPrecioAnonizado(), this.tipoVitrina);
-                } else {
-
-                    if (this.tipoColor == 3) {
-                        vitrina = new VitrinaC(this.ancho, this.alto, this.manObra, this.ganancia,
-                                this.lista.get(5).getPrecioPintura(), this.lista.get(100).getPrecioPintura(),
-                                this.lista.get(87).getPrecioPintura(), this.lista.get(133).getPrecioPintura(),
-                                this.lista.get(134).getPrecioPintura(), this.lista.get(22).getPrecioPintura(),
-                                this.lista.get(59).getPrecioPintura(), this.lista.get(88).getPrecioPintura(),
-                                this.lista.get(61).getPrecioPintura(), this.lista.get(63).getPrecioPintura(),
-                                this.lista.get(85).getPrecioPintura(), this.lista.get(84).getPrecioPintura(),
-                                this.lista.get(74).getPrecioPintura(), this.lista.get(359).getPrecioPintura(),
-                                this.lista.get(358).getPrecioPintura(), this.tipoVitrina);
-                    }
-                }
+                    break;
+                case 3:
+                    vitrina = new VitrinaC(this.ancho, this.alto, this.manObra, this.ganancia,
+                            this.lista.get(5).getPrecioPintura(), this.lista.get(100).getPrecioPintura(),
+                            this.lista.get(87).getPrecioPintura(), this.lista.get(133).getPrecioPintura(),
+                            this.lista.get(134).getPrecioPintura(), this.lista.get(22).getPrecioPintura(),
+                            this.lista.get(59).getPrecioPintura(), this.lista.get(88).getPrecioPintura(),
+                            this.lista.get(61).getPrecioPintura(), this.lista.get(63).getPrecioPintura(),
+                            this.lista.get(85).getPrecioPintura(), this.lista.get(84).getPrecioPintura(),
+                            this.lista.get(74).getPrecioPintura(), this.lista.get(359).getPrecioPintura(),
+                            this.lista.get(358).getPrecioPintura(), this.tipoVitrina);
+                    break;
             }
 
             if (this.idVidrio != 0) {
@@ -305,7 +314,6 @@ public class Factura {
                 this.precioVidrio = this.precioVidrio * (Integer.valueOf(alto) * Integer.valueOf(ancho));
                 int espacios = String.valueOf(this.precioVidrio).length();
                 this.precioVidrio = Integer.valueOf(String.valueOf(this.precioVidrio).substring(0, espacios - 4));
-                System.out.println("precio del vidrio de las vitrinas......" + this.precioVidrio);
             }
 
             if (this.idVidrio == 0) {
@@ -322,15 +330,16 @@ public class Factura {
             if (this.tipoVitrina < 6 && this.tipoVitrina > 0) {
                 precioInstala = this.precioInstalacion;
                 precioInstala = (precioInstala * (vitrina.getAlto() * vitrina.getAncho())) / 10000;
-                System.out.println("precio instalacion :  ..." + precioInstala);
-                Long precioExtra = this.precioAccesorios + vitrina.getSumaTotal();
-                precioExtra = (precioExtra * vitrina.getPrecioDescuento() / 100) + precioExtra;
-                System.out.println("precio extra :  ..." + precioExtra);
-
+                
+                Long precioExtra = this.precioAccesorios + vitrina.getSumaTotal() + precioVidrio;
+                Long aux = precioExtra;
+                precioExtra = precioExtra * ganancia / 100;
+                precioExtra+=aux+precioInstala;
+                
+                
                 this.listaVentana.add(new Ventanadetalle(null, daoProductos.getById(this.session, idProdVitrina),
-                        daoProductos.getById(this.session, idProdVitrina).getNombre() + " " + nombreAluminio + "  " + this.alto + "*" + this.ancho + " fondo: " + this.fondo,
-                        1, vitrina.getSumaTotal() + this.precioVidrio + this.precioAccesorios, 1 * vitrina.getSumaTotal()
-                        + this.precioVidrio + this.precioAccesorios, this.manObra, this.ganancia, this.alto, this.ancho, this.fondo));
+                        daoProductos.getById(this.session, idProdVitrina).getNombre() + " " + nombreAluminio + "  " + this.alto + "*" + this.ancho,
+                        cantidadProducto, precioExtra , cantidadProducto * precioExtra, this.manObra, this.ganancia, this.alto, this.ancho, this.fondo));
             }
 
             this.transaction.commit();
