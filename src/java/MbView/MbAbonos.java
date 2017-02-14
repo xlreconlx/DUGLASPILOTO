@@ -163,6 +163,8 @@ public class MbAbonos {
         this.tipoEntrepanos = 0;
         this.tipoAluminioPuerta = 0;
         this.precioInstalacion = 0;
+        this.tipoAluminioProy=0;
+        
     }
 
     public void agregarProducto() {
@@ -2730,6 +2732,17 @@ public class MbAbonos {
             this.tipoVentana = 0;
             this.tipoVidrio = 0;
             this.productoTipo = 0;
+            this.tipoAluminioBati=0;
+            this.tipoAluminioCorred=0;
+            this.tipoAluminioProy=0;
+            this.tipoColor=0;
+            this.tipoModeloVentana=0;
+            this.cantidadProducto=0;
+            this.tipoProductos=0;
+            this.precioAccesorios=0;
+            this.precioVidrio=0;
+            this.precioInstalacion=0;
+     
 
         } catch (Exception ex) {
 
